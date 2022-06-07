@@ -17,17 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:background="#1A9A9B"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:src="@drawable/white_menu_icon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/white_menu_icon"
                 android:layout_gravity="center">
             </ImageView>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -36,6 +37,19 @@
                 android:textColor="@color/white"
                 android:textSize="40sp">
             </TextView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/account_circle"
+                android:layout_gravity="center">
+            </ImageView>
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:background="@drawable/settings"
+                android:layout_gravity="center">
+            </ImageView>
 
         </LinearLayout>
     </LinearLayout>
