@@ -10,18 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="325dp">
+        tools:layout_editor_absoluteY="325dp"
+        android:background="#F5F5F5"
+        android:orientation="vertical">
 
+        <!--Top App Bar-->
         <RelativeLayout
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:background="#1A9A9B"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@drawable/white_menu_icon"
                 android:layout_alignParentStart="true">
             </ImageView>
@@ -34,20 +37,21 @@
                 android:text="PET Sensor Bottle"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="30sp">
+                android:textSize="20sp">
+
             </TextView>
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:background="@drawable/account_circle"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="75dp">
+                android:layout_marginEnd="55dp">
             </ImageView>
             <ImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:background="@drawable/settings"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -55,5 +59,137 @@
             </ImageView>
 
         </RelativeLayout>
+
+        <!--Body-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Force Measurement"
+                    android:textColor="#263288"
+                    android:textSize="28sp"
+                    android:textStyle="bold">
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="true"
+                    android:layout_alignParentBottom="true"
+                    android:weightSum="3">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1.5"
+                        android:text="Start new test run"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#1A9A9B"
+                        app:cornerRadius="10dp">
+
+                    </com.google.android.material.button.MaterialButton>
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"
+                        app:backgroundTint="#DEDEDE"
+                        android:text="Stop"
+                        android:textColor="#FFFFFF"
+                        app:cornerRadius="10dp"
+                        android:layout_weight="0.75">
+                    </com.google.android.material.button.MaterialButton>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Export"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#6E7D7D"
+                        app:cornerRadius="10dp"
+                        android:layout_weight="0.75">
+
+                    </com.google.android.material.button.MaterialButton>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="30dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    app:cardCornerRadius="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF">
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="15dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    app:cardCornerRadius="20dp">
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="30dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    app:cardCornerRadius="20dp">
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
