@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "184320908226",
+    "firebase_url": "https://innolab-66e3b-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "innolab-66e3b",
+    "storage_bucket": "innolab-66e3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184320908226:android:aa8b1caa93b8949809145b",
+        "android_client_info": {
+          "package_name": "com.example.firebaseesp32test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184320908226-3rs0t51pak7g9jmc1phbhuo35s722dlr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCMbNF2x1IXD9SpDR6D4Edvc27m2QPI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184320908226-3rs0t51pak7g9jmc1phbhuo35s722dlr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "184320908226-m6avmcpjoep4mhcceclqesc9abhgi112.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.krones.innolab"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184320908226:android:0e3b118055fd00ea09145b",
+        "android_client_info": {
+          "package_name": "com.example.innobottle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184320908226-3rs0t51pak7g9jmc1phbhuo35s722dlr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATCMbNF2x1IXD9SpDR6D4Edvc27m2QPI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184320908226-3rs0t51pak7g9jmc1phbhuo35s722dlr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "184320908226-m6avmcpjoep4mhcceclqesc9abhgi112.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.krones.innolab"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
