@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        !--Top App Bar-->
+        <!--Top App Bar-->
 
         <RelativeLayout
             android:id="@+id/topAppBar"
@@ -26,7 +26,9 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
-                android:background="@drawable/white_menu_icon"></ImageView>
+                android:background="@drawable/white_menu_icon">
+
+            </ImageView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,20 +41,51 @@
                 android:textSize="20sp">
 
             </TextView>
-
             <ImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="65dp"
+                android:layout_marginEnd="145dp"
+                android:background="@drawable/bottle_green"
+                android:visibility="visible">
+
+            </ImageView>
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="145dp"
+                android:background="@drawable/bottle_red"
+                android:visibility="invisible">
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="50%"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="110dp">
+
+            </TextView>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="60dp"
                 android:background="@drawable/battery_level">
 
             </ImageView>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
@@ -61,6 +94,8 @@
             </ImageView>
 
         </RelativeLayout>
+
+        <!--Line Information Container-->
 
         <RelativeLayout
             android:layout_width="600dp"
@@ -148,6 +183,7 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!--Buttons-->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_startSeries"
                         android:layout_width="350dp"
@@ -166,7 +202,7 @@
                         android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:text="Continue with previous measurementseries"
+                        android:text="Continue with previous measurement series"
                         android:textColor="#1A9A9B"
                         android:textSize="11sp"
                         app:backgroundTint="#FFFFFF"
