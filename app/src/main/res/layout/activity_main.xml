@@ -47,18 +47,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="145dp"
-                android:background="@drawable/bottle_green"
-                android:visibility="visible">
-
-            </ImageView>
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="145dp"
                 android:background="@drawable/bottle_red"
-                android:visibility="invisible">
+                android:visibility="gone">
 
             </ImageView>
             <TextView
@@ -74,18 +64,18 @@
 
             </TextView>
             <ImageView
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="65dp"
+                android:layout_marginEnd="55dp"
                 android:background="@drawable/battery_level">
 
             </ImageView>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="35dp"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
@@ -131,8 +121,8 @@
                         android:layout_height="25dp"
                         android:background="@drawable/circle"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp">
-                        <!--android:visibility="invisible"-->
+                        android:layout_marginTop="5dp"
+                        android:visibility="visible">
 
                     </ImageView>
                 </LinearLayout>
@@ -194,19 +184,20 @@
                 android:layout_marginEnd="30dp">
 
                 <com.google.android.material.card.MaterialCardView
-                    app:cardCornerRadius="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF">
+                    android:background="#FFFFFF"
+                    app:cardCornerRadius="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentTop="true"
                         android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
                         android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/tv_customer_line_information"
                             android:layout_width="wrap_content"
@@ -216,15 +207,36 @@
                             android:textStyle="bold">
 
                         </TextView>
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/blue_line"
-                            android:layout_marginTop="7dp">
+                            android:layout_marginTop="7dp"
+                            android:background="@drawable/blue_line">
 
                         </ImageView>
 
                     </LinearLayout>
+
+                    <!--shadow-->
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_gravity="end|bottom"
+                        android:background="@drawable/background_with_shadow">
+                    </View>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="left"
+                        android:background="@drawable/background_with_shadow_90dg">
+                    </View>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:background="@drawable/background_with_shadow_90dg">
+                    </View>
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
         </LinearLayout>
@@ -247,6 +259,26 @@
                     android:background="#FFFFFF"
                     app:cardCornerRadius="20dp">
 
+                    <!--shadow-->
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_gravity="end|bottom"
+                        android:background="@drawable/background_with_shadow">
+                    </View>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="left"
+                        android:background="@drawable/background_with_shadow_90dg">
+                    </View>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:background="@drawable/background_with_shadow_90dg">
+                    </View>
+
                 </com.google.android.material.card.MaterialCardView>
 
             </RelativeLayout>
@@ -264,6 +296,26 @@
                     android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     app:cardCornerRadius="20dp">
+
+                    <!--shadow-->
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_gravity="end|bottom"
+                        android:background="@drawable/background_with_shadow">
+                    </View>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="left"
+                        android:background="@drawable/background_with_shadow_90dg">
+                    </View>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="right"
+                        android:background="@drawable/background_with_shadow_90dg">
+                    </View>
 
                 </com.google.android.material.card.MaterialCardView>
 
