@@ -1,14 +1,16 @@
-package com.example.innobottle;
+package com.example.innobottle.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.innobottle.R;
+
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     *
-     *sdsdsdsdsdsdsdsd
+
+    /*
+    This Activity holds the major screen of the application and is used during a sensor run
      */
 
     @Override
