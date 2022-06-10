@@ -47,7 +47,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="65dp"
-                android:background="@drawable/battery_level"></ImageView>
+                android:background="@drawable/battery_level">
+
+            </ImageView>
 
             <ImageView
                 android:layout_width="30dp"
