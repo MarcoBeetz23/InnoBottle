@@ -42,20 +42,21 @@
             </TextView>
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@drawable/account_circle"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="55dp">
-            </ImageView>
+                android:layout_marginEnd="65dp"
+                android:background="@drawable/battery_level"></ImageView>
+
             <ImageView
-                android:layout_width="35dp"
+                android:layout_width="30dp"
                 android:layout_height="35dp"
-                android:background="@drawable/settings"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/logout">
+
             </ImageView>
 
         </RelativeLayout>

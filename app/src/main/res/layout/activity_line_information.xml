@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,9 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F5F5F5"
-        android:orientation="vertical">
-        
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-130dp"
+        tools:layout_editor_absoluteY="170dp">
+
         !--Top App Bar-->
+
         <RelativeLayout
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
@@ -20,9 +24,8 @@
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:background="@drawable/white_menu_icon"
-                android:layout_alignParentStart="true">
-            </ImageView>
+                android:layout_alignParentStart="true"
+                android:background="@drawable/white_menu_icon"></ImageView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -37,21 +40,20 @@
             </TextView>
 
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@drawable/battery_level"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="55dp">
-            </ImageView>
+                android:layout_marginEnd="75dp"
+                android:background="@drawable/battery_level"></ImageView>
+
             <ImageView
                 android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:background="@drawable/logout"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp">
-            </ImageView>
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/logout"></ImageView>
 
         </RelativeLayout>
     </LinearLayout>
