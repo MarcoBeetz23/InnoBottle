@@ -166,7 +166,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginBottom="10dp"
                         app:backgroundTint="#929C9C"
-                        android:text="Stop"
+                        android:text="Pause"
                         android:textColor="#FFFFFF"
                         app:cornerRadius="10dp"
                         android:layout_weight="0.75">
@@ -178,7 +178,7 @@
                         android:layout_height="60dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Export"
+                        android:text="Save"
                         android:textColor="#FFFFFF"
                         app:backgroundTint="#6E7D7D"
                         app:cornerRadius="10dp"
