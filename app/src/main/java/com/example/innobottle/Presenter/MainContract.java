@@ -12,12 +12,18 @@ public interface MainContract {
     }
 
     interface Presenter{
+        void connectToBottle();
+        void initNewSensorRun();
+        void stopCurrentSensorRun();
         void retrieveSensorSeries();
         void retrieveSensorData();
         void exportSensorData();
     }
 
     interface Model{
+        void connectBottleInFirebase();
+        void activateBottleInFirebase();
+        void stopBottleInFirebase();
         void findSensorSeriesInFirebase();
         void findSensorDataInFirebase();
     }

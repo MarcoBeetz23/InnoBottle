@@ -107,6 +107,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="20dp">
                     <TextView
+                        android:id="@+id/tvSensorRunName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -146,13 +147,14 @@
                         app:cornerRadius="10dp">
 
                     </com.google.android.material.button.MaterialButton>
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_stop"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginBottom="10dp"
-                        app:backgroundTint="#DEDEDE"
+                        app:backgroundTint="#636365"
                         android:text="Stop"
                         android:textColor="#FFFFFF"
                         app:cornerRadius="10dp"
@@ -429,20 +431,19 @@
                         android:layout_width="fill_parent"
                         android:layout_height="2dp"
                         android:layout_gravity="end|bottom"
-                        android:background="@drawable/background_with_shadow">
-                    </View>
+                        android:background="@drawable/background_with_shadow"></View>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
                         android:layout_gravity="left"
-                        android:background="@drawable/background_with_shadow_90dg">
-                    </View>
+                        android:background="@drawable/background_with_shadow_90dg"></View>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
                         android:layout_gravity="right"
-                        android:background="@drawable/background_with_shadow_90dg">
-                    </View>
+                        android:background="@drawable/background_with_shadow_90dg"></View>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -469,20 +470,19 @@
                         android:layout_width="fill_parent"
                         android:layout_height="2dp"
                         android:layout_gravity="end|bottom"
-                        android:background="@drawable/background_with_shadow">
-                    </View>
+                        android:background="@drawable/background_with_shadow"></View>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
                         android:layout_gravity="left"
-                        android:background="@drawable/background_with_shadow_90dg">
-                    </View>
+                        android:background="@drawable/background_with_shadow_90dg"></View>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
                         android:layout_gravity="right"
-                        android:background="@drawable/background_with_shadow_90dg">
-                    </View>
+                        android:background="@drawable/background_with_shadow_90dg"></View>
 
                 </com.google.android.material.card.MaterialCardView>
 
