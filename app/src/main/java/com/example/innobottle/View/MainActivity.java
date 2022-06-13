@@ -2,6 +2,8 @@ package com.example.innobottle.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
      */
 
     // Android components
-    TextView tvcustomerLineInformation;
+    TextView tvSensorRunName;
     Button btnStartRun, btnStop, btnExport;
 
     // Util constants
@@ -35,18 +37,20 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setupUIComponents();
         mainPresenter = new MainPresenter(this);
+        mainPresenter.connectToBottle();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         handleStartClick();
+        handleStopClick();
     }
 
     // init UI elements
     private void setupUIComponents(){
         setContentView(R.layout.activity_main);
-        tvcustomerLineInformation = findViewById(R.id.tv_customer_line_information);
+        tvSensorRunName = findViewById(R.id.tvSensorRunName);
         btnStartRun = findViewById(R.id.btn_start);
         btnStop = findViewById(R.id.btn_stop);
         btnExport = findViewById(R.id.btn_export);
@@ -57,8 +61,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
-
+                    mainPresenter.initNewSensorRun();
                 }
+            }
+        });
+    }
+
+    private void handleStopClick(){
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainPresenter.stopCurrentSensorRun();
             }
         });
     }
@@ -67,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     // if the default string is presented, the sensor series is not yet ready
     // nothing will happen until user configures a sensor series properly
     private boolean sensorRunIsReady(){
-        String currentLineInformation = tvcustomerLineInformation.getText().toString();
+        String currentLineInformation = tvSensorRunName.getText().toString();
         if(currentLineInformation != DEFAULT_LINE_INFORMATION){
             return true;
         } else {

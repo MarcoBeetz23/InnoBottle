@@ -20,6 +20,21 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     }
 
 
+    @Override
+    public void connectToBottle() {
+        mainModel.connectBottleInFirebase();
+    }
+
+    @Override
+    public void initNewSensorRun() {
+        mainModel.activateBottleInFirebase();
+    }
+
+    @Override
+    public void stopCurrentSensorRun() {
+        mainModel.stopBottleInFirebase();
+    }
+
     // todo
     @Override
     public void retrieveSensorSeries() {
