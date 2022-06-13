@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 public class SensorSeries {
 
+    /**
+     * This class represents an entire sensor series, more precisely - multiple sensor runs combined
+     * If you measure something 20 times, then 20 sensor runs will be initialized
+     * Thus, the length of the ArrayList would be 20
+     */
+
     String name;
     short id;
     ArrayList<SensorRun> SensorRuns;

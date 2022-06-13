@@ -16,9 +16,9 @@ import com.example.innobottle.R;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
-
     /*
-    This Activity holds the major screen of the application and is used during a sensor run
+    This activity holds the major screen of the application
+    The load cell values are presented, the business logic is manipulated by the UI on this screen
      */
 
     // Android components
@@ -37,12 +37,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setupUIComponents();
         mainPresenter = new MainPresenter(this);
-        mainPresenter.connectToBottle();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
+        // When the activity is shown on screen, the bottle state is set to *idle* by default.
+        mainPresenter.connectToBottle();
         handleStartClick();
         handleStopClick();
     }
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-    // if no sensor series is not yet initialized, the text view holds the default string
+    // if no sensor series is initialized yet, the text view holds the default string
     // if the default string is presented, the sensor series is not yet ready
     // nothing will happen until user configures a sensor series properly
     private boolean sensorRunIsReady(){

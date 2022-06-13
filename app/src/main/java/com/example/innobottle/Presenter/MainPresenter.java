@@ -19,17 +19,19 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
         mainModel = new MainModel(this, this);
     }
 
-
+    // results in *idle* state
     @Override
     public void connectToBottle() {
         mainModel.connectBottleInFirebase();
     }
 
+    // results in *activate* state
     @Override
     public void initNewSensorRun() {
         mainModel.activateBottleInFirebase();
     }
 
+    // results in *stop* state
     @Override
     public void stopCurrentSensorRun() {
         mainModel.stopBottleInFirebase();

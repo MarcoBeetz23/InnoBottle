@@ -40,6 +40,8 @@ public class MainModel implements MainContract.Model, MainContract.onSensorSerie
     }
 
 
+    // initializing the *idle* state
+    // Starting from *idle*, a new sensor run will be initialized when proceeding
     @Override
     public void connectBottleInFirebase() {
         refState = database.getReference(STATEPATH);
@@ -47,6 +49,9 @@ public class MainModel implements MainContract.Model, MainContract.onSensorSerie
 
     }
 
+
+    // setting the *activate* state
+    // If activated -> ESP32 will send measurement data to Firebase
     @Override
     public void activateBottleInFirebase() {
         refState.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -62,6 +67,8 @@ public class MainModel implements MainContract.Model, MainContract.onSensorSerie
         });
     }
 
+    // setting the *stop* state
+    // If stopped -> ESP32 will stop sending data to Firebase
     @Override
     public void stopBottleInFirebase() {
         refState.addListenerForSingleValueEvent(new ValueEventListener() {
