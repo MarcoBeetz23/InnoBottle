@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="500dp"
-    android:layout_height="200dp"
+    android:layout_height="230dp"
     android:layout_gravity="center">
 
     <com.google.android.material.card.MaterialCardView
@@ -13,16 +13,16 @@
         app:strokeColor="#1A9A9B"
         app:strokeWidth="3dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:gravity="center"
-                android:layout_alignParentTop="true"
-                android:text="Save your test run"
+                android:text="Save your sensor run"
                 android:textSize="17sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -30,7 +30,74 @@
 
             </TextView>
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Title of sensor run"
+                android:textSize="11sp"
+                android:layout_marginTop="15dp">
+
+            </TextView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="400dp"
+                android:layout_height="45dp"
+                android:hint="Ergo_v1_1000"
+                android:textColorHint="#A7AEAE"
+                app:boxBackgroundColor="#FFFFFF"
+
+                android:layout_gravity="center">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:textInputLayoutFocusedRectEnabled="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:weightSum="2"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+                <!--Buttons-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_deleteSensorRun"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:text="Delete"
+                    android:textColor="#1A9A9B"
+                    android:textSize="11sp"
+                    app:backgroundTint="#FFFFFF"
+                    app:strokeColor="#1A9A9B"
+                    android:textStyle="bold"
+                    app:strokeWidth="2dp"
+                    app:cornerRadius="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_weight="1">
+
+                </com.google.android.material.button.MaterialButton>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_exportSensorRun"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:text="Export"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#1A9A9B"
+                    app:cornerRadius="10dp"
+                    android:textSize="11sp"
+                    android:layout_weight="1">
+
+                </com.google.android.material.button.MaterialButton>
+
+            </LinearLayout>
+        </LinearLayout>
         <!--shadow-->
         <View
             android:layout_width="fill_parent"
