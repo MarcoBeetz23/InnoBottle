@@ -23,11 +23,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Android components
     TextView tvSensorRunName;
-    Button btnStartRun, btnStop, btnExport;
+    Button btnStartRun, btnPause, btnExport;
 
     // Util constants
     private static final String DEFAULT_LINE_INFORMATION = "Customer Line Information";
     private static final String TOAST_ERROR_TEXT = "No Sensor Series has yet been initialized!";
+    String currentLineInformation;
 
     // Architectural
     private MainPresenter mainPresenter;
@@ -42,10 +43,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onResume(){
         super.onResume();
-        // When the activity is shown on screen, the bottle state is set to *idle* by default.
+        // When the activity is shown on screen, the bottle state is set to *init* by default.
         mainPresenter.connectToBottle();
         handleStartClick();
-        handleStopClick();
+        handlePauseClick();
     }
 
     // init UI elements
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
         tvSensorRunName = findViewById(R.id.tvSensorRunName);
         btnStartRun = findViewById(R.id.btn_start);
-        btnStop = findViewById(R.id.btn_stop);
+        btnPause = findViewById(R.id.btn_pause);
         btnExport = findViewById(R.id.btn_export);
     }
 
@@ -62,17 +63,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
-                    mainPresenter.initNewSensorRun();
+                    mainPresenter.initNewSensorRun(currentLineInformation);
                 }
             }
         });
     }
 
-    private void handleStopClick(){
-        btnStop.setOnClickListener(new View.OnClickListener() {
+    private void handlePauseClick(){
+        btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainPresenter.stopCurrentSensorRun();
+                mainPresenter.pauseCurrentSensorRun();
             }
         });
     }
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     // if the default string is presented, the sensor series is not yet ready
     // nothing will happen until user configures a sensor series properly
     private boolean sensorRunIsReady(){
-        String currentLineInformation = tvSensorRunName.getText().toString();
+        currentLineInformation = tvSensorRunName.getText().toString();
         if(currentLineInformation != DEFAULT_LINE_INFORMATION){
             return true;
         } else {

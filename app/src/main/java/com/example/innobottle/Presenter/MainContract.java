@@ -2,6 +2,7 @@ package com.example.innobottle.Presenter;
 
 import com.example.innobottle.Entitites.SensorRun;
 import com.example.innobottle.Entitites.SensorSeries;
+import com.google.firebase.database.DataSnapshot;
 
 public interface MainContract {
 
@@ -13,8 +14,8 @@ public interface MainContract {
 
     interface Presenter{
         void connectToBottle();
-        void initNewSensorRun();
-        void stopCurrentSensorRun();
+        void initNewSensorRun(String currentLineInformation);
+        void pauseCurrentSensorRun();
         void retrieveSensorSeries();
         void retrieveSensorData();
         void exportSensorData();
@@ -23,9 +24,16 @@ public interface MainContract {
     interface Model{
         void connectBottleInFirebase();
         void activateBottleInFirebase();
-        void stopBottleInFirebase();
+        void initValuesInFirebase(String currentLineInformation, String currentDate);
+        void pauseBottleInFirebase();
         void findSensorSeriesInFirebase();
         void findSensorDataInFirebase();
+    }
+
+    // 1. Interface
+    // wait until sensordata is send to firebase then proceed with setting the mode
+    interface InitialDataInteractor {
+        void onDataSuccessfullyLoaded(String dataSnapshotValue);
     }
 
     interface onSensorSeriesListener{
