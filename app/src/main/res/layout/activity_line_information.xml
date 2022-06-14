@@ -214,6 +214,31 @@
                     </com.google.android.material.button.MaterialButton>
                 </LinearLayout>
 
+                <!--shadow-->
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_gravity="end|bottom"
+                    android:background="@drawable/background_with_shadow">
+
+                </View>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="left"
+                    android:background="@drawable/background_with_shadow_90dg">
+
+                </View>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="right"
+                    android:background="@drawable/background_with_shadow_90dg">
+
+                </View>
+
             </com.google.android.material.card.MaterialCardView>
 
         </RelativeLayout>
