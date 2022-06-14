@@ -19,7 +19,7 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="#1A9A9B"
+            android:background="@drawable/gradient_background"
             android:orientation="horizontal">
 
             <ImageView
@@ -132,7 +132,7 @@
                         android:hint="Title of measurement series"
                         android:textColorHint="#A7AEAE"
                         app:boxBackgroundColor="#FFFFFF"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="15dp">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -142,7 +142,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="400dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_gravity="center"
                         android:hint="Customer name"
                         android:textColorHint="#A7AEAE"
@@ -156,7 +156,21 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="400dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:hint="Date"
+                        android:textColorHint="#A7AEAE"
+                        app:boxBackgroundColor="#FFFFFF"
+                        android:layout_marginTop="15dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="400dp"
+                        android:layout_height="45dp"
                         android:layout_gravity="center"
                         android:hint="Location"
                         android:textColorHint="#A7AEAE"
@@ -170,7 +184,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="400dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_gravity="center"
                         android:hint="Operator"
                         android:textColorHint="#A7AEAE"
@@ -194,7 +208,7 @@
                         app:backgroundTint="#1A9A9B"
                         app:cornerRadius="10dp"
                         android:textSize="11sp"
-                        android:layout_marginTop="40dp">
+                        android:layout_marginTop="30dp">
 
                     </com.google.android.material.button.MaterialButton>
                     <com.google.android.material.button.MaterialButton

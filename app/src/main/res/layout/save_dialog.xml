@@ -13,27 +13,45 @@
         app:strokeColor="#1A9A9B"
         app:strokeWidth="3dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:gravity="center"
-                android:text="Save your sensor run"
-                android:textSize="17sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:background="@drawable/gradient_background">
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center"
+                    android:text="Save your sensor run"
+                    android:textSize="17sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/gradient_background">
 
-            </TextView>
+                </TextView>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/save"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp">
+
+                </ImageView>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/cancel"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp">
+
+                </ImageView>
+
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="400dp"
@@ -47,7 +65,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="400dp"
                 android:layout_height="45dp"
-                android:hint="Ergo_v1_1000"
+                android:hint="Ergo_v1_10000_1"
                 android:textColorHint="#A7AEAE"
                 app:boxBackgroundColor="#FFFFFF"
 
@@ -92,7 +110,7 @@
                     android:id="@+id/btn_exportSensorRun"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:text="Export"
+                    android:text="Export as csv"
                     android:textColor="#FFFFFF"
                     app:backgroundTint="#1A9A9B"
                     app:cornerRadius="10dp"
