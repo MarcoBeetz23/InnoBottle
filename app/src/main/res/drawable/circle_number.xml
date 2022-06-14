@@ -2,6 +2,11 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval" >
 
-    <solid android:color="#1A9A9B" />
+    <gradient
+        android:startColor="#1A9A9B"
+        android:endColor="#227575"
+        android:type="linear"
+        android:angle="-90"> <!-- Change this value to have the correct shadow angle, must be multiple from 45 -->
+    </gradient>
 
 </shape>

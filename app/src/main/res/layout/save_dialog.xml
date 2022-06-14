@@ -109,11 +109,11 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_exportSensorRun"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="38dp"
                     android:text="Export as csv"
                     android:textColor="#FFFFFF"
-                    app:backgroundTint="#1A9A9B"
-                    app:cornerRadius="10dp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/gradient_background_button"
                     android:textSize="11sp"
                     android:layout_weight="1">
 

@@ -245,17 +245,18 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_startSeries"
                         android:layout_width="350dp"
-                        android:layout_height="60dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/gradient_background_button"
                         android:text="Start new measurement series"
                         android:textColor="#FFFFFF"
-                        app:cornerRadius="10dp"
                         android:textSize="11sp"
-                        android:layout_marginTop="30dp"
                         app:backgroundTint="@null"
-                        android:background="@drawable/gradient_background">
+                        app:cornerRadius="10dp">
 
                     </com.google.android.material.button.MaterialButton>
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_previousSeries"
                         android:layout_width="350dp"
