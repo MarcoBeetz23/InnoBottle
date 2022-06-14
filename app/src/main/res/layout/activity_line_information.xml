@@ -269,7 +269,8 @@
                         app:strokeColor="#1A9A9B"
                         android:textStyle="bold"
                         app:strokeWidth="3dp"
-                        app:cornerRadius="10dp">
+                        app:cornerRadius="10dp"
+                        android:layout_marginTop="5dp">
 
                     </com.google.android.material.button.MaterialButton>
                 </LinearLayout>
