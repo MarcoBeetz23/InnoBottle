@@ -154,6 +154,10 @@
                         android:layout_weight="1.5"
                         android:text="Start new sensor run"
                         android:textColor="#FFFFFF"
+                        app:icon="@drawable/play"
+                        app:iconGravity="textStart"
+                        app:iconSize="18dp"
+                        app:iconPadding="18dp"
                         app:backgroundTint="@null"
                         android:background="@drawable/gradient_background_button">
 
@@ -169,7 +173,11 @@
                         android:text="Pause"
                         android:textColor="#FFFFFF"
                         app:cornerRadius="10dp"
-                        android:layout_weight="0.75">
+                        android:layout_weight="0.75"
+                        app:icon="@drawable/pause"
+                        app:iconGravity="textStart"
+                        app:iconSize="18dp"
+                        app:iconPadding="18dp">
                     </com.google.android.material.button.MaterialButton>
 
                     <com.google.android.material.button.MaterialButton
@@ -182,7 +190,11 @@
                         android:textColor="#FFFFFF"
                         app:backgroundTint="#6E7D7D"
                         app:cornerRadius="10dp"
-                        android:layout_weight="0.75">
+                        android:layout_weight="0.75"
+                        app:icon="@drawable/save"
+                        app:iconGravity="textStart"
+                        app:iconSize="22dp"
+                        app:iconPadding="18dp">
 
                     </com.google.android.material.button.MaterialButton>
                 </LinearLayout>
@@ -716,6 +728,8 @@
                                         android:layout_weight="1"
                                         app:cardCornerRadius="20dp"
                                         android:padding="10dp">
+                                        <!--app:strokeColor="#CF1D0E"
+                                        app:strokeWidth="3dp"-->
 
                                         <TextView
                                             android:layout_width="25dp"
@@ -879,6 +893,8 @@
                                         app:cardCornerRadius="20dp"
                                         android:padding="10dp"
                                         android:layout_marginEnd="20dp">
+                                        <!--app:strokeWidth="3dp"
+                                        app:strokeColor="#1A9A9B"-->
 
                                         <TextView
                                             android:layout_width="25dp"
