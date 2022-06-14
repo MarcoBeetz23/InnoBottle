@@ -238,20 +238,19 @@
                         android:layout_width="fill_parent"
                         android:layout_height="2dp"
                         android:layout_gravity="end|bottom"
-                        android:background="@drawable/background_with_shadow">
-                    </View>
+                        android:background="@drawable/background_with_shadow"></View>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
                         android:layout_gravity="left"
-                        android:background="@drawable/background_with_shadow_90dg">
-                    </View>
+                        android:background="@drawable/background_with_shadow_90dg"></View>
+
                     <View
                         android:layout_width="1dp"
                         android:layout_height="fill_parent"
                         android:layout_gravity="right"
-                        android:background="@drawable/background_with_shadow_90dg">
-                    </View>
+                        android:background="@drawable/background_with_shadow_90dg"></View>
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
         </LinearLayout>
@@ -330,8 +329,8 @@
                                             android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -344,22 +343,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -404,11 +403,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="2"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -421,22 +420,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -480,11 +479,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="3"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -492,28 +491,27 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:orientation="vertical">
-
                                             <TextView
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -567,11 +565,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="4"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -584,22 +582,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -644,11 +642,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="5"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -661,22 +659,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -720,11 +718,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="6"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -737,22 +735,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -806,11 +804,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="7"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -823,22 +821,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -883,11 +881,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="8"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -900,22 +898,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">
@@ -959,11 +957,11 @@
                                             android:gravity="center"
                                             android:shadowColor="@android:color/darker_gray"
                                             android:shadowRadius="10.0"
-                                            android:text="9"
+                                            android:text="1"
                                             android:textStyle="bold"
                                             android:textColor="@android:color/white"
-                                            android:textSize="11sp"
-                                            android:layout_margin="5dp">
+                                            android:textSize="12sp"
+                                            android:layout_margin="10dp">
 
                                         </TextView>
 
@@ -976,22 +974,22 @@
                                                 android:layout_height="wrap_content"
                                                 android:textAlignment="center"
                                                 android:text="10 N"
-                                                android:textSize="20sp"
+                                                android:textSize="25sp"
                                                 android:textStyle="bold"
                                                 android:textColor="#6E7D7D"
-                                                android:layout_marginTop="20dp">
+                                                android:layout_marginTop="30dp">
 
                                             </TextView>
                                             <com.google.android.material.button.MaterialButton
                                                 android:layout_width="match_parent"
-                                                android:layout_height="35dp"
+                                                android:layout_height="40dp"
                                                 android:layout_marginStart="20dp"
                                                 android:layout_marginEnd="20dp"
                                                 app:cornerRadius="10dp"
                                                 android:text="Plot"
                                                 android:textSize="11sp"
                                                 android:backgroundTint="#FFFFFF"
-                                                android:layout_marginTop="5dp"
+                                                android:layout_marginTop="10dp"
                                                 android:textColor="#6E7D7D"
                                                 app:strokeWidth="2dp"
                                                 app:strokeColor="#6E7D7D">

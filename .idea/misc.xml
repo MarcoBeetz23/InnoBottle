@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/background_with_shadow_90dg.xml" value="0.225" />
+        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/circle_number.xml" value="0.1" />
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/activity_line_information.xml" value="0.2" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/activity_main.xml" value="0.144" />
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/background_with_shadow.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/line_information_screen.xml" value="0.128" />
+        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/save_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/circle.xml" value="0.1185" />
         <entry key="app/src/main/res/layout/activity_line_information.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
