@@ -98,10 +98,10 @@
         <!--Line Information Container-->
 
         <RelativeLayout
-            android:layout_width="600dp"
-            android:layout_height="530dp"
+            android:layout_width="650dp"
+            android:layout_height="600dp"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp">
+            android:layout_marginVertical="50dp">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -125,14 +125,22 @@
 
                     </TextView>
 
+                    <TextView
+                        android:layout_width="500dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Measurement title"
+                        android:layout_marginTop="15dp"
+                        android:textSize="11sp">
+
+                    </TextView>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="400dp"
+                        android:layout_width="500dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-                        android:hint="Title of measurement series"
+                        android:hint="Type in title of measurement series ..."
                         android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF"
-                        android:layout_marginTop="15dp">
+                        app:boxBackgroundColor="#FFFFFF">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -140,56 +148,92 @@
                             app:textInputLayoutFocusedRectEnabled="true" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="500dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Customer"
+                        android:layout_marginTop="15dp"
+                        android:textSize="11sp">
+
+                    </TextView>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="400dp"
+                        android:layout_width="500dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-                        android:hint="Customer name"
+                        android:hint="Type in customer name ..."
                         android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF"
-                        android:layout_marginTop="15dp">
+                        app:boxBackgroundColor="#FFFFFF">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="500dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Date"
+                        android:layout_marginTop="15dp"
+                        android:textSize="11sp">
+
+                    </TextView>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="400dp"
+                        android:layout_width="500dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-                        android:hint="Date"
+                        android:hint="Select date of measurement ..."
                         android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF"
-                        android:layout_marginTop="15dp">
+                        app:boxBackgroundColor="#FFFFFF">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="500dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Location"
+                        android:layout_marginTop="15dp"
+                        android:textSize="11sp">
+
+                    </TextView>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="400dp"
+                        android:layout_width="500dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-                        android:hint="Location"
+                        android:hint="Type in customer location ..."
                         android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF"
-                        android:layout_marginTop="15dp">
+                        app:boxBackgroundColor="#FFFFFF">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="500dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Operator"
+                        android:layout_marginTop="15dp"
+                        android:textSize="11sp">
+
+                    </TextView>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="400dp"
+                        android:layout_width="500dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-                        android:hint="Operator"
+                        android:hint="Type in your name ..."
                         android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF"
-                        android:layout_marginTop="15dp">
+                        app:boxBackgroundColor="#FFFFFF">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -205,10 +249,11 @@
                         android:layout_gravity="center"
                         android:text="Start new measurement series"
                         android:textColor="#FFFFFF"
-                        app:backgroundTint="#1A9A9B"
                         app:cornerRadius="10dp"
                         android:textSize="11sp"
-                        android:layout_marginTop="30dp">
+                        android:layout_marginTop="30dp"
+                        app:backgroundTint="@null"
+                        android:background="@drawable/gradient_background">
 
                     </com.google.android.material.button.MaterialButton>
                     <com.google.android.material.button.MaterialButton
