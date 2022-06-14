@@ -73,10 +73,20 @@ public class MainModel implements MainContract.Model, MainContract.onSensorSerie
     }
 
     @Override
-    public void initValuesInFirebase(String lineInformation, String date) {
-        refName.child("Name").setValue(lineInformation);
-        refName.child("Date").setValue(date);
-        Log.d("test123", lineInformation + "---" + date);
+    public void initValuesInFirebase(SensorSeries sensorSeries) {
+        Log.d("test123", "data passed inside Model");
+        String name = sensorSeries.getName();
+        String time = sensorSeries.getTime();
+        String id = sensorSeries.getId();
+        int sensorRunCounter = sensorSeries.getSensorRuns().size();
+        // even though it would be easier to just store the entire object in the rd like
+        // refName.setValue(sensorSeries),
+        // this does not work since the ArrayList of SensorRuns is still empty (size = 0)
+        // and would just be ignored inside firebase
+        refName.child("Name").setValue(name);
+        refName.child("Date").setValue(time);
+        refName.child("Id").setValue(id);
+        refName.child("ChildrenCount").setValue(sensorRunCounter);
     }
 
     private void setActiveStateAfterDelay(){

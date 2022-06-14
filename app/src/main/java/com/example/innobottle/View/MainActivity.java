@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
+    protected void onPause(){
+        super.onPause();
+        mainPresenter.pauseBottle();
+    }
+
+    @Override
     protected void onResume(){
         super.onResume();
         // When the activity is shown on screen, the bottle state is set to *init* by default.
@@ -64,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             public void onClick(View view) {
                 if(sensorRunIsReady()){
                     mainPresenter.initNewSensorRun(currentLineInformation);
+                    Log.d("test123", "clicked button in activity");
                 }
             }
         });

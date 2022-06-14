@@ -16,6 +16,7 @@ public interface MainContract {
         void connectToBottle();
         void initNewSensorRun(String currentLineInformation);
         void pauseCurrentSensorRun();
+        void pauseBottle();
         void retrieveSensorSeries();
         void retrieveSensorData();
         void exportSensorData();
@@ -24,7 +25,7 @@ public interface MainContract {
     interface Model{
         void connectBottleInFirebase();
         void activateBottleInFirebase();
-        void initValuesInFirebase(String currentLineInformation, String currentDate);
+        void initValuesInFirebase(SensorSeries sensorSeries);
         void pauseBottleInFirebase();
         void findSensorSeriesInFirebase();
         void findSensorDataInFirebase();

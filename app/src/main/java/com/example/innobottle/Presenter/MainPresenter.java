@@ -5,7 +5,9 @@ import com.example.innobottle.Entitites.SensorSeries;
 import com.example.innobottle.Model.MainModel;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 public class MainPresenter implements MainContract.Presenter, MainContract.onSensorSeriesListener,
         MainContract.onSensorRunListener{
@@ -32,7 +34,15 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     @Override
     public void initNewSensorRun(String currentLineInformation) {
         mainModel.activateBottleInFirebase();
-        mainModel.initValuesInFirebase(currentLineInformation, getCurrentDate());
+        SensorSeries newSensorSeries = buildNewSensorSeries(currentLineInformation);
+        mainModel.initValuesInFirebase(newSensorSeries);
+    }
+
+    private SensorSeries buildNewSensorSeries(String information){
+        ArrayList<SensorRun> sensorRunArrayList = new ArrayList<>();
+        String id = UUID.randomUUID().toString().substring(0,4);
+        SensorSeries sensorSeries = new SensorSeries(information, getCurrentDate(), id, sensorRunArrayList);
+        return sensorSeries;
     }
 
     private String getCurrentDate(){
@@ -43,6 +53,11 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     // results in *pause* state
     @Override
     public void pauseCurrentSensorRun() {
+        mainModel.pauseBottleInFirebase();
+    }
+
+    @Override
+    public void pauseBottle() {
         mainModel.pauseBottleInFirebase();
     }
 
