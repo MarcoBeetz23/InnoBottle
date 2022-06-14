@@ -4,6 +4,9 @@ import com.example.innobottle.Entitites.SensorRun;
 import com.example.innobottle.Entitites.SensorSeries;
 import com.example.innobottle.Model.MainModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainPresenter implements MainContract.Presenter, MainContract.onSensorSeriesListener,
         MainContract.onSensorRunListener{
 
@@ -19,7 +22,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
         mainModel = new MainModel(this, this);
     }
 
-    // results in *idle* state
+    // results in *init* state
     @Override
     public void connectToBottle() {
         mainModel.connectBottleInFirebase();
@@ -27,14 +30,20 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
 
     // results in *activate* state
     @Override
-    public void initNewSensorRun() {
+    public void initNewSensorRun(String currentLineInformation) {
         mainModel.activateBottleInFirebase();
+        mainModel.initValuesInFirebase(currentLineInformation, getCurrentDate());
     }
 
-    // results in *stop* state
+    private String getCurrentDate(){
+        String date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
+        return date;
+    }
+
+    // results in *pause* state
     @Override
-    public void stopCurrentSensorRun() {
-        mainModel.stopBottleInFirebase();
+    public void pauseCurrentSensorRun() {
+        mainModel.pauseBottleInFirebase();
     }
 
     // todo

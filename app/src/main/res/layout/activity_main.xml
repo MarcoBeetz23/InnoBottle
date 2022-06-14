@@ -160,7 +160,7 @@
                     </com.google.android.material.button.MaterialButton>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_stop"
+                        android:id="@+id/btn_pause"
                         android:layout_width="0dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="20dp"
