@@ -39,9 +39,9 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     }
 
     private SensorSeries buildNewSensorSeries(String information){
-        ArrayList<SensorRun> sensorRunArrayList = new ArrayList<>();
+        int sensorRunCounter = 0;
         String id = UUID.randomUUID().toString().substring(0,4);
-        SensorSeries sensorSeries = new SensorSeries(information, getCurrentDate(), id, sensorRunArrayList);
+        SensorSeries sensorSeries = new SensorSeries(information, getCurrentDate(), id, sensorRunCounter);
         return sensorSeries;
     }
 

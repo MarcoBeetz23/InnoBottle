@@ -12,19 +12,37 @@ public class SensorSeries {
      * Thus, the length of the ArrayList would be 20
      */
 
-    String name, time;
-    String id;
+    String name, time, id;
+    int sensorRunCounter;
     ArrayList<SensorRun> SensorRuns;
 
     // empty default constructor for firebase
     public SensorSeries(){}
 
+    // constructor to hold the actual data
     public SensorSeries(String name, String time, String id, ArrayList<SensorRun> SensorRuns){
         this.name = name;
         this.time = time;
         this.id = id;
         this.SensorRuns = SensorRuns;
     }
+
+    // constructor to hold meta data for ESP32 retrieval and state observation
+    public SensorSeries(String name, String time, String id, int sensorRunCounter){
+        this.name = name;
+        this.time = time;
+        this.id = id;
+        this.sensorRunCounter = sensorRunCounter;
+    }
+
+    public void setSensorRunCounter(int newSensorRunCounter){
+        this.sensorRunCounter = newSensorRunCounter;
+    }
+
+    public int getSensorRunCounter(){
+        return sensorRunCounter;
+    }
+
 
     public void setName(String newName){
         this.name = newName;
