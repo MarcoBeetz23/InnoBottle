@@ -243,6 +243,97 @@
 
                         </ImageView>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Customer:"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Coca Cola"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Location:"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Knetzgau"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Date:"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="30.06.2022"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Operator:"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Julia"
+                                android:textSize="16sp"
+                                android:layout_marginTop="15dp">
+
+                            </TextView>
+                        </LinearLayout>
+
                     </LinearLayout>
 
                     <!--shadow-->
