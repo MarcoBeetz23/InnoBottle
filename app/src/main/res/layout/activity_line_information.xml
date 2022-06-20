@@ -149,7 +149,7 @@
                         android:layout_width="500dp"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
-                        android:hint="Type in title of measurement series ..."
+                        android:hint="Type in title of sensor series ..."
                         android:textColorHint="#A7AEAE"
                         app:boxBackgroundColor="#FFFFFF">
 
@@ -260,7 +260,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="30dp"
                         android:background="@drawable/gradient_background_button"
-                        android:text="Start new measurement series"
+                        android:text="Start new sensor series"
                         android:textColor="#FFFFFF"
                         android:textSize="11sp"
                         app:backgroundTint="@null"
@@ -273,7 +273,7 @@
                         android:layout_width="350dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:text="Continue with previous measurement series"
+                        android:text="Continue with previous sensor series"
                         android:textColor="#1A9A9B"
                         android:textSize="11sp"
                         app:backgroundTint="#FFFFFF"
