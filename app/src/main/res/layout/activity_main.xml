@@ -51,7 +51,9 @@
                 android:visibility="gone">
 
             </ImageView>
+
             <ImageView
+                android:id="@+id/greenBottle"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"

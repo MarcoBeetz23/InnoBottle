@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     TextView tvSensorRunName;
     Button btnStartRun, btnPause, btnSave, btnDeleteSensorRun, btnSaveSensorRun;
     Dialog dialog;
+
+    //debug
+    ImageView greenBottleImage;
+
 
     // Util constants
     private static final String DEFAULT_LINE_INFORMATION = "Customer Line Information";
@@ -61,6 +67,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mainPresenter.connectToBottle();
         handleStartClick();
         handlePauseClick();
+
+        // debug
+        switchScreen();
+    }
+
+    private void switchScreen(){
+        greenBottleImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, LineInformationActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     // init UI elements
@@ -72,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnSave = findViewById(R.id.btn_export);
         btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
         btnSaveSensorRun = findViewById(R.id.btn_exportSensorRun);
+        //debug
+        greenBottleImage = findViewById(R.id.greenBottle);
     }
 
     private void handleStartClick(){
