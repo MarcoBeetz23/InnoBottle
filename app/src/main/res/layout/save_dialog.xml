@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="500dp"
-    android:layout_height="230dp"
-    android:layout_gravity="center">
-
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="500dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
         app:cardCornerRadius="30dp"
         app:strokeColor="#1A9A9B"
-        app:strokeWidth="3dp">
+        app:strokeWidth="3dp"
+        android:backgroundTint="#FFFFFF">
 
 
         <LinearLayout
@@ -22,32 +19,35 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
+                    android:background="@drawable/gradient_background"
                     android:gravity="center"
                     android:text="Save your sensor run"
-                    android:textSize="17sp"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:background="@drawable/gradient_background">
+                    android:textSize="17sp"
+                    android:textStyle="bold">
 
                 </TextView>
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@drawable/save"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp">
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/save">
 
                 </ImageView>
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/cancel"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="15dp">
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/cancel">
 
                 </ImageView>
 
@@ -57,19 +57,20 @@
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:text="Title of sensor run"
-                android:textSize="11sp"
-                android:layout_marginTop="15dp">
+                android:textSize="11sp">
 
             </TextView>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="400dp"
                 android:layout_height="45dp"
+                android:layout_gravity="center"
                 android:hint="Ergo_v1_10000_1"
                 android:textColorHint="#A7AEAE"
-                app:boxBackgroundColor="#FFFFFF"
 
-                android:layout_gravity="center">
+                app:boxBackgroundColor="#FFFFFF">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -81,50 +82,51 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:weightSum="2"
                 android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="50dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp">
+                android:paddingEnd="20dp"
+                android:weightSum="2">
                 <!--Buttons-->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_deleteSensorRun"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_weight="1"
                     android:text="Delete"
                     android:textColor="#1A9A9B"
                     android:textSize="11sp"
-                    app:backgroundTint="#FFFFFF"
-                    app:strokeColor="#1A9A9B"
                     android:textStyle="bold"
-                    app:strokeWidth="2dp"
+                    app:backgroundTint="#FFFFFF"
                     app:cornerRadius="10dp"
-                    android:layout_marginEnd="50dp"
-                    android:layout_weight="1"
                     app:icon="@drawable/delete"
                     app:iconGravity="textStart"
-                    app:iconSize="18dp"
                     app:iconPadding="10dp"
-                    app:iconTint="#1A9A9B">
+                    app:iconSize="18dp"
+                    app:iconTint="#1A9A9B"
+                    app:strokeColor="#1A9A9B"
+                    app:strokeWidth="2dp">
 
                 </com.google.android.material.button.MaterialButton>
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_exportSensorRun"
                     android:layout_width="0dp"
                     android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient_background_button"
                     android:text="Export as csv"
                     android:textColor="#FFFFFF"
-                    app:backgroundTint="@null"
-                    android:background="@drawable/gradient_background_button"
                     android:textSize="11sp"
-                    android:layout_weight="1"
+                    app:backgroundTint="@null"
                     app:icon="@drawable/export_csv"
                     app:iconGravity="textStart"
-                    app:iconSize="18dp"
-                    app:iconPadding="10dp">
+                    app:iconPadding="10dp"
+                    app:iconSize="18dp">
 
                 </com.google.android.material.button.MaterialButton>
 
@@ -133,5 +135,3 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
