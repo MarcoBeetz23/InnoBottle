@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mainPresenter.connectToBottle();
         handleStartClick();
         handlePauseClick();
+        handleSaveClick();
 
         // debug
         switchScreen();
@@ -89,8 +90,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnStartRun = findViewById(R.id.btn_start);
         btnPause = findViewById(R.id.btn_pause);
         btnSave = findViewById(R.id.btn_export);
-        btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
-        btnSaveSensorRun = findViewById(R.id.btn_exportSensorRun);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
     }
@@ -129,8 +128,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void handleDialog(){
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.save_dialog);
+      //  btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
+       // btnSaveSensorRun = findViewById(R.id.btn_exportSensorRun);
         dialog.show();
-        handleDialogButtons();
+      //  handleDialogButtons();
     }
 
     private void handleDialogButtons(){
@@ -169,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void onSensorSeriesFound(String name, int counter) {
         currentName = name;
         currentCounter = counter;
-        handleSaveClick();
     }
 
     @Override
