@@ -1,5 +1,7 @@
 package com.example.innobottle.Presenter;
 
+import android.hardware.Sensor;
+
 import com.example.innobottle.Entitites.SensorRun;
 import com.example.innobottle.Entitites.SensorSeries;
 import com.google.firebase.database.DataSnapshot;
@@ -7,7 +9,7 @@ import com.google.firebase.database.DataSnapshot;
 public interface MainContract {
 
     interface View{
-        void onSensorSeriesFound();
+        void onSensorSeriesFound(String name, int counter);
         void onSensorRunActive();
         void onSensorRunInactive();
     }
@@ -17,6 +19,8 @@ public interface MainContract {
         void initNewSensorRun(String currentLineInformation);
         void pauseCurrentSensorRun();
         void pauseBottle();
+        void saveCurrentSensorRun(String name, int counter);
+        void deleteCurrentSensorRun(String name, int counter);
         void retrieveSensorSeries();
         void retrieveSensorData();
         void exportSensorData();
@@ -27,8 +31,9 @@ public interface MainContract {
         void activateBottleInFirebase();
         void initValuesInFirebase(SensorSeries sensorSeries);
         void pauseBottleInFirebase();
-        void findSensorSeriesInFirebase();
-        void findSensorDataInFirebase();
+        void saveCurrentSensorRunFromFirebase();
+        void deleteCurrentSensorRunFromFirebase();
+        SensorSeries findSensorSeriesInFirebase(String name, int counter);
     }
 
     // 1. Interface
@@ -38,12 +43,12 @@ public interface MainContract {
     }
 
     interface onSensorSeriesListener{
-        void onSuccess(SensorSeries retrievedSensorSeries);
+        void onSuccess(SensorSeries series);
         void onFailure(String message);
     }
 
     interface onSensorRunListener{
-        void onSuccess(SensorRun retrievedSensorRun);
+        void onSuccess();
         void onFailure(String message);
     }
 

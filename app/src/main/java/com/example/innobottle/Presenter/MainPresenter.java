@@ -19,6 +19,10 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     private MainContract.onSensorSeriesListener onSensorSeriesListener;
     private MainContract.onSensorRunListener onSensorRunListener;
 
+    SensorSeries currentSensorSeries;
+    String currentSensorSeriesName;
+    int currentSensorSeriesCounter;
+
     public MainPresenter(MainContract.View mainView){
         this.mainView = mainView;
         mainModel = new MainModel(this, this);
@@ -61,6 +65,18 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
         mainModel.pauseBottleInFirebase();
     }
 
+    @Override
+    public void saveCurrentSensorRun(String name, int counter) {
+        currentSensorSeries = mainModel.findSensorSeriesInFirebase(name, counter);
+        mainModel.saveCurrentSensorRunFromFirebase();
+    }
+
+    @Override
+    public void deleteCurrentSensorRun(String name, int counter) {
+        currentSensorSeries = mainModel.findSensorSeriesInFirebase(name, counter);
+        mainModel.deleteCurrentSensorRunFromFirebase();
+    }
+
     // todo
     @Override
     public void retrieveSensorSeries() {
@@ -77,13 +93,21 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
 
     }
 
+
+    //// sensor series found
+
     @Override
     public void onSuccess(SensorSeries retrievedSensorSeries) {
+        currentSensorSeries = retrievedSensorSeries;
+        currentSensorSeriesName = retrievedSensorSeries.getName();
+        mainView.onSensorSeriesFound(currentSensorSeriesName, currentSensorSeriesCounter);
 
     }
 
+
+    // sensor run
     @Override
-    public void onSuccess(SensorRun retrievedSensorRun) {
+    public void onSuccess() {
 
     }
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,12 +25,18 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Android components
     TextView tvSensorRunName;
-    Button btnStartRun, btnPause, btnExport;
+    Button btnStartRun, btnPause, btnSave, btnDeleteSensorRun, btnSaveSensorRun;
+    Dialog dialog;
 
     // Util constants
     private static final String DEFAULT_LINE_INFORMATION = "Customer Line Information";
     private static final String TOAST_ERROR_TEXT = "No Sensor Series has yet been initialized!";
+    final Context context = this;
     String currentLineInformation;
+
+    // MVP values
+    String currentName;
+    int currentCounter;
 
     // Architectural
     private MainPresenter mainPresenter;
@@ -62,7 +69,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvSensorRunName = findViewById(R.id.tvSensorRunName);
         btnStartRun = findViewById(R.id.btn_start);
         btnPause = findViewById(R.id.btn_pause);
-        btnExport = findViewById(R.id.btn_export);
+        btnSave = findViewById(R.id.btn_export);
+        btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
+        btnSaveSensorRun = findViewById(R.id.btn_exportSensorRun);
     }
 
     private void handleStartClick(){
@@ -86,6 +95,41 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
+    private void handleSaveClick(){
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleDialog();
+                mainPresenter.pauseCurrentSensorRun();
+            }
+        });
+    }
+
+    private void handleDialog(){
+        dialog = new Dialog(context);
+        dialog.setContentView(R.layout.save_dialog);
+        dialog.show();
+        handleDialogButtons();
+    }
+
+    private void handleDialogButtons(){
+        btnDeleteSensorRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainPresenter.deleteCurrentSensorRun(currentName, currentCounter);
+                dialog.dismiss();
+            }
+        });
+
+        btnSaveSensorRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainPresenter.saveCurrentSensorRun(currentName, currentCounter);
+                dialog.dismiss();
+            }
+        });
+    }
+
     // if no sensor series is initialized yet, the text view holds the default string
     // if the default string is presented, the sensor series is not yet ready
     // nothing will happen until user configures a sensor series properly
@@ -100,10 +144,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     // todo
-
     @Override
-    public void onSensorSeriesFound() {
-
+    public void onSensorSeriesFound(String name, int counter) {
+        currentName = name;
+        currentCounter = counter;
+        handleSaveClick();
     }
 
     @Override

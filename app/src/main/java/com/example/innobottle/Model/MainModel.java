@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import com.example.innobottle.Entitites.SensorRun;
 import com.example.innobottle.Entitites.SensorSeries;
 import com.example.innobottle.Presenter.MainContract;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,8 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import android.os.Handler;
 
-public class MainModel implements MainContract.Model, MainContract.onSensorSeriesListener,
-        MainContract.onSensorRunListener, MainContract.InitialDataInteractor {
+public class MainModel implements MainContract.Model, MainContract.InitialDataInteractor {
 
     //Firebase
     private FirebaseDatabase database = FirebaseDatabase.getInstance(FIREBASEPATH);
@@ -75,7 +76,14 @@ public class MainModel implements MainContract.Model, MainContract.onSensorSerie
     @Override
     public void initValuesInFirebase(SensorSeries sensorSeries) {
         Log.d("test123", "data passed inside Model");
-        refName.setValue(sensorSeries);
+        refName.setValue(sensorSeries).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isComplete()){
+                    onSensorSeriesListener.onSuccess(sensorSeries);
+                }
+            }
+        });
     }
 
     private void setActiveStateAfterDelay(){
@@ -100,37 +108,26 @@ public class MainModel implements MainContract.Model, MainContract.onSensorSerie
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
 
     @Override
-    public void findSensorSeriesInFirebase() {
+    public void saveCurrentSensorRunFromFirebase() {
 
     }
 
     @Override
-    public void findSensorDataInFirebase() {
+    public void deleteCurrentSensorRunFromFirebase() {
 
     }
 
     @Override
-    public void onSuccess(SensorSeries retrievedSensorSeries) {
-
+    public SensorSeries findSensorSeriesInFirebase(String name, int counter) {
+        // todo
+        SensorSeries series= new SensorSeries();
+        return series;
     }
-
-    @Override
-    public void onSuccess(SensorRun retrievedSensorRun) {
-
-    }
-
-    @Override
-    public void onFailure(String message) {
-
-    }
-
-    /// 1.
 
     @Override
     public void onDataSuccessfullyLoaded(String dataSnapshotValue) {
