@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="500dp"
+    android:layout_height="230dp"
+    android:layout_gravity="center"
+    android:background="#00000000">
+
     <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="500dp"
-        android:layout_height="230dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:cardCornerRadius="30dp"
-        app:strokeColor="#1A9A9B"
-        app:strokeWidth="3dp"
         android:backgroundTint="#FFFFFF">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#00000000">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -59,23 +63,26 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:text="Title of sensor run"
-                android:textSize="11sp">
+                android:textSize="11sp"
+                android:textColor="#636161">
 
             </TextView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="400dp"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:hint="Ergo_v1_10000_1"
-                android:textColorHint="#A7AEAE"
-
-                app:boxBackgroundColor="#FFFFFF">
+                app:boxStrokeColor="#A7AEAE"
+                app:boxBackgroundColor="#FFFFFF"
+                app:placeholderText="Ergo_v1_10000_1"
+                app:placeholderTextColor="#A7AEAE">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:textInputLayoutFocusedRectEnabled="true" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    app:textInputLayoutFocusedRectEnabled="true"
+                    android:textColor="#636161"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,15 +94,15 @@
                 android:layout_marginEnd="50dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:weightSum="2">
                 <!--Buttons-->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_deleteSensorRun"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="50dp"
+                    android:layout_marginEnd="30dp"
                     android:layout_weight="1"
                     android:text="Delete"
                     android:textColor="#1A9A9B"
@@ -125,8 +132,9 @@
                     app:backgroundTint="@null"
                     app:icon="@drawable/export_csv"
                     app:iconGravity="textStart"
-                    app:iconPadding="10dp"
-                    app:iconSize="18dp">
+                    app:iconSize="18dp"
+                    app:iconTint="#FFFFFF"
+                    app:iconPadding="10dp">
 
                 </com.google.android.material.button.MaterialButton>
 
@@ -135,3 +143,4 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
