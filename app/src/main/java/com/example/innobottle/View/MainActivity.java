@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         cancelSaveProcess = dialog.findViewById(R.id.cancel_saveProcess);
         dialog.show();
         handleDialogButtons();
-        closeDialog(); // !!! warum chrasht die App wenn man die Funktion aktiviert? hab noch keine Lösung gefunden....
+        closeDialog();
     }
 
     private void closeDialog(){

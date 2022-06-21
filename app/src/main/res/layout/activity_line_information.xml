@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="PET Sensor Bottle"
+                android:text="InnoBottle"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp">
