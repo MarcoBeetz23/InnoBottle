@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     TextView tvSensorRunName;
     Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun;
     Dialog dialog;
-    ImageView greenCircle;
+    ImageView greenCircle, cancelSaveProcess;
 
     //debug
     ImageView greenBottleImage;
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         handleStartClick();
         handlePauseClick();
         handleSaveClick();
+        handleResumeClick();
 
         // debug
         switchScreen();
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnSave = findViewById(R.id.btn_export);
         btnResume = findViewById(R.id.btn_resume);
         greenCircle = findViewById(R.id.greenCircle);
+
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
     }
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 //button change
                 btnStartRun.setEnabled(false);
                 btnPause.setEnabled(true);
+                btnResume.setEnabled(true);
                 greenCircle.setVisibility(View.VISIBLE);
             }
         });
@@ -124,6 +127,20 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 greenCircle.setVisibility(View.GONE);
             };
 
+        });
+    }
+
+    private void handleResumeClick() {
+        btnResume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // main presenter?
+
+                //button change
+                btnResume.setVisibility(View.GONE);
+                btnPause.setVisibility(View.VISIBLE);
+                greenCircle.setVisibility(View.VISIBLE);
+            }
         });
     }
 
@@ -145,10 +162,22 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void handleDialog(){
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.save_dialog);
-      //  btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
+        // btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
        // btnSaveSensorRun = findViewById(R.id.btn_exportSensorRun);
+        cancelSaveProcess = findViewById(R.id.cancel_saveProcess);
         dialog.show();
-      //  handleDialogButtons();
+       // handleDialogButtons();
+        closeDialog(); // !!! warum chrasht die App wenn man die Funktion aktiviert? hab noch keine Lösung gefunden....
+    }
+
+    private void closeDialog(){
+        cancelSaveProcess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                // what should be done with sensor run when closing the dialog without clicking the buttons? should it be on pause?
+            }
+        });
     }
 
     private void handleDialogButtons(){
