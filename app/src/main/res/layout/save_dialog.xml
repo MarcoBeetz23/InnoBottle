@@ -62,29 +62,19 @@
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Title of sensor run"
-                android:textSize="11sp"
-                android:layout_marginTop="15dp">
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="400dp"
-                android:layout_height="45dp"
-                android:textColorHint="#A7AEAE"
                 app:boxStrokeColor="#A7AEAE"
                 app:boxBackgroundColor="#FFFFFF"
-                app:placeholderText="Ergo_v1_10000_1"
+                app:placeholderText="Type in title of your sensor run ..."
                 app:placeholderTextColor="#A7AEAE"
                 app:helperText="Title of sensor run"
-                app:helperTextTextColor="#A7AEAE"
-                android:layout_marginTop="10dp">
+                app:helperTextTextColor="#A7AEAE">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="hi"
-                    app:textInputLayoutFocusedRectEnabled="true" />
                     android:layout_height="match_parent"
                     app:textInputLayoutFocusedRectEnabled="true"
                     android:textColor="#636161"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout

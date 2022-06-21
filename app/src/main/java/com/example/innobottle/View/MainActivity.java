@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     // Android components
     TextView tvSensorRunName;
     Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun;
-    Dialog dialog;
+    Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess;
 
     //debug
@@ -185,7 +185,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 mainPresenter.deleteCurrentSensorRun(currentName, currentCounter);
-                dialog.dismiss();
+
+                //Delete dialog
+                deleteDialog = new Dialog(context);
+                deleteDialog.setContentView(R.layout.delete_dialog);
+                deleteDialog.show();
             }
         });
 
@@ -197,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             }
         });
     }
+
 
     // if no sensor series is initialized yet, the text view holds the default string
     // if the default string is presented, the sensor series is not yet ready
