@@ -75,12 +75,13 @@
                 app:boxStrokeColor="#A7AEAE"
                 app:boxBackgroundColor="#FFFFFF"
                 app:placeholderText="Ergo_v1_10000_1"
-                app:placeholderTextColor="#A7AEAE">
+                app:placeholderTextColor="#A7AEAE"
+                app:helperText="Title of sensor run"
+                app:helperTextTextColor="#A7AEAE">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="top"
                     app:textInputLayoutFocusedRectEnabled="true"
                     android:textColor="#636161"/>
 
