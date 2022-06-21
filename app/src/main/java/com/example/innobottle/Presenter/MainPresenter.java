@@ -1,5 +1,7 @@
 package com.example.innobottle.Presenter;
 
+import android.util.Log;
+
 import com.example.innobottle.Entitites.SensorRun;
 import com.example.innobottle.Entitites.SensorSeries;
 import com.example.innobottle.Model.MainModel;
@@ -22,6 +24,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     SensorSeries currentSensorSeries;
     String currentSensorSeriesName;
     int currentSensorSeriesCounter;
+    boolean sensorRunIsTheFirst;
 
     public MainPresenter(MainContract.View mainView){
         this.mainView = mainView;
@@ -37,9 +40,13 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     // results in *activate* state
     @Override
     public void initNewSensorRun(String currentLineInformation) {
-        mainModel.activateBottleInFirebase();
-        SensorSeries newSensorSeries = buildNewSensorSeries(currentLineInformation);
-        mainModel.initValuesInFirebase(newSensorSeries);
+        Log.d("test123", "step 2...arrived in Presenter");
+        if(sensorRunIsTheFirst){
+            mainModel.findCurrentSensorCounter(currentLineInformation);
+            mainModel.activateBottleInFirebase();
+        } else {
+            mainModel.activateBottleInFirebase();
+        }
     }
 
     private SensorSeries buildNewSensorSeries(String information){
@@ -67,14 +74,16 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
 
     @Override
     public void saveCurrentSensorRun(String name, int counter) {
+        Log.d("test123", "back in presenter, these values arrived" + "---" + name + String.valueOf(counter));
         currentSensorSeries = mainModel.findSensorSeriesInFirebase(name, counter);
-        mainModel.saveCurrentSensorRunFromFirebase();
+        mainModel.saveCurrentSensorRunFromFirebase(name, counter);
     }
 
     @Override
     public void deleteCurrentSensorRun(String name, int counter) {
+        Log.d("test123", "back in presenter, these values arrived" + "---" + name + String.valueOf(counter));
         currentSensorSeries = mainModel.findSensorSeriesInFirebase(name, counter);
-        mainModel.deleteCurrentSensorRunFromFirebase();
+        mainModel.deleteCurrentSensorRunFromFirebase(name, counter);
     }
 
     // todo
@@ -97,11 +106,32 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     //// sensor series found
 
     @Override
-    public void onSuccess(SensorSeries retrievedSensorSeries) {
+    public void onSuccessfullyRetrieved(SensorSeries retrievedSensorSeries) {
         currentSensorSeries = retrievedSensorSeries;
         currentSensorSeriesName = retrievedSensorSeries.getName();
+        Log.d("test123", "step 8 - back in presenter, ready for view");
         mainView.onSensorSeriesFound(currentSensorSeriesName, currentSensorSeriesCounter);
+    }
 
+    @Override
+    public void onSuccessfullyCreated() {
+        SensorSeries newSensorSeries = buildNewSensorSeries("hi");
+        Log.d("test123", "step 6...we are back and ready to query the firebase");
+        mainModel.initValuesInFirebase(newSensorSeries);
+    }
+
+    @Override
+    public void onSuccessfullyUpdated(SensorSeries updatedSensorSeries){
+        Log.d("test123", "after update" + updatedSensorSeries.toString());
+    }
+
+    @Override
+    public void onCounterRetrieved(int counter) {
+        if(counter == 0){
+            sensorRunIsTheFirst = true;
+        } else {
+            sensorRunIsTheFirst = false;
+        }
     }
 
 

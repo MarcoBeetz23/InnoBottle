@@ -31,9 +31,10 @@ public interface MainContract {
         void activateBottleInFirebase();
         void initValuesInFirebase(SensorSeries sensorSeries);
         void pauseBottleInFirebase();
-        void saveCurrentSensorRunFromFirebase();
-        void deleteCurrentSensorRunFromFirebase();
+        void saveCurrentSensorRunFromFirebase(String name, int counter);
+        void deleteCurrentSensorRunFromFirebase(String name, int counter);
         SensorSeries findSensorSeriesInFirebase(String name, int counter);
+        void findCurrentSensorCounter(String name);
     }
 
     // 1. Interface
@@ -43,7 +44,10 @@ public interface MainContract {
     }
 
     interface onSensorSeriesListener{
-        void onSuccess(SensorSeries series);
+        void onSuccessfullyRetrieved(SensorSeries series);
+        void onSuccessfullyCreated();
+        void onSuccessfullyUpdated(SensorSeries series);
+        void onCounterRetrieved(int counter);
         void onFailure(String message);
     }
 

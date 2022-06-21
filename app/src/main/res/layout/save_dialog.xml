@@ -65,15 +65,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="400dp"
                 android:layout_height="45dp"
-                android:hint="Ergo_v1_10000_1"
                 android:textColorHint="#A7AEAE"
                 app:boxBackgroundColor="#FFFFFF"
 
                 android:layout_gravity="center">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="hi"
                     app:textInputLayoutFocusedRectEnabled="true" />
 
             </com.google.android.material.textfield.TextInputLayout>

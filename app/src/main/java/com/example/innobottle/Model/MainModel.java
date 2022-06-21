@@ -27,7 +27,7 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
     private static final String FIREBASEPATH = "https://innolab-66e3b-default-rtdb.europe-west1.firebasedatabase.app/";
     private static final String STATEPATH = "State";
     private static final String SENSORVALUES = "SensorSeriesValues";
-    private static final String DATAPATH = "Data";
+    private static final String DATAPATH = "SensorSeries";
     private static final int DELAY_TIME = 3000;
     private String activeState = "active";
     private String pauseState = "pause";
@@ -59,11 +59,14 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
     // If activated -> ESP32 will send measurement data to Firebase
     @Override
     public void activateBottleInFirebase() {
+        Log.d("test123", "step 3...arrived in Model");
         refState.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 refState.setValue(initState);
+                Log.d("test123", "step 4....manipulating firebase");
                 setActiveStateAfterDelay();
+                Log.d("test123", "step 5...delay is over!");
             }
 
             @Override
@@ -75,12 +78,13 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
 
     @Override
     public void initValuesInFirebase(SensorSeries sensorSeries) {
-        Log.d("test123", "data passed inside Model");
+        Log.d("test123", "ok...lets go!!!");
         refName.setValue(sensorSeries).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isComplete()){
-                    onSensorSeriesListener.onSuccess(sensorSeries);
+                    onSensorSeriesListener.onSuccessfullyRetrieved(sensorSeries);
+                    Log.d("test123", "step 7...we are done");
                 }
             }
         });
@@ -91,7 +95,12 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                refState.setValue(activeState);
+                refState.setValue(activeState).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        onSensorSeriesListener.onSuccessfullyCreated();
+                    }
+                });
             }
         }, DELAY_TIME);
     }
@@ -113,12 +122,33 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
     }
 
     @Override
-    public void saveCurrentSensorRunFromFirebase() {
+    public void saveCurrentSensorRunFromFirebase(String name, int counter) {
+        Log.d("test123", "arrived in model with" + "---" + name + "xxx" + String.valueOf(counter));
+        refName.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String id = snapshot.getValue(SensorSeries.class).getId();
+                String time = snapshot.getValue(SensorSeries.class).getTime();
+                SensorSeries updatedSensorSeries = new SensorSeries(name, time, id, counter+1);
+                refName.setValue(updatedSensorSeries).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isComplete()){
+                            onSensorSeriesListener.onSuccessfullyUpdated(updatedSensorSeries);
+                        }
+                    }
+                });
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
-    public void deleteCurrentSensorRunFromFirebase() {
+    public void deleteCurrentSensorRunFromFirebase(String name, int counter) {
 
     }
 
@@ -128,6 +158,23 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
         SensorSeries series= new SensorSeries();
         return series;
     }
+
+    @Override
+    public void findCurrentSensorCounter(String name) {
+        refName.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int counter = snapshot.getValue(SensorSeries.class).getSensorRunCounter();
+                onSensorSeriesListener.onCounterRetrieved(counter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 
     @Override
     public void onDataSuccessfullyLoaded(String dataSnapshotValue) {

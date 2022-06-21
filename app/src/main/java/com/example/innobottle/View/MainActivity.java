@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
+                    Log.d("test123", "clicked button...");
                     mainPresenter.initNewSensorRun(currentLineInformation);
-                    Log.d("test123", "clicked button in activity");
                 }
             }
         });
@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void handleDialog(){
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.save_dialog);
-      //  btnDeleteSensorRun = findViewById(R.id.btn_deleteSensorRun);
-       // btnSaveSensorRun = findViewById(R.id.btn_exportSensorRun);
+        btnDeleteSensorRun = dialog.findViewById(R.id.btn_deleteSensorRun);
+        btnSaveSensorRun = dialog.findViewById(R.id.btn_exportSensorRun);
         dialog.show();
-      //  handleDialogButtons();
+        handleDialogButtons();
     }
 
     private void handleDialogButtons(){
@@ -170,6 +170,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void onSensorSeriesFound(String name, int counter) {
         currentName = name;
         currentCounter = counter;
+        Log.d("test123", "step 9 - final");
+        Toast.makeText(MainActivity.this, "Your Message", Toast.LENGTH_LONG).show();
     }
 
     @Override
