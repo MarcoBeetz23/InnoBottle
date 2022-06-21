@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Android components
     TextView tvSensorRunName;
-    Button btnStartRun, btnPause, btnSave, btnDeleteSensorRun, btnSaveSensorRun;
+    Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun;
     Dialog dialog;
+    ImageView greenCircle;
 
     //debug
     ImageView greenBottleImage;
@@ -90,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnStartRun = findViewById(R.id.btn_start);
         btnPause = findViewById(R.id.btn_pause);
         btnSave = findViewById(R.id.btn_export);
+        btnResume = findViewById(R.id.btn_resume);
+        greenCircle = findViewById(R.id.greenCircle);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
     }
@@ -102,6 +105,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                     mainPresenter.initNewSensorRun(currentLineInformation);
                     Log.d("test123", "clicked button in activity");
                 }
+                //button change
+                btnStartRun.setEnabled(false);
+                btnPause.setEnabled(true);
+                greenCircle.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -111,7 +118,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View v) {
                 mainPresenter.pauseCurrentSensorRun();
-            }
+                // button color/text change
+                btnPause.setVisibility(View.GONE);
+                btnResume.setVisibility(View.VISIBLE);
+                greenCircle.setVisibility(View.GONE);
+            };
+
         });
     }
 
@@ -121,6 +133,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             public void onClick(View view) {
                 handleDialog();
                 mainPresenter.pauseCurrentSensorRun();
+                // button change
+                btnStartRun.setEnabled(true);
+                btnPause.setEnabled(false);
+                btnResume.setEnabled(false);
+                greenCircle.setVisibility(View.GONE);
             }
         });
     }

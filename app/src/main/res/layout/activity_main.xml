@@ -131,12 +131,13 @@
 
                     </TextView>
                     <ImageView
+                        android:id="@+id/greenCircle"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:background="@drawable/circle"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
-                        android:visibility="invisible">
+                        android:visibility="gone">
 
                     </ImageView>
                 </LinearLayout>
@@ -162,6 +163,7 @@
                         app:iconPadding="18dp"
                         app:backgroundTint="@null"
                         android:background="@drawable/gradient_background_button"
+                        android:enabled="true"
                         app:iconTint="#FFFFFF">
 
                     </com.google.android.material.button.MaterialButton>
@@ -169,10 +171,11 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btn_pause"
                         android:layout_width="0dp"
-                        android:layout_height="60dp"
+                        android:layout_height="48dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginBottom="10dp"
-                        app:backgroundTint="#929C9C"
+                        app:backgroundTint="@null"
+                        android:background="@drawable/gradient_background_button"
                         android:text="Pause"
                         android:textColor="#FFFFFF"
                         app:cornerRadius="10dp"
@@ -181,7 +184,29 @@
                         app:iconGravity="textStart"
                         app:iconSize="18dp"
                         app:iconPadding="18dp"
-                        app:iconTint="#FFFFFF">
+                        app:iconTint="#FFFFFF"
+                        android:enabled="false">
+                    </com.google.android.material.button.MaterialButton>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_resume"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        app:backgroundTint="@null"
+                        android:background="@drawable/gradient_background_button"
+                        android:text="Resume"
+                        android:textColor="#FFFFFF"
+                        app:cornerRadius="10dp"
+                        android:layout_weight="0.75"
+                        app:icon="@drawable/play"
+                        app:iconGravity="textStart"
+                        app:iconSize="18dp"
+                        app:iconPadding="18dp"
+                        app:iconTint="#FFFFFF"
+                        android:enabled="true"
+                        android:visibility="gone">
                     </com.google.android.material.button.MaterialButton>
 
                     <com.google.android.material.button.MaterialButton
@@ -285,7 +310,8 @@
                                 android:layout_weight="1.25"
                                 android:text="Coca Cola"
                                 android:textSize="16sp"
-                                android:textColor="#636161">
+                                android:textColor="#636161"
+                                android:visibility="invisible">
 
                             </TextView>
 
@@ -308,7 +334,8 @@
                                 android:layout_weight="1.25"
                                 android:text="Knetzgau"
                                 android:textSize="16sp"
-                                android:textColor="#636161">
+                                android:textColor="#636161"
+                                android:visibility="invisible">
 
                             </TextView>
                         </LinearLayout>
@@ -338,7 +365,8 @@
                                 android:layout_weight="1.25"
                                 android:text="30.06.2022"
                                 android:textSize="16sp"
-                                android:textColor="#636161">
+                                android:textColor="#636161"
+                                android:visibility="invisible">
 
                             </TextView>
 
@@ -361,7 +389,8 @@
                                 android:layout_weight="1.25"
                                 android:text="Julia"
                                 android:textSize="16sp"
-                                android:textColor="#636161">
+                                android:textColor="#636161"
+                                android:visibility="invisible">
 
                             </TextView>
                         </LinearLayout>
