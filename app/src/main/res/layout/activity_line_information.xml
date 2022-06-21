@@ -99,9 +99,9 @@
 
         <RelativeLayout
             android:layout_width="650dp"
-            android:layout_height="600dp"
+            android:layout_height="620dp"
             android:layout_gravity="center"
-            android:layout_marginVertical="50dp">
+            android:layout_marginVertical="30dp">
 
             <!--shadow-->
             <View
@@ -128,127 +128,107 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="20dp"
                         android:text="Line Information"
                         android:textAlignment="center"
                         android:textSize="25sp"
-                        android:textStyle="bold">
+                        android:textStyle="bold"
+                        android:textColor="#636161">
 
                     </TextView>
 
-                    <TextView
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="500dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Measurement title"
-                        android:layout_marginTop="15dp"
-                        android:textSize="11sp">
-
-                    </TextView>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="500dp"
-                        android:layout_height="45dp"
-                        android:layout_gravity="center"
-                        android:hint="Type in title of sensor series ..."
-                        android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF">
+                        app:boxStrokeColor="#A7AEAE"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:placeholderText="Type in title of sensor series ..."
+                        app:placeholderTextColor="#A7AEAE"
+                        app:helperText="Title of sensor series"
+                        app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:textInputLayoutFocusedRectEnabled="true" />
+                            android:layout_height="match_parent"
+                            app:textInputLayoutFocusedRectEnabled="true"
+                            android:textColor="#636161"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="500dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Customer"
-                        android:layout_marginTop="15dp"
-                        android:textSize="11sp">
-
-                    </TextView>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="500dp"
-                        android:layout_height="45dp"
-                        android:layout_gravity="center"
-                        android:hint="Type in customer name ..."
-                        android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF">
+                        app:boxStrokeColor="#A7AEAE"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:placeholderText="Type in customer name ..."
+                        app:placeholderTextColor="#A7AEAE"
+                        app:helperText="Customer"
+                        app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent"
+                            app:textInputLayoutFocusedRectEnabled="true"
+                            android:textColor="#636161"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="500dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Date"
-                        android:layout_marginTop="15dp"
-                        android:textSize="11sp">
-
-                    </TextView>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="500dp"
-                        android:layout_height="45dp"
-                        android:layout_gravity="center"
-                        android:hint="Select date of measurement ..."
-                        android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF">
+                        app:boxStrokeColor="#A7AEAE"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:placeholderText="Select date of measurement ..."
+                        app:placeholderTextColor="#A7AEAE"
+                        app:helperText="Date"
+                        app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent"
+                            app:textInputLayoutFocusedRectEnabled="true"
+                            android:textColor="#636161"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="500dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Location"
-                        android:layout_marginTop="15dp"
-                        android:textSize="11sp">
-
-                    </TextView>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="500dp"
-                        android:layout_height="45dp"
-                        android:layout_gravity="center"
-                        android:hint="Type in customer location ..."
-                        android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF">
+                        app:boxStrokeColor="#A7AEAE"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:placeholderText="Type in customer location ..."
+                        app:placeholderTextColor="#A7AEAE"
+                        app:helperText="Location"
+                        app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent"
+                            app:textInputLayoutFocusedRectEnabled="true"
+                            android:textColor="#636161"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="500dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Operator"
-                        android:layout_marginTop="15dp"
-                        android:textSize="11sp">
-
-                    </TextView>
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="500dp"
-                        android:layout_height="45dp"
-                        android:layout_gravity="center"
-                        android:hint="Type in your name ..."
-                        android:textColorHint="#A7AEAE"
-                        app:boxBackgroundColor="#FFFFFF">
+                        app:boxStrokeColor="#A7AEAE"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:placeholderText="Type in your name ..."
+                        app:placeholderTextColor="#A7AEAE"
+                        app:helperText="Operator"
+                        app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent"
+                            app:textInputLayoutFocusedRectEnabled="true"
+                            android:textColor="#636161"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -258,7 +238,7 @@
                         android:layout_width="350dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="20dp"
                         android:background="@drawable/gradient_background_button"
                         android:text="Start new sensor series"
                         android:textColor="#FFFFFF"
