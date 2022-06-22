@@ -70,8 +70,13 @@ public class MainModel implements MainContract.Model {
     @Override
     public void fetchValuesFromFirebase() {
         refData = database.getReference(DATAPATH);
+<<<<<<< Updated upstream
         Log.d("test123", "before value event listener" + "---" + refData.toString());
         refData.addValueEventListener(new ValueEventListener() {
+=======
+        Log.d("test123", "hi");
+        refData.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+>>>>>>> Stashed changes
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
