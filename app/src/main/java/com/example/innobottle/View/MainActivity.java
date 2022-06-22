@@ -2,7 +2,6 @@ package com.example.innobottle.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -48,46 +47,29 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     int currentCounter;
 
     // Architectural
-    private MainPresenter mainPresenter;
+    private MainPresenter mPresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setupUIComponents();
-        mainPresenter = new MainPresenter(this);
     }
+
 
     @Override
     protected void onPause(){
         super.onPause();
-        mainPresenter.pauseBottle();
+        mPresenter.pauseBottle();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         // When the activity is shown on screen, the bottle state is set to *init* by default.
-        mainPresenter.connectToBottle();
-        handleStartClick();
-        handlePauseClick();
-        handleSaveClick();
-        handleResumeClick();
-
-        // debug
-        switchScreen();
+        mPresenter.connectToBottle();
+        handleUserClicks();
     }
 
-    private void switchScreen(){
-        greenBottleImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, LineInformationActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-
-    // init UI elements
     private void setupUIComponents(){
         setContentView(R.layout.activity_main);
         tvSensorRunName = findViewById(R.id.tvSensorRunName);
@@ -100,9 +82,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvLocation = findViewById(R.id.tv_location);
         tvDate = findViewById(R.id.tv_date);
         tvOperator = findViewById(R.id.tv_operator);
-
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
+    }
+
+    private void handleUserClicks(){
+        handleStartClick();
+        handlePauseClick();
+        handleSaveClick();
+        handleResumeClick();
+        switchScreen();
     }
 
     private void handleStartClick(){
@@ -110,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
-                    mainPresenter.initNewSensorRun(currentLineInformation);
+                    mPresenter.initNewSensorRun();
                 }
                 //button change
                 btnStartRun.setEnabled(false);
@@ -126,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainPresenter.pauseCurrentSensorRun();
+                mPresenter.pauseSensorRun();
                 // button color/text change
                 btnPause.setVisibility(View.GONE);
                 btnResume.setVisibility(View.VISIBLE);
@@ -136,27 +125,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-    private void handleResumeClick() {
-        btnResume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // main presenter?
-
-                //button change
-                btnResume.setVisibility(View.GONE);
-                btnPause.setVisibility(View.VISIBLE);
-                greenCircle.setVisibility(View.VISIBLE);
-                Toast.makeText(MainActivity.this, "Your measurement is running again!", Toast.LENGTH_LONG).show(); // muss wahrscheinlich dann in eine andere Funktion rein
-            }
-        });
-    }
-
     private void handleSaveClick(){
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 handleDialog();
-                mainPresenter.pauseCurrentSensorRun();
+                mPresenter.pauseSensorRun();
                 // button change
                 btnStartRun.setEnabled(true);
                 btnPause.setEnabled(false);
@@ -189,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-    private void handleDialogButtons(){
+    private void handleDialogButtons() {
         btnDeleteSensorRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,12 +172,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 handleDeleteDialog();
             }
         });
+    }
 
-        btnSaveSensorRun.setOnClickListener(new View.OnClickListener() {
+    private void handleResumeClick() {
+        btnResume.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                mainPresenter.saveCurrentSensorRun(currentName, currentCounter);
-                dialog.dismiss();
+            public void onClick(View v) {
+                // main presenter?
+
+                //button change
+                btnResume.setVisibility(View.GONE);
+                btnPause.setVisibility(View.VISIBLE);
+                greenCircle.setVisibility(View.VISIBLE);
+                Toast.makeText(MainActivity.this, "Your measurement is running again!", Toast.LENGTH_LONG).show(); // muss wahrscheinlich dann in eine andere Funktion rein
             }
         });
     }
@@ -222,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnFinalDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainPresenter.deleteCurrentSensorRun(currentName, currentCounter);
+                mPresenter.deleteSensorRun();
                 deleteDialog.dismiss();
             }
         });
@@ -242,7 +223,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-
     // if no sensor series is initialized yet, the text view holds the default string
     // if the default string is presented, the sensor series is not yet ready
     // nothing will happen until user configures a sensor series properly
@@ -256,30 +236,20 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         }
     }
 
-    // todo
-    @Override
-    public void onSensorSeriesFound(String name, int counter) {
-        currentName = name;
-        currentCounter = counter;
-        Log.d("test123", "step 9 - final");
-        Toast.makeText(MainActivity.this, "Your sensor run has started!", Toast.LENGTH_LONG).show();
+
+    private void switchScreen(){
+        greenBottleImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, LineInformationActivity.class);
+                startActivity(i);
+            }
+        });
     }
-
-    @Override
-    public void onSensorRunActive() {
-
-    }
-
-    @Override
-    public void onSensorRunInactive() {
-
-    }
-
 
     /// retrieve data from firebase
     @Override
     public void onInformationRetrieved(ArrayList<String> data) {
-        Log.d("test10000", data.toString());
         String customerText = data.get(0);
         String operatorText = data.get(4);
         String locationText = data.get(3);
@@ -290,4 +260,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvLocation.setText(locationText);
         tvOperator.setText(operatorText);
     }
+
+    // other callback methods
 }
