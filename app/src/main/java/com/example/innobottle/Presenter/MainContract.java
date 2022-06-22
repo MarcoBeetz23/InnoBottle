@@ -43,16 +43,11 @@ public interface MainContract {
         void onDataSuccessfullyLoaded(String dataSnapshotValue);
     }
 
-    interface onSensorSeriesListener{
+    interface DataListener{
         void onSuccessfullyRetrieved(SensorSeries series);
-        void onSuccessfullyCreated();
+        void onSuccessfullyCreated(SensorSeries series);
         void onSuccessfullyUpdated(SensorSeries series);
         void onCounterRetrieved(int counter);
-        void onFailure(String message);
-    }
-
-    interface onSensorRunListener{
-        void onSuccess();
         void onFailure(String message);
     }
 

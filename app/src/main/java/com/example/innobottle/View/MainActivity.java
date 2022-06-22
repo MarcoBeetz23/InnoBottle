@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
-                    Log.d("test123", "clicked button...");
                     mainPresenter.initNewSensorRun(currentLineInformation);
                 }
                 //button change

@@ -26,7 +26,7 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
     //Utils
     private static final String FIREBASEPATH = "https://innolab-66e3b-default-rtdb.europe-west1.firebasedatabase.app/";
     private static final String STATEPATH = "State";
-    private static final String SENSORVALUES = "SensorSeriesValues";
+    private static final String SENSORVALUES = "SensorInformation";
     private static final String DATAPATH = "SensorSeries";
     private static final int DELAY_TIME = 3000;
     private String activeState = "active";
@@ -35,13 +35,10 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
 
 
     //Architectural
-    private MainContract.onSensorSeriesListener onSensorSeriesListener;
-    private MainContract.onSensorRunListener onSensorRunListener;
+    private MainContract.DataListener dataListener;
 
-    public MainModel(MainContract.onSensorSeriesListener onSensorSeriesListener,
-                     MainContract.onSensorRunListener onSensorRunListener){
-        this.onSensorSeriesListener = onSensorSeriesListener;
-        this.onSensorRunListener = onSensorRunListener;
+    public MainModel(MainContract.DataListener dataListener){
+        this.dataListener = dataListener;
     }
 
 
@@ -52,6 +49,19 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
         refState = database.getReference(STATEPATH);
         refName = database.getReference(SENSORVALUES);
         refState.setValue(pauseState);
+        refName.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
@@ -83,7 +93,7 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isComplete()){
-                    onSensorSeriesListener.onSuccessfullyRetrieved(sensorSeries);
+                    dataListener.onSuccessfullyRetrieved(sensorSeries);
                     Log.d("test123", "step 7...we are done");
                 }
             }
@@ -98,7 +108,8 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
                 refState.setValue(activeState).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        onSensorSeriesListener.onSuccessfullyCreated();
+                        SensorSeries test = new SensorSeries();
+                        dataListener.onSuccessfullyCreated(test);
                     }
                 });
             }
@@ -134,7 +145,7 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isComplete()){
-                            onSensorSeriesListener.onSuccessfullyUpdated(updatedSensorSeries);
+                            dataListener.onSuccessfullyUpdated(updatedSensorSeries);
                         }
                     }
                 });
@@ -165,7 +176,7 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int counter = snapshot.getValue(SensorSeries.class).getSensorRunCounter();
-                onSensorSeriesListener.onCounterRetrieved(counter);
+                dataListener.onCounterRetrieved(counter);
             }
 
             @Override

@@ -11,15 +11,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class MainPresenter implements MainContract.Presenter, MainContract.onSensorSeriesListener,
-        MainContract.onSensorRunListener{
+public class MainPresenter implements MainContract.Presenter, MainContract.DataListener {
 
 
     // Architectural
     private MainModel mainModel;
     private MainContract.View mainView;
-    private MainContract.onSensorSeriesListener onSensorSeriesListener;
-    private MainContract.onSensorRunListener onSensorRunListener;
+    private MainContract.DataListener dataListener;
 
     SensorSeries currentSensorSeries;
     String currentSensorSeriesName;
@@ -28,7 +26,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
 
     public MainPresenter(MainContract.View mainView){
         this.mainView = mainView;
-        mainModel = new MainModel(this, this);
+        mainModel = new MainModel(this);
     }
 
     // results in *init* state
@@ -40,7 +38,6 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     // results in *activate* state
     @Override
     public void initNewSensorRun(String currentLineInformation) {
-        Log.d("test123", "step 2...arrived in Presenter");
         if(sensorRunIsTheFirst){
             mainModel.findCurrentSensorCounter(currentLineInformation);
             mainModel.activateBottleInFirebase();
@@ -114,7 +111,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
     }
 
     @Override
-    public void onSuccessfullyCreated() {
+    public void onSuccessfullyCreated(SensorSeries arrivedSensorSeries) {
         SensorSeries newSensorSeries = buildNewSensorSeries("hi");
         Log.d("test123", "step 6...we are back and ready to query the firebase");
         mainModel.initValuesInFirebase(newSensorSeries);
@@ -132,13 +129,6 @@ public class MainPresenter implements MainContract.Presenter, MainContract.onSen
         } else {
             sensorRunIsTheFirst = false;
         }
-    }
-
-
-    // sensor run
-    @Override
-    public void onSuccess() {
-
     }
 
     @Override

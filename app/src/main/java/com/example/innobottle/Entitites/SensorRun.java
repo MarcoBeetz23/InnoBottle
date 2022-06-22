@@ -1,5 +1,6 @@
 package com.example.innobottle.Entitites;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SensorRun {
@@ -13,12 +14,12 @@ public class SensorRun {
 
     String name;
     short id;
-    ArrayList<SensorData> SensorDataRecordings;
+    ArrayList<ArrayList<Float>> dataRows;
 
-    public SensorRun(String name, short id, ArrayList<SensorData> SensorDataRecordings){
+    public SensorRun(String name, short id, ArrayList<ArrayList<Float>> dataRows){
         this.name = name;
         this.id = id;
-        this.SensorDataRecordings = SensorDataRecordings;
+        this.dataRows = dataRows;
     }
 
     public void setName(String newName){
@@ -37,7 +38,7 @@ public class SensorRun {
         return this.id;
     }
 
-    public ArrayList<SensorData> getSensorDataRecordings(){
-        return this.SensorDataRecordings;
+    public ArrayList<ArrayList<Float>> getDataRows(){
+        return this.dataRows;
     }
 }

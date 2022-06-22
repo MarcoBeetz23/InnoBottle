@@ -149,10 +149,12 @@
                         app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/line_information_title"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:textInputLayoutFocusedRectEnabled="true"
                             android:textColor="#636161"/>
+
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,10 +170,11 @@
                         app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/line_information_customer"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            app:textInputLayoutFocusedRectEnabled="true"
-                            android:textColor="#636161"/>
+                            android:textColor="#636161"
+                            app:textInputLayoutFocusedRectEnabled="true" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -187,6 +190,7 @@
                         app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/line_information_date"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:textInputLayoutFocusedRectEnabled="true"
@@ -206,6 +210,7 @@
                         app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/line_information_location"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:textInputLayoutFocusedRectEnabled="true"
@@ -225,6 +230,7 @@
                         app:helperTextTextColor="#A7AEAE">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/line_information_operator"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:textInputLayoutFocusedRectEnabled="true"
