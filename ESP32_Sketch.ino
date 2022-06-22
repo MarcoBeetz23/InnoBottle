@@ -16,8 +16,8 @@
 #include <HX711.h>
 
 // WiFi constants
-#define WIFI_SSID "MBUX-42"
-#define WIFI_PASSWORD "$olincoTourBite1"
+#define WIFI_SSID "Krones-TB2019"
+#define WIFI_PASSWORD "TB@Kr0nes!2019"
 
 // Firebase constants
 #define USER_EMAIL "marcobeetz3@googlemail.com"
@@ -154,17 +154,12 @@ void initFirebase(){
 }
 void loop(){
     getCurrentStateFromFirebase();
-    if(currentState == "init"){
-        pullName();
-        pullTimestamp();
-        pullChildrenCount();
-        pullId();
-    }
 
     if(currentState == "active"){
         //readDataFromCells();
         readDataFromDummyValues();
         sendDataToFirebase();
+        delay(300);
     }
 }
 
@@ -173,27 +168,6 @@ void getCurrentStateFromFirebase(){
         Firebase.get(fbdo, "State");
         currentState = fbdo.to<String>();
     }
-}
-
-void pullName(){
-    Firebase.get(fbdo, "SensorSeriesValues/name");
-    sensorSeriesName = fbdo.to<String>();
-}
-
-void pullTimestamp(){
-    Firebase.get(fbdo, "SensorSeriesValues/time");
-    sensorSeriesInitTime = fbdo.to<String>();
-}
-
-void pullChildrenCount(){
-    Firebase.get(fbdo, "SensorSeriesValues/sensorRunCounter");
-    childrenCount = fbdo.to<int>();
-}
-
-void pullId(){
-    Firebase.get(fbdo, "SensorSeriesValues/id");
-    sensorSeriesInitId = fbdo.to<String>();
-    Serial.println(sensorSeriesInitId);
 }
 
 /// commented out, may be used later when load cells are set
@@ -225,15 +199,15 @@ void readDataFromDummyValues(){
 
 void sendDataToFirebase(){
     timedelta = millis();
-    pathCell1 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC1";
-    pathCell2 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC2";
-    pathCell3 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC3";
-    pathCell4 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC4";
-    pathCell5 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC5";
-    pathCell6 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC6";
-    pathCell7 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC7";
-    pathCell8 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC8";
-    pathCell9 = "/SensorSeries/" + sensorSeriesName + "/" + childrenCount + "/" + timedelta + "/" + "LC9";
+    pathCell1 = "/SensorData/" + String(timedelta) + "/" + "LC1";
+    pathCell2 = "/SensorData/" + String(timedelta) + "/" + "LC2";
+    pathCell3 = "/SensorData/" + String(timedelta) + "/" + "LC3";
+    pathCell4 = "/SensorData/" + String(timedelta) + "/" + "LC4";
+    pathCell5 = "/SensorData/" + String(timedelta) + "/" + "LC5";
+    pathCell6 = "/SensorData/" + String(timedelta) + "/" + "LC6";
+    pathCell7 = "/SensorData/" + String(timedelta) + "/" + "LC7";
+    pathCell8 = "/SensorData/" + String(timedelta) + "/" + "LC8";
+    pathCell9 = "/SensorData/" + String(timedelta) + "/" + "LC9";
 
     Serial.println(pathCell1);
     
