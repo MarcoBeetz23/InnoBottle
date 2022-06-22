@@ -22,7 +22,7 @@ public class MainModel implements MainContract.Model {
     private DatabaseReference refData, refState;
 
     private static final String FIREBASEPATH = "https://innolab-66e3b-default-rtdb.europe-west1.firebasedatabase.app/";
-    private static final String DATAPATH = "Data";
+    private static final String DATAPATH = "SensorData";
     private static final String STATEPATH = "State";
     private static final int DELAY_TIME = 3000;
     private String readyState = "ready";
@@ -70,14 +70,21 @@ public class MainModel implements MainContract.Model {
     @Override
     public void fetchValuesFromFirebase() {
         refData = database.getReference(DATAPATH);
-        refData.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+        Log.d("test123", "before value event listener" + "---" + refData.toString());
+        refData.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snap : dataSnapshot.getChildren()){
-                    long counter = snap.getChildrenCount();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot snap : snapshot.getChildren()){
+                    long counter = snapshot.getChildrenCount();
                     Log.d("test400", String.valueOf(counter));
                 }
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
+
     }
 }

@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setupUIComponents();
+        mPresenter = new MainPresenter(this);
     }
 
 
