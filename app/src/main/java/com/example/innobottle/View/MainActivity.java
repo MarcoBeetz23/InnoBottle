@@ -211,9 +211,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void handleDeleteDialog(){
         deleteDialog = new Dialog(context);
         deleteDialog.setContentView(R.layout.delete_dialog);
-        btnFinalDelete = findViewById(R.id.btn_finalDelete);
-        btnCancelDelete = findViewById(R.id.btn_cancelDelete);
-        cancelDeleteProcess = findViewById(R.id.cancel_deleteProcess);
+        btnFinalDelete = deleteDialog.findViewById(R.id.btn_finalDelete);
+        btnCancelDelete = deleteDialog.findViewById(R.id.btn_cancelDelete);
+        cancelDeleteProcess = deleteDialog.findViewById(R.id.cancel_deleteProcess);
         deleteDialog.show();
         handleDeleteDialogButtons();
     }
