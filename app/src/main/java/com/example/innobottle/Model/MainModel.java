@@ -59,7 +59,7 @@ public class MainModel implements MainContract.Model {
 
     @Override
     public void pauseSensorRunInFirebase() {
-
+        refState.setValue(pauseState);
     }
 
     @Override

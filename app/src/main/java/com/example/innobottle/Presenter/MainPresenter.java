@@ -29,7 +29,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
 
     @Override
     public void pauseSensorRun() {
-
+        mModel.pauseSensorRunInFirebase();
     }
 
     @Override
