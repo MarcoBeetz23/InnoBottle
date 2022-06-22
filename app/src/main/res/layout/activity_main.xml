@@ -224,7 +224,8 @@
                         app:iconGravity="textStart"
                         app:iconSize="22dp"
                         app:iconPadding="18dp"
-                        app:iconTint="#FFFFFF">
+                        app:iconTint="#FFFFFF"
+                        android:enabled="false">
 
                     </com.google.android.material.button.MaterialButton>
                 </LinearLayout>

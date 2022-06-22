@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Android components
     TextView tvSensorRunName;
-    Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun;
+    Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
-    ImageView greenCircle, cancelSaveProcess;
+    ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
 
     //debug
     ImageView greenBottleImage;
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnStartRun.setEnabled(false);
                 btnPause.setEnabled(true);
                 btnResume.setEnabled(true);
+                btnSave.setEnabled(true);
                 greenCircle.setVisibility(View.VISIBLE);
             }
         });
@@ -139,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnResume.setVisibility(View.GONE);
                 btnPause.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
+                Toast.makeText(MainActivity.this, "Your measurement is running again!", Toast.LENGTH_LONG).show(); // muss wahrscheinlich dann in eine andere Funktion rein
             }
         });
     }
@@ -153,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnStartRun.setEnabled(true);
                 btnPause.setEnabled(false);
                 btnResume.setEnabled(false);
+                btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
             }
         });
@@ -174,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+                // backend stuff
                 // what should be done with sensor run when closing the dialog without clicking the buttons? should it be on pause?
             }
         });
@@ -183,12 +187,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnDeleteSensorRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainPresenter.deleteCurrentSensorRun(currentName, currentCounter);
 
                 //Delete dialog
-                deleteDialog = new Dialog(context);
-                deleteDialog.setContentView(R.layout.delete_dialog);
-                deleteDialog.show();
+                handleDeleteDialog();
             }
         });
 
@@ -197,6 +198,40 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             public void onClick(View view) {
                 mainPresenter.saveCurrentSensorRun(currentName, currentCounter);
                 dialog.dismiss();
+            }
+        });
+    }
+
+    private void handleDeleteDialog(){
+        deleteDialog = new Dialog(context);
+        deleteDialog.setContentView(R.layout.delete_dialog);
+        btnFinalDelete = findViewById(R.id.btn_finalDelete);
+        btnCancelDelete = findViewById(R.id.btn_cancelDelete);
+        cancelDeleteProcess = findViewById(R.id.cancel_deleteProcess);
+        deleteDialog.show();
+        handleDeleteDialogButtons();
+    }
+
+    private void handleDeleteDialogButtons(){
+        btnFinalDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainPresenter.deleteCurrentSensorRun(currentName, currentCounter);
+                deleteDialog.dismiss();
+            }
+        });
+
+        btnCancelDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteDialog.dismiss();
+            }
+        });
+
+        cancelDeleteProcess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteDialog.dismiss();
             }
         });
     }
@@ -221,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         currentName = name;
         currentCounter = counter;
         Log.d("test123", "step 9 - final");
-        Toast.makeText(MainActivity.this, "Your Message", Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, "Your sensor run has started!", Toast.LENGTH_LONG).show();
     }
 
     @Override
