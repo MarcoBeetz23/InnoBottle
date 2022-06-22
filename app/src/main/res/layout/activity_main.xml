@@ -305,14 +305,13 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/tv_customer"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
                                 android:layout_weight="1.25"
-                                android:text="Coca Cola"
                                 android:textSize="16sp"
-                                android:textColor="#636161"
-                                android:visibility="invisible">
+                                android:textColor="#636161">
 
                             </TextView>
 
@@ -329,14 +328,13 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/tv_location"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
                                 android:layout_weight="1.25"
-                                android:text="Knetzgau"
                                 android:textSize="16sp"
-                                android:textColor="#636161"
-                                android:visibility="invisible">
+                                android:textColor="#636161">
 
                             </TextView>
                         </LinearLayout>
@@ -360,14 +358,13 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/tv_date"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:layout_weight="1.25"
-                                android:text="30.06.2022"
                                 android:textSize="16sp"
-                                android:textColor="#636161"
-                                android:visibility="invisible">
+                                android:textColor="#636161">
 
                             </TextView>
 
@@ -384,14 +381,13 @@
                             </TextView>
 
                             <TextView
+                                android:id="@+id/tv_operator"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:layout_weight="1.25"
-                                android:text="Julia"
                                 android:textSize="16sp"
-                                android:textColor="#636161"
-                                android:visibility="invisible">
+                                android:textColor="#636161">
 
                             </TextView>
                         </LinearLayout>

@@ -6,12 +6,15 @@ import com.example.innobottle.Entitites.SensorRun;
 import com.example.innobottle.Entitites.SensorSeries;
 import com.google.firebase.database.DataSnapshot;
 
+import java.util.ArrayList;
+
 public interface MainContract {
 
     interface View{
         void onSensorSeriesFound(String name, int counter);
         void onSensorRunActive();
         void onSensorRunInactive();
+        void onInformationRetrieved(ArrayList<String> data);
     }
 
     interface Presenter{
@@ -49,6 +52,8 @@ public interface MainContract {
         void onSuccessfullyUpdated(SensorSeries series);
         void onCounterRetrieved(int counter);
         void onFailure(String message);
+
+        void onInformationRetrieved(ArrayList<String> information);
     }
 
 }

@@ -18,6 +18,8 @@ import com.example.innobottle.Presenter.MainContract;
 import com.example.innobottle.Presenter.MainPresenter;
 import com.example.innobottle.R;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     /*
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
      */
 
     // Android components
-    TextView tvSensorRunName;
+    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation;
     Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
@@ -94,6 +96,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnSave = findViewById(R.id.btn_export);
         btnResume = findViewById(R.id.btn_resume);
         greenCircle = findViewById(R.id.greenCircle);
+        tvCustomer = findViewById(R.id.tv_customer);
+        tvLocation = findViewById(R.id.tv_location);
+        tvDate = findViewById(R.id.tv_date);
+        tvOperator = findViewById(R.id.tv_operator);
 
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
@@ -267,5 +273,21 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void onSensorRunInactive() {
 
+    }
+
+
+    /// retrieve data from firebase
+    @Override
+    public void onInformationRetrieved(ArrayList<String> data) {
+        Log.d("test10000", data.toString());
+        String customerText = data.get(0);
+        String operatorText = data.get(4);
+        String locationText = data.get(3);
+        String dateText = data.get(2);
+
+        tvDate.setText(dateText);
+        tvCustomer.setText(customerText);
+        tvLocation.setText(locationText);
+        tvOperator.setText(operatorText);
     }
 }

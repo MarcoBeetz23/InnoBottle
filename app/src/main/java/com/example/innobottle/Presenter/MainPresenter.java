@@ -24,6 +24,9 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     int currentSensorSeriesCounter;
     boolean sensorRunIsTheFirst;
 
+    // Line Information Text Views
+
+
     public MainPresenter(MainContract.View mainView){
         this.mainView = mainView;
         mainModel = new MainModel(this);
@@ -134,5 +137,10 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     @Override
     public void onFailure(String message) {
 
+    }
+
+    @Override
+    public void onInformationRetrieved(ArrayList<String> information) {
+        mainView.onInformationRetrieved(information);
     }
 }

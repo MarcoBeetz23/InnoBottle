@@ -17,6 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import android.os.Handler;
 
+import java.util.ArrayList;
+
 public class MainModel implements MainContract.Model, MainContract.InitialDataInteractor {
 
     //Firebase
@@ -53,7 +55,8 @@ public class MainModel implements MainContract.Model, MainContract.InitialDataIn
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-
+                    ArrayList<String> retrievedData = (ArrayList<String>) snapshot.getValue();
+                    dataListener.onInformationRetrieved(retrievedData);
                 }
             }
 
