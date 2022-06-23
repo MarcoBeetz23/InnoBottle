@@ -89,24 +89,7 @@ public class MainModel implements MainContract.Model {
     public void fetchValuesFromFirebase() {
         refData = database.getReference(DATAPATH);
         Log.d("test123", "before value event listener" + "---" + refData.toString());
-        refData.addValueEventListener(new ValueEventListener() {
-<<<<<<< Updated upstream
-=======
-        Log.d("test123", "hi");
-        refData.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
->>>>>>> Stashed changes
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()){
-                    Log.d("test300", String.valueOf(snapshot.getChildrenCount()));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d("error occured", error.toString());
-            }
-        });
+        //tbd
     }
 
     // Retrieving meta information about the current sensor run etc.
@@ -128,6 +111,4 @@ public class MainModel implements MainContract.Model {
             }
         });
     }
-
-
 }

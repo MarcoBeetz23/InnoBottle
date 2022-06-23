@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
-                    mPresenter.setReadyState();
+                    mPresenter.setActiveState();
                 }
                 //button change
                 btnStartRun.setEnabled(false);
@@ -114,22 +114,21 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.pauseSensorRun();
-                // button color/text change
+                mPresenter.setPauseState();
                 btnPause.setVisibility(View.GONE);
                 btnResume.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.GONE);
-            };
-
+            }
         });
     }
+
 
     private void handleSaveClick(){
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 handleDialog();
-                mPresenter.pauseSensorRun();
+                mPresenter.setPauseState();
                 // button change
                 btnStartRun.setEnabled(true);
                 btnPause.setEnabled(false);
@@ -180,9 +179,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnResume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // main presenter?
-
-                //button change
+                mPresenter.setActiveState();
                 btnResume.setVisibility(View.GONE);
                 btnPause.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
