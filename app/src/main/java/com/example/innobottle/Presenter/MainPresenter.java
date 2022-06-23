@@ -2,6 +2,8 @@ package com.example.innobottle.Presenter;
 
 import com.example.innobottle.Model.MainModel;
 
+import java.util.ArrayList;
+
 public class MainPresenter implements MainContract.Presenter, MainContract.DataListener{
 
     private MainContract.View mView;
@@ -12,32 +14,61 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
         mModel = new MainModel(this);
     }
 
-    @Override
-    public void connectToBottle() {
-        mModel.connectToBottleInFirebase();
-    }
 
-    @Override
-    public void pauseBottle() {
-
-    }
-
-    @Override
-    public void initNewSensorRun() {
-        mModel.initNewSensorRunInFirebase();
-    }
-
+    /////////////////////////////////////////
+    // This section handles user input
     @Override
     public void pauseSensorRun() {
-        mModel.pauseSensorRunInFirebase();
     }
 
     @Override
     public void deleteSensorRun() {
-
     }
 
-    // After sensor run is initialized, fetching the data (from the ESP) shall be initialized
+    @Override
+    public void resumeSensorRun(){
+    }
+    //////////////////////////////////////
+
+
+    ////////////////////////////////////////
+    // This section handles state management
+    @Override
+    public void setReadyState() {
+        mModel.setReadyStateInFirebase();
+    }
+
+    @Override
+    public void setPauseState() {
+        mModel.setPauseStateInFirebase();
+    }
+
+    @Override
+    public void setActiveState() {
+        mModel.setActiveStateInFirebase();
+    }
+
+    ////////////////////////////////////////////
+
+
+    ////////////////////////////////////////////
+    // This section retrieves meta information about the current Sensor Run
+    @Override
+    public void retrieveSensorInformation(){
+        mModel.retrieveSensorInformationInFirebase();
+    }
+
+    @Override
+    public void onSensorInformationRetrieved(ArrayList<String> information){
+        mView.onInformationRetrieved(information);
+    }
+    ////////////////////////////////////////////
+
+
+    /////////////////////////////////////////////
+    // This section represents internal processes and is not called initially but later referenced
+    // Coming from mModel.setActiveStateInFirebase()
+    // When the task is complete, another Model-Method is called that will actually retrieve the values
     @Override
     public void onSensorRunInitialized() {
         mModel.fetchValuesFromFirebase();

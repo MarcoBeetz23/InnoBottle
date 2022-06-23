@@ -42,10 +42,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     final Context context = this;
     String currentLineInformation;
 
-    // MVP values
-    String currentName;
-    int currentCounter;
-
     // Architectural
     private MainPresenter mPresenter;
 
@@ -54,20 +50,22 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setupUIComponents();
         mPresenter = new MainPresenter(this);
+        mPresenter.setReadyState();
     }
 
 
     @Override
     protected void onPause(){
         super.onPause();
-        mPresenter.pauseBottle();
+        mPresenter.setPauseState();
     }
 
     @Override
     protected void onResume(){
         super.onResume();
-        // When the activity is shown on screen, the bottle state is set to *init* by default.
-        mPresenter.connectToBottle();
+        // When the activity is shown on screen, the bottle state is set to *ready* by default.
+        mPresenter.setReadyState();
+        mPresenter.retrieveSensorInformation();
         handleUserClicks();
     }
 
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
-                    mPresenter.initNewSensorRun();
+                    mPresenter.setReadyState();
                 }
                 //button change
                 btnStartRun.setEnabled(false);
@@ -142,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
+
+    /////////////////////////////////////////////////////////
+    // This section represents internal handling of the dialog
     private void handleDialog(){
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.save_dialog);
@@ -185,7 +186,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnResume.setVisibility(View.GONE);
                 btnPause.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
-                Toast.makeText(MainActivity.this, "Your measurement is running again!", Toast.LENGTH_LONG).show(); // muss wahrscheinlich dann in eine andere Funktion rein
+                Toast.makeText(MainActivity.this,
+                        "Your measurement is running again!",
+                        Toast.LENGTH_LONG).show(); // muss wahrscheinlich dann in eine andere Funktion rein
             }
         });
     }
@@ -223,6 +226,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             }
         });
     }
+    ////////////////////////////////////////////////////////////////
+
 
     // if no sensor series is initialized yet, the text view holds the default string
     // if the default string is presented, the sensor series is not yet ready
@@ -238,6 +243,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
 
+    // switching the screen, may be adapted later, debug mode
     private void switchScreen(){
         greenBottleImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-    /// retrieve data from firebase
+    /// finally, the retrieved meta data about sensor information is represented on the screen
     @Override
     public void onInformationRetrieved(ArrayList<String> data) {
         String customerText = data.get(0);

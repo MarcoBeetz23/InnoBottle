@@ -15,26 +15,33 @@ public interface MainContract {
     }
 
     interface Presenter{
-        void pauseBottle();
-        void connectToBottle();
-        void initNewSensorRun();
         void pauseSensorRun();
         void deleteSensorRun();
+        void resumeSensorRun();
+
+        void setReadyState();
+        void setActiveState();
+        void setPauseState();
+
+        void retrieveSensorInformation();
 
     }
 
     interface Model{
-        void pauseBottleInFirebase();
-        void connectToBottleInFirebase();
-        void initNewSensorRunInFirebase();
-        void pauseSensorRunInFirebase();
-        void deleteSensorRunInFirebase();
+        void setReadyStateInFirebase();
+        void setPauseStateInFirebase();
+        void setActiveStateInFirebase();
 
+        void resumeSensorRunInFirebase();
+        void deleteSensorRunInFirebase();
         void fetchValuesFromFirebase();
+
+        void retrieveSensorInformationInFirebase();
     }
 
 
     interface DataListener{
+        void onSensorInformationRetrieved(ArrayList<String> information);
         void onSensorRunInitialized();
     }
 
