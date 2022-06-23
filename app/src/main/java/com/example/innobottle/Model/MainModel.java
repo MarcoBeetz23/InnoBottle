@@ -71,6 +71,11 @@ public class MainModel implements MainContract.Model {
         refData = database.getReference(DATAPATH);
         Log.d("test123", "before value event listener" + "---" + refData.toString());
         refData.addValueEventListener(new ValueEventListener() {
+<<<<<<< Updated upstream
+=======
+        Log.d("test123", "hi");
+        refData.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+>>>>>>> Stashed changes
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
