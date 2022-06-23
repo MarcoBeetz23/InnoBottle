@@ -12,9 +12,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
 public class MainModel implements MainContract.Model {
 
@@ -88,6 +92,25 @@ public class MainModel implements MainContract.Model {
     @Override
     public void fetchValuesFromFirebase() {
         refData = database.getReference(DATAPATH);
+        Query lastChild = refData.orderByKey().limitToLast(1);
+        lastChild.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot snap : snapshot.getChildren()){
+                    String s = String.valueOf(snap.getValue());
+                    String key = snap.getKey();
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    Collection<String> values = map.values();
+                    ArrayList<String> listOfValues = new ArrayList<String>(values);
+                    Log.d("test123", listOfValues.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         Log.d("test123", "before value event listener" + "---" + refData.toString());
         //tbd
     }
