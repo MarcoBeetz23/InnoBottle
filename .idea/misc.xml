@@ -3,39 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/background_pause_button.xml" value="0.194" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/background_white_round_corners.xml" value="0.194" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/background_with_shadow.xml" value="0.205" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/background_with_shadow_90dg.xml" value="0.225" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/background_with_shadow_corners.xml" value="0.194" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/border_red.xml" value="0.2135" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/circle_number.xml" value="0.1" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/date_picker.xml" value="0.195" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/gradient_background.xml" value="0.205" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/gradient_background_button.xml" value="0.252" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/drawable/ic_launcher_background.xml" value="0.194" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/activity_line_information.xml" value="0.2" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/background_with_shadow.xml" value="0.12708333333333333" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/delete_dialog.xml" value="0.4" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/line_information_screen.xml" value="0.128" />
-        <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/save_dialog.xml" value="0.264" />
-        <entry key="app/src/main/res/drawable/background_with_shadow.xml" value="0.3045" />
-        <entry key="app/src/main/res/drawable/background_with_shadow_90dg.xml" value="0.3045" />
-        <entry key="app/src/main/res/drawable/background_with_shadow_corners.xml" value="0.3045" />
-        <entry key="app/src/main/res/drawable/circle.xml" value="0.1185" />
-        <entry key="app/src/main/res/layout/activity_line_information.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12" />
-        <entry key="app/src/main/res/layout/delete_dialog.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/line_information_screen.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/save_dialog.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_line_information.xml" value="0.16604785478547854" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

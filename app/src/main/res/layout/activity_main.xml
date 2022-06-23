@@ -46,7 +46,7 @@
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="145dp"
+                android:layout_marginEnd="150dp"
                 android:background="@drawable/not_available_state"
                 android:visibility="gone">
 
@@ -58,7 +58,7 @@
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="145dp"
+                android:layout_marginEnd="150dp"
                 android:background="@drawable/ready_state"
                 android:visibility="visible">
 
@@ -296,7 +296,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:layout_weight="0.75"
+                                android:layout_weight="0.65"
                                 android:text="Customer:"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -309,7 +309,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:layout_weight="1.25"
+                                android:layout_weight="1.35"
                                 android:textSize="16sp"
                                 android:textColor="#636161">
 
@@ -319,7 +319,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:layout_weight="0.75"
+                                android:layout_weight="0.65"
                                 android:text="Location:"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -332,7 +332,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:layout_weight="1.25"
+                                android:layout_weight="1.35"
                                 android:textSize="16sp"
                                 android:textColor="#636161">
 
@@ -349,7 +349,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:layout_weight="0.75"
+                                android:layout_weight="0.65"
                                 android:text="Date:"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -362,7 +362,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:layout_weight="1.25"
+                                android:layout_weight="1.35"
                                 android:textSize="16sp"
                                 android:textColor="#636161">
 
@@ -372,7 +372,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:layout_weight="0.75"
+                                android:layout_weight="0.65"
                                 android:text="Operator:"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
@@ -385,7 +385,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
-                                android:layout_weight="1.25"
+                                android:layout_weight="1.35"
                                 android:textSize="16sp"
                                 android:textColor="#636161">
 
@@ -1223,6 +1223,31 @@
                     android:layout_marginBottom="2dp"
                     android:backgroundTint="#FFFFFF"
                     app:cardCornerRadius="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Force Overview"
+                            android:textColor="#636161"
+                            android:textSize="17sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+                        
+                        <SurfaceView
+                            android:layout_width=""
+                            android:layout_height=""
+
+                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 

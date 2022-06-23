@@ -41,23 +41,26 @@
                 android:textSize="20sp">
 
             </TextView>
+
             <ImageView
-                android:layout_width="35dp"
+                android:layout_width="100dp"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="145dp"
-                android:background="@drawable/bottle_green"
+                android:layout_marginEnd="150dp"
+                android:background="@drawable/not_available_state"
                 android:visibility="visible">
 
             </ImageView>
+
             <ImageView
-                android:layout_width="35dp"
+                android:id="@+id/greenBottle"
+                android:layout_width="75dp"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="145dp"
-                android:background="@drawable/bottle_red"
+                android:layout_marginEnd="150dp"
+                android:background="@drawable/ready_state"
                 android:visibility="gone">
 
             </ImageView>
