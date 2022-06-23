@@ -155,12 +155,19 @@ void initFirebase(){
 void loop(){
     getCurrentStateFromFirebase();
 
+    if(currentState == "ready"){
+      //initNewDataPath with childrenCounter
+      childrenCount = childrenCount + 1;
+    }
+
     if(currentState == "active"){
         //readDataFromCells();
         readDataFromDummyValues();
         sendDataToFirebase();
         delay(300);
     }
+
+    Serial.println(childrenCount);
 }
 
 void getCurrentStateFromFirebase(){
@@ -199,15 +206,15 @@ void readDataFromDummyValues(){
 
 void sendDataToFirebase(){
     timedelta = millis();
-    pathCell1 = "/SensorData/" + String(timedelta) + "/" + "LC1";
-    pathCell2 = "/SensorData/" + String(timedelta) + "/" + "LC2";
-    pathCell3 = "/SensorData/" + String(timedelta) + "/" + "LC3";
-    pathCell4 = "/SensorData/" + String(timedelta) + "/" + "LC4";
-    pathCell5 = "/SensorData/" + String(timedelta) + "/" + "LC5";
-    pathCell6 = "/SensorData/" + String(timedelta) + "/" + "LC6";
-    pathCell7 = "/SensorData/" + String(timedelta) + "/" + "LC7";
-    pathCell8 = "/SensorData/" + String(timedelta) + "/" + "LC8";
-    pathCell9 = "/SensorData/" + String(timedelta) + "/" + "LC9";
+    pathCell1 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC1";
+    pathCell2 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC2";
+    pathCell3 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC3";
+    pathCell4 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC4";
+    pathCell5 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC5";
+    pathCell6 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC6";
+    pathCell7 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC7";
+    pathCell8 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC8";
+    pathCell9 = "/SensorData/" + String(childrenCount) + "/" + String(timedelta) + "/" + "LC9";
 
     Serial.println(pathCell1);
     
