@@ -91,6 +91,7 @@ public class LineInformationActivity extends AppCompatActivity implements LineIn
                 String[] currentData = getCurrentData();
                 Log.d("test123", "button first fired!");
                 mPresenter.sendData(currentData);
+                onSuccess();
             }
         });
     }

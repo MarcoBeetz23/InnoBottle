@@ -1242,11 +1242,7 @@
                             android:textStyle="bold">
 
                         </TextView>
-                        
-                        <SurfaceView
-                            android:layout_width=""
-                            android:layout_height=""
-
+                       
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
