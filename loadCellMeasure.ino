@@ -144,7 +144,7 @@ void initFirebase(){
     config.database_url = DATABASE_URL;
     fbdo.setResponseSize(8192);
     config.token_status_callback = tokenStatusCallback;
-    databasePath = "/UsersData/secondRun";
+    databasePath = "/hi/";
 }
 void loop(){
     readDataFromCells();
