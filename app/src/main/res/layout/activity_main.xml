@@ -515,13 +515,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue1"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -593,13 +594,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue2"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -670,13 +672,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue3"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -757,13 +760,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue4"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -835,13 +839,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -914,13 +919,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue6"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -1001,13 +1007,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue7"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -1081,13 +1088,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue8"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>
@@ -1158,13 +1166,14 @@
                                         android:orientation="vertical">
 
                                         <TextView
+                                            android:id="@+id/cellValue9"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_marginTop="20dp"
                                             android:text="10 N"
                                             android:textAlignment="center"
                                             android:textColor="#6E7D7D"
-                                            android:textSize="25sp"
+                                            android:textSize="20sp"
                                             android:textStyle="bold">
 
                                         </TextView>

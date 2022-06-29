@@ -41,6 +41,8 @@ public class MainModel implements MainContract.Model {
     private static final String ACTIVESTATE = "active";
     private static final String PAUSESTATE = "pause";
 
+    private static final int LOAD_CELL_COUNTER = 9;
+
     public MainModel(MainContract.DataListener listener){
         this.mListener = listener;
     }
@@ -101,12 +103,19 @@ public class MainModel implements MainContract.Model {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
                     for(DataSnapshot innerSnap: snap.getChildren()){
-                        Map<String, Object> map  =(HashMap<String, Object>) innerSnap.getValue();
-                        Collection<Object> values =  map.values();
-                        List arrayList = new ArrayList(values);
-                        // only if 9 load cell values are retrieved, do it!
-                        if(arrayList.size() == 9){
-                            mListener.onLoadCellValuesRetrieved((ArrayList<String>) arrayList);
+                        long childrenCounter = innerSnap.getChildrenCount();
+                        ArrayList<String> loadCellValues = new ArrayList<>();
+                        if(childrenCounter == LOAD_CELL_COUNTER){
+                            loadCellValues.add(innerSnap.child("LC1").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC2").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC3").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC4").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC5").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC6").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC7").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC8").getValue().toString());
+                            loadCellValues.add(innerSnap.child("LC9").getValue().toString());
+                            mListener.onLoadCellValuesRetrieved(loadCellValues);
                         }
                     }
                 }

@@ -12,6 +12,7 @@ public interface MainContract {
 
     interface View{
         void onInformationRetrieved(ArrayList<String> data);
+        void onLoadCellValuesRetrieved(ArrayList<String> cellValues);
     }
 
     interface Presenter{

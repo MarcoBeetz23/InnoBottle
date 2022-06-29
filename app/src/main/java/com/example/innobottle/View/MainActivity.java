@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
+    // Text views for load cell values
+    TextView tvValue1, tvValue2, tvValue3, tvValue4, tvValue5, tvValue6, tvValue7, tvValue8, tvValue9;
 
     //debug
     ImageView greenBottleImage;
@@ -81,6 +83,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvOperator = findViewById(R.id.tv_operator);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
+        //load Cell values text view
+        tvValue1 = findViewById(R.id.cellValue1);
+        tvValue2 = findViewById(R.id.cellValue2);
+        tvValue3 = findViewById(R.id.cellValue3);
+        tvValue4 = findViewById(R.id.cellValue4);
+        tvValue5 = findViewById(R.id.cellValue5);
+        tvValue6 = findViewById(R.id.cellValue6);
+        tvValue7 = findViewById(R.id.cellValue7);
+        tvValue8 = findViewById(R.id.cellValue8);
+        tvValue9 = findViewById(R.id.cellValue9);
     }
 
     private void handleUserClicks(){
@@ -261,6 +273,26 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvCustomer.setText(customerText);
         tvLocation.setText(locationText);
         tvOperator.setText(operatorText);
+    }
+
+
+
+    // The model and finally the presenter fetched data from Firebase and give it back to the Ui
+    @Override
+    public void onLoadCellValuesRetrieved(ArrayList<String> cellValues) {
+        showLoadCellValues(cellValues);
+    }
+
+    private void showLoadCellValues(ArrayList<String> list){
+        tvValue1.setText(list.get(0));
+        tvValue2.setText(list.get(1));
+        tvValue3.setText(list.get(2));
+        tvValue4.setText(list.get(3));
+        tvValue5.setText(list.get(4));
+        tvValue6.setText(list.get(5));
+        tvValue7.setText(list.get(6));
+        tvValue8.setText(list.get(7));
+        tvValue9.setText(list.get(8));
     }
 
     // other callback methods

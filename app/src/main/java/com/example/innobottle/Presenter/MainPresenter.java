@@ -5,6 +5,8 @@ import android.util.Log;
 import com.example.innobottle.Model.MainModel;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MainPresenter implements MainContract.Presenter, MainContract.DataListener{
 
@@ -81,5 +83,45 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     @Override
     public void onLoadCellValuesRetrieved(ArrayList<String> loadCellValues) {
         Log.d("test5000", loadCellValues.toString());
+        ArrayList<String> convertedList = (ArrayList<String>) manipulateList(loadCellValues);
+        mView.onLoadCellValuesRetrieved(convertedList);
+    }
+
+    private List<String> manipulateList(ArrayList<String> list){
+        float c1 = Float.parseFloat(list.get(0));
+        float c2 = Float.parseFloat(list.get(1));
+        float c3 = Float.parseFloat(list.get(2));
+        float c4 = Float.parseFloat(list.get(3));
+        float c5 = Float.parseFloat(list.get(4));
+        float c6 = Float.parseFloat(list.get(5));
+        float c7 = Float.parseFloat(list.get(6));
+        float c8 = Float.parseFloat(list.get(7));
+        float c9 = Float.parseFloat(list.get(8));
+
+        Random r = new Random();
+        float random = (float) (1.0 + r.nextFloat() * (4.0 - 2.0));
+
+        c1 += random;
+        c2 += random;
+        c3 += random;
+        c4 += random;
+        c5 += random;
+        c6 += random;
+        c7 += random;
+        c8 += random;
+        c9 += random;
+
+        ArrayList<String> convertedList = new ArrayList<>();
+        convertedList.add(String.valueOf(c1));
+        convertedList.add(String.valueOf(c2));
+        convertedList.add(String.valueOf(c3));
+        convertedList.add(String.valueOf(c4));
+        convertedList.add(String.valueOf(c5));
+        convertedList.add(String.valueOf(c6));
+        convertedList.add(String.valueOf(c7));
+        convertedList.add(String.valueOf(c8));
+        convertedList.add(String.valueOf(c9));
+        return convertedList;
+
     }
 }
