@@ -169,7 +169,8 @@ void loop(){
     }
 
     if(currentState == "active"){
-          Firebase.setString(fbdo, "hi/", "hi");
+      readDataFromCells();
+      sendDataToFirebase();
         delay(300);
     }
 }
@@ -194,6 +195,18 @@ void readDataFromCells(){
     loadCellValues[6] = (amplifierCell7.read() + resetCell7) * calculationFactor;
     loadCellValues[7] = (amplifierCell8.read() + resetCell8) * calculationFactor;
     loadCellValues[8] = (amplifierCell9.read() + resetCell9) * calculationFactor;
+
+
+    Serial.println(loadCellValues[0]);
+    Serial.println(loadCellValues[1]);
+    Serial.println(loadCellValues[2]);
+    Serial.println(loadCellValues[3]);
+    Serial.println(loadCellValues[4]);
+    Serial.println(loadCellValues[5]);
+    Serial.println(loadCellValues[6]);
+    Serial.println(loadCellValues[7]);
+    Serial.println(loadCellValues[8]);
+
 }
 
 
@@ -211,7 +224,7 @@ void sendDataToFirebase(){
 
     Serial.println(pathCell1);
     
-    Firebase.setString(fbdo, pathCell1, "hi");
+    Firebase.setString(fbdo, pathCell1, loadCellValues[0]);
     Firebase.setString(fbdo, pathCell2, loadCellValues[1]);
     Firebase.setString(fbdo, pathCell3, loadCellValues[2]);
     Firebase.setString(fbdo, pathCell4, loadCellValues[3]);

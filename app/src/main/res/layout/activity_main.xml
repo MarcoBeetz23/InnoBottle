@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Ergo_v1_10000"
+                android:text="InnoBottle"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp">
@@ -124,7 +124,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="Ergo_v1_10000_1"
+                        android:text="Sensor Run 1"
                         android:textColor="#263288"
                         android:textSize="28sp"
                         android:textStyle="bold">
