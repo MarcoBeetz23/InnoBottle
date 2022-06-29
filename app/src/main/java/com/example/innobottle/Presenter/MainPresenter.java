@@ -1,5 +1,7 @@
 package com.example.innobottle.Presenter;
 
+import android.util.Log;
+
 import com.example.innobottle.Model.MainModel;
 
 import java.util.ArrayList;
@@ -72,5 +74,12 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     @Override
     public void onSensorRunInitialized() {
         mModel.fetchValuesFromFirebase();
+    }
+
+
+    /// The data from the load cells was collected by the model and arrives here again
+    @Override
+    public void onLoadCellValuesRetrieved(ArrayList<String> loadCellValues) {
+        Log.d("test5000", loadCellValues.toString());
     }
 }

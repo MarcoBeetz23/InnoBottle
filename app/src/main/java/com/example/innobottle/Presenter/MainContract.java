@@ -43,6 +43,7 @@ public interface MainContract {
     interface DataListener{
         void onSensorInformationRetrieved(ArrayList<String> information);
         void onSensorRunInitialized();
+        void onLoadCellValuesRetrieved(ArrayList<String> loadCellValues);
     }
 
 }

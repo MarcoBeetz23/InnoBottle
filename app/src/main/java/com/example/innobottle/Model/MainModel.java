@@ -3,11 +3,13 @@ package com.example.innobottle.Model;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.innobottle.Presenter.MainContract;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainModel implements MainContract.Model {
 
@@ -97,12 +100,15 @@ public class MainModel implements MainContract.Model {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
-                    String s = String.valueOf(snap.getValue());
-                    String key = snap.getKey();
-                    HashMap<String, String> map = new HashMap<String, String>();
-                    Collection<String> values = map.values();
-                    ArrayList<String> listOfValues = new ArrayList<String>(values);
-                    Log.d("test123", listOfValues.toString());
+                    for(DataSnapshot innerSnap: snap.getChildren()){
+                        Map<String, Object> map  =(HashMap<String, Object>) innerSnap.getValue();
+                        Collection<Object> values =  map.values();
+                        List arrayList = new ArrayList(values);
+                        // only if 9 load cell values are retrieved, do it!
+                        if(arrayList.size() == 9){
+                            mListener.onLoadCellValuesRetrieved((ArrayList<String>) arrayList);
+                        }
+                    }
                 }
             }
 
@@ -111,7 +117,7 @@ public class MainModel implements MainContract.Model {
 
             }
         });
-        Log.d("test123", "before value event listener" + "---" + refData.toString());
+
         //tbd
     }
 
