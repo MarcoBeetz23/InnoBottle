@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
      */
 
     // Android components
-    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation;
+    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, tvUnit1, tvUnit2, tvUnit3, tvUnit4, tvUnit5, tvUnit6, tvUnit7, tvUnit8, tvUnit9;
     Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
@@ -81,6 +81,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvLocation = findViewById(R.id.tv_location);
         tvDate = findViewById(R.id.tv_date);
         tvOperator = findViewById(R.id.tv_operator);
+        tvUnit1 = findViewById(R.id.newton1);
+        tvUnit2 = findViewById(R.id.newton2);
+        tvUnit3 = findViewById(R.id.newton3);
+        tvUnit4 = findViewById(R.id.newton4);
+        tvUnit5 = findViewById(R.id.newton5);
+        tvUnit6 = findViewById(R.id.newton6);
+        tvUnit7 = findViewById(R.id.newton7);
+        tvUnit8 = findViewById(R.id.newton8);
+        tvUnit9 = findViewById(R.id.newton9);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
         //load Cell values text view
@@ -116,6 +125,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnResume.setEnabled(true);
                 btnSave.setEnabled(true);
                 greenCircle.setVisibility(View.VISIBLE);
+                Toast.makeText(MainActivity.this,
+                        "Your measurement is running!",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -128,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnPause.setVisibility(View.GONE);
                 btnResume.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this,
+                        "Your measurement is paused!",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -142,7 +157,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 // button change
                 btnStartRun.setEnabled(true);
                 btnPause.setEnabled(false);
+                btnPause.setVisibility(View.VISIBLE);
                 btnResume.setEnabled(false);
+                btnResume.setVisibility(View.GONE);
                 btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
             }
@@ -293,6 +310,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvValue7.setText(list.get(6));
         tvValue8.setText(list.get(7));
         tvValue9.setText(list.get(8));
+
+        // UI changes
+        tvUnit1.setVisibility(View.VISIBLE);
+        tvUnit2.setVisibility(View.VISIBLE);
+        tvUnit3.setVisibility(View.VISIBLE);
+        tvUnit4.setVisibility(View.VISIBLE);
+        tvUnit5.setVisibility(View.VISIBLE);
+        tvUnit6.setVisibility(View.VISIBLE);
+        tvUnit7.setVisibility(View.VISIBLE);
+        tvUnit8.setVisibility(View.VISIBLE);
+        tvUnit9.setVisibility(View.VISIBLE);
     }
 
     // other callback methods

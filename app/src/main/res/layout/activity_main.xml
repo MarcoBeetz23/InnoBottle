@@ -514,18 +514,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue1"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -593,18 +612,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue2"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -671,18 +709,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue3"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -759,18 +816,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue4"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue4"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton4"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -838,18 +914,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue5"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue5"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton5"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -918,18 +1013,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue6"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue6"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton6"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -1006,18 +1120,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue7"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue7"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton7"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -1087,18 +1220,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue8"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue8"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton8"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
@@ -1165,18 +1317,37 @@
                                         android:layout_height="match_parent"
                                         android:orientation="vertical">
 
-                                        <TextView
-                                            android:id="@+id/cellValue9"
+                                        <LinearLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="20dp"
-                                            android:text="10 N"
-                                            android:textAlignment="center"
-                                            android:textColor="#6E7D7D"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold">
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue9"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold">
 
-                                        </TextView>
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton9"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="20dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#6E7D7D"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
