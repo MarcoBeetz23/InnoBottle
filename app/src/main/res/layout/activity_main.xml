@@ -523,11 +523,11 @@
                                                 android:id="@+id/cellValue1"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -535,11 +535,11 @@
                                                 android:id="@+id/newton1"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -548,9 +548,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -621,11 +621,11 @@
                                                 android:id="@+id/cellValue2"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -633,11 +633,11 @@
                                                 android:id="@+id/newton2"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -646,9 +646,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -718,11 +718,11 @@
                                                 android:id="@+id/cellValue3"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -730,11 +730,11 @@
                                                 android:id="@+id/newton3"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -743,9 +743,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -825,11 +825,11 @@
                                                 android:id="@+id/cellValue4"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -837,11 +837,11 @@
                                                 android:id="@+id/newton4"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -850,9 +850,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -923,11 +923,11 @@
                                                 android:id="@+id/cellValue5"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -935,11 +935,11 @@
                                                 android:id="@+id/newton5"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -948,9 +948,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -1022,11 +1022,11 @@
                                                 android:id="@+id/cellValue6"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -1034,11 +1034,11 @@
                                                 android:id="@+id/newton6"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -1047,9 +1047,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -1129,11 +1129,11 @@
                                                 android:id="@+id/cellValue7"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -1141,11 +1141,11 @@
                                                 android:id="@+id/newton7"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -1154,9 +1154,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -1229,11 +1229,11 @@
                                                 android:id="@+id/cellValue8"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -1241,11 +1241,11 @@
                                                 android:id="@+id/newton8"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -1254,9 +1254,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
@@ -1326,11 +1326,11 @@
                                                 android:id="@+id/cellValue9"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text="-"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold">
 
                                             </TextView>
@@ -1338,11 +1338,11 @@
                                                 android:id="@+id/newton9"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:layout_marginTop="20dp"
+                                                android:layout_marginTop="35dp"
                                                 android:text=" N"
                                                 android:textAlignment="center"
                                                 android:textColor="#6E7D7D"
-                                                android:textSize="20sp"
+                                                android:textSize="18sp"
                                                 android:textStyle="bold"
                                                 android:visibility="gone">
 
@@ -1351,9 +1351,9 @@
 
                                         <com.google.android.material.button.MaterialButton
                                             android:layout_width="match_parent"
-                                            android:layout_height="40dp"
+                                            android:layout_height="38dp"
                                             android:layout_marginStart="25dp"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="2dp"
                                             android:layout_marginEnd="25dp"
                                             android:backgroundTint="#FFFFFF"
                                             android:text="Plot"
