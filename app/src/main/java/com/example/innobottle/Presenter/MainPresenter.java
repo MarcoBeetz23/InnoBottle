@@ -82,7 +82,6 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     /// The data from the load cells was collected by the model and arrives here again
     @Override
     public void onLoadCellValuesRetrieved(ArrayList<String> loadCellValues) {
-        Log.d("test5000", loadCellValues.toString());
         mView.onLoadCellValuesRetrieved(loadCellValues);
     }
 }
