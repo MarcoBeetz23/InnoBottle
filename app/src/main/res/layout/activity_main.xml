@@ -474,7 +474,8 @@
                                     android:layout_weight="1"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
-                                    app:cardCornerRadius="20dp">
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="visible">
 
                                     <!--shadow-->
                                     <View
@@ -492,7 +493,6 @@
                                         android:background="@drawable/background_white_round_corners">
 
                                     </View>
-
 
                                     <TextView
                                         android:layout_width="25dp"
@@ -558,6 +558,119 @@
                                             android:textSize="11sp"
                                             app:cornerRadius="10dp"
                                             app:strokeColor="#6E7D7D"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue1red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton1red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
                                             app:strokeWidth="2dp">
 
 
@@ -664,6 +777,119 @@
 
                                 </com.google.android.material.card.MaterialCardView>
 
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue2red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton2red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -753,6 +979,119 @@
                                             android:textSize="11sp"
                                             app:cornerRadius="10dp"
                                             app:strokeColor="#6E7D7D"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue3red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton3red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
                                             app:strokeWidth="2dp">
 
 
@@ -868,6 +1207,119 @@
 
                                 </com.google.android.material.card.MaterialCardView>
 
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue4red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton4red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -958,6 +1410,119 @@
                                             android:textSize="11sp"
                                             app:cornerRadius="10dp"
                                             app:strokeColor="#6E7D7D"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue5red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton5red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
                                             app:strokeWidth="2dp">
 
 
@@ -1057,6 +1622,119 @@
                                             android:textSize="11sp"
                                             app:cornerRadius="10dp"
                                             app:strokeColor="#6E7D7D"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue6red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton6red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
                                             app:strokeWidth="2dp">
 
 
@@ -1172,6 +1850,119 @@
 
                                 </com.google.android.material.card.MaterialCardView>
 
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue7red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton7red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -1264,6 +2055,119 @@
                                             android:textSize="11sp"
                                             app:cornerRadius="10dp"
                                             app:strokeColor="#6E7D7D"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue8red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton8red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
                                             app:strokeWidth="2dp">
 
 
@@ -1367,6 +2271,118 @@
                                         </com.google.android.material.button.MaterialButton>
                                     </LinearLayout>
 
+
+                                </com.google.android.material.card.MaterialCardView>
+                                //red warning
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="20dp"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#FFFFFF"
+                                    android:padding="10dp"
+                                    app:cardCornerRadius="20dp"
+                                    android:visibility="gone"
+                                    app:strokeColor="#CF1D0E"
+                                    app:strokeWidth="3dp">
+
+                                    <!--shadow-->
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@drawable/background_with_shadow_corners">
+
+                                    </View>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="1dp"
+                                        android:layout_marginEnd="1dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:background="@drawable/background_white_round_corners">
+
+                                    </View>
+
+
+                                    <TextView
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_margin="10dp"
+                                        android:background="@drawable/circle_number_red"
+                                        android:gravity="center"
+                                        android:shadowColor="@android:color/darker_gray"
+                                        android:shadowRadius="10.0"
+                                        android:text="1"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_gravity="end"
+                                        android:layout_marginTop="8dp"
+                                        android:background="@drawable/warning">
+
+                                    </ImageView>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal"
+                                            android:gravity="center_horizontal">
+                                            <TextView
+                                                android:id="@+id/cellValue9red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text="-"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold">
+
+                                            </TextView>
+                                            <TextView
+                                                android:id="@+id/newton9red"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="35dp"
+                                                android:text=" N"
+                                                android:textAlignment="center"
+                                                android:textColor="#CF1D0E"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"
+                                                android:visibility="gone">
+
+                                            </TextView>
+                                        </LinearLayout>
+
+                                        <com.google.android.material.button.MaterialButton
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_marginStart="25dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="25dp"
+                                            android:backgroundTint="#FFFFFF"
+                                            android:text="Plot"
+                                            android:textColor="#CF1D0E"
+                                            android:textSize="11sp"
+                                            app:cornerRadius="10dp"
+                                            app:strokeColor="#CF1D0E"
+                                            app:strokeWidth="2dp">
+
+
+                                        </com.google.android.material.button.MaterialButton>
+                                    </LinearLayout>
 
                                 </com.google.android.material.card.MaterialCardView>
                             </LinearLayout>

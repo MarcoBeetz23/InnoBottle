@@ -3,6 +3,7 @@ package com.example.innobottle.View;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
      */
 
     // Android components
-    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, tvUnit1, tvUnit2, tvUnit3, tvUnit4, tvUnit5, tvUnit6, tvUnit7, tvUnit8, tvUnit9;
+    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, tvUnit1, tvUnit2, tvUnit3, tvUnit4, tvUnit5, tvUnit6, tvUnit7, tvUnit8, tvUnit9, tvUnit1red, tvUnit2red, tvUnit3red, tvUnit4red, tvUnit5red, tvUnit6red, tvUnit7red, tvUnit8red, tvUnit9red;
     Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvLocation = findViewById(R.id.tv_location);
         tvDate = findViewById(R.id.tv_date);
         tvOperator = findViewById(R.id.tv_operator);
+        //units for load cell values
         tvUnit1 = findViewById(R.id.newton1);
         tvUnit2 = findViewById(R.id.newton2);
         tvUnit3 = findViewById(R.id.newton3);
@@ -90,6 +92,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvUnit7 = findViewById(R.id.newton7);
         tvUnit8 = findViewById(R.id.newton8);
         tvUnit9 = findViewById(R.id.newton9);
+        //red if warning
+        tvUnit1red = findViewById(R.id.newton1red);
+        tvUnit2red = findViewById(R.id.newton1red);
+        tvUnit3red = findViewById(R.id.newton1red);
+        tvUnit4red = findViewById(R.id.newton1red);
+        tvUnit5red = findViewById(R.id.newton1red);
+        tvUnit6red = findViewById(R.id.newton1red);
+        tvUnit7red = findViewById(R.id.newton1red);
+        tvUnit8red = findViewById(R.id.newton1red);
+        tvUnit9red = findViewById(R.id.newton1red);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
         //load Cell values text view
@@ -298,9 +310,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void onLoadCellValuesRetrieved(ArrayList<String> cellValues) {
         showLoadCellValues(cellValues);
+        //showWarning(cellValues);
     }
 
-    private void showLoadCellValues(ArrayList<String> list){
+    private void showLoadCellValues(ArrayList<String> list) {
         tvValue1.setText(list.get(0));
         tvValue2.setText(list.get(1));
         tvValue3.setText(list.get(2));
@@ -312,6 +325,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvValue9.setText(list.get(8));
 
         // UI changes
+        showUnits();
+    }
+
+    private void showUnits() {
         tvUnit1.setVisibility(View.VISIBLE);
         tvUnit2.setVisibility(View.VISIBLE);
         tvUnit3.setVisibility(View.VISIBLE);
@@ -321,7 +338,24 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvUnit7.setVisibility(View.VISIBLE);
         tvUnit8.setVisibility(View.VISIBLE);
         tvUnit9.setVisibility(View.VISIBLE);
+
+        //warnings change color
+        tvUnit1red.setVisibility(View.VISIBLE);
+        tvUnit2red.setVisibility(View.VISIBLE);
+        tvUnit3red.setVisibility(View.VISIBLE);
+        tvUnit4red.setVisibility(View.VISIBLE);
+        tvUnit5red.setVisibility(View.VISIBLE);
+        tvUnit6red.setVisibility(View.VISIBLE);
+        tvUnit7red.setVisibility(View.VISIBLE);
+        tvUnit8red.setVisibility(View.VISIBLE);
+        tvUnit9red.setVisibility(View.VISIBLE);
     }
+
+    //private void showWarning(ArrayList<String> list) {
+        //if (new Integer(list.get(0)) > 0) {
+            //tvValue1.setTextColor(Color.parseColor("#CF1D0E"));
+        //}
+    //}
 
     // other callback methods
 }
