@@ -2,6 +2,7 @@
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include <time.h>
+#include <RTClib.h>
 
 #define XSTR(x) #x
 #define STR(x) XSTR(x)
@@ -39,6 +40,9 @@ float calculationFactor = 0.00004444;
 // UDP
 WiFiUDP udp;
 
+// time
+RTC_DS3231 rtc;
+
 // WiFi credentials
 char* SSID;
 char* PW;
@@ -73,7 +77,7 @@ void initCells(){
 void initWiFi(){
   SSID = "Krones-TB2019";
   PW = "TB@Kr0nes!2019";
-  IP = "192.168.178.47";
+  IP = "192.168.178.71";
   PORT = 5700;
 
   WiFi.mode(WIFI_STA);
@@ -105,6 +109,29 @@ void convertValues(){
   v7 = (v7 + resetCell7) * calculationFactor;
   v8 = (v8 + resetCell8) * calculationFactor;
   v9 = (v9 + resetCell9) * calculationFactor;
+
+}
+
+void writeValues(){
+  Serial.print(v1);
+  Serial.print("---");
+  Serial.print(v2);
+  Serial.print("---");
+  Serial.print(v3);
+  Serial.print("---");
+  Serial.print(v4);
+  Serial.print("---");
+  Serial.print(v5);
+  Serial.print("---");
+  Serial.print(v6);
+  Serial.print("---");
+  Serial.print(v7);
+  Serial.print("---");
+  Serial.print(v8);
+  Serial.print("---");
+  Serial.print(v9);
+  Serial.print("---");
+  Serial.println();
 }
 
 void sendData(){
@@ -124,4 +151,3 @@ void sendData(){
     udp.endPacket();
     Serial.println(buffer);
 }  
-
