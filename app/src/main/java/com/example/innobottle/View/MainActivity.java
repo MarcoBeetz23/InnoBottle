@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnPause.setEnabled(true);
                 btnStart.setEnabled(true);
                 btnSave.setEnabled(true);
+                tvSensorRunName.setText("Sensor Run 1");
                 Toast.makeText(MainActivity.this,
                         "A new sensor run has been created. Let's start!",
                         Toast.LENGTH_LONG).show();
@@ -175,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnPause.setVisibility(View.GONE);
                 btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
+                tvSensorRunName.setText("Force Measurement");
                 Toast.makeText(MainActivity.this,
                         "The sensor run has been terminated. Your data is saved automatically.",
                         Toast.LENGTH_LONG).show();
