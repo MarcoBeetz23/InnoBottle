@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             super.handleMessage(msg);
             messageString = msg.toString();
             mPresenter.handleRawData(messageString);
+            Log.d("message as string", messageString);
         }
     };
 
