@@ -141,29 +141,53 @@
 
                     </ImageView>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="true"
                     android:layout_alignParentBottom="true"
+                    android:baselineAligned="true"
                     android:weightSum="3">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_start"
+                        android:id="@+id/btn_new"
                         android:layout_width="0dp"
                         android:layout_height="48dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1.5"
-                        android:text="Start new sensor run"
-                        android:textColor="#FFFFFF"
-                        app:icon="@drawable/play"
-                        app:iconGravity="textStart"
-                        app:iconSize="18dp"
-                        app:iconPadding="18dp"
-                        app:backgroundTint="@null"
                         android:background="@drawable/gradient_background_button"
                         android:enabled="true"
+                        android:text="Create new sensor run"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        app:backgroundTint="@null"
+                        app:icon="@drawable/new_run"
+                        app:iconGravity="textStart"
+                        app:iconPadding="18dp"
+                        app:iconSize="25dp"
+                        app:iconTint="#FFFFFF">
+
+                    </com.google.android.material.button.MaterialButton>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_start"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="0.75"
+                        android:background="@drawable/gradient_background_button"
+                        android:enabled="false"
+                        android:text="Start"
+                        android:textSize="13sp"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="10dp"
+                        app:icon="@drawable/play"
+                        app:iconGravity="textStart"
+                        app:iconPadding="18dp"
+                        app:iconSize="18dp"
                         app:iconTint="#FFFFFF">
 
                     </com.google.android.material.button.MaterialButton>
@@ -174,39 +198,21 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginBottom="10dp"
-                        app:backgroundTint="@null"
-                        android:background="@drawable/gradient_background_button"
-                        android:text="Pause"
-                        android:textColor="#FFFFFF"
-                        app:cornerRadius="10dp"
                         android:layout_weight="0.75"
+                        android:background="@drawable/gradient_background_button"
+                        android:enabled="true"
+                        android:text="Pause"
+                        android:textSize="13sp"
+                        android:textColor="#FFFFFF"
+                        android:visibility="gone"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="10dp"
                         app:icon="@drawable/pause"
                         app:iconGravity="textStart"
-                        app:iconSize="18dp"
                         app:iconPadding="18dp"
-                        app:iconTint="#FFFFFF"
-                        android:enabled="false">
-                    </com.google.android.material.button.MaterialButton>
+                        app:iconSize="18dp"
+                        app:iconTint="#FFFFFF">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_resume"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="10dp"
-                        app:backgroundTint="@null"
-                        android:background="@drawable/gradient_background_button"
-                        android:text="Resume"
-                        android:textColor="#FFFFFF"
-                        app:cornerRadius="10dp"
-                        android:layout_weight="0.75"
-                        app:icon="@drawable/play"
-                        app:iconGravity="textStart"
-                        app:iconSize="18dp"
-                        app:iconPadding="18dp"
-                        app:iconTint="#FFFFFF"
-                        android:enabled="true"
-                        android:visibility="gone">
                     </com.google.android.material.button.MaterialButton>
 
                     <com.google.android.material.button.MaterialButton
@@ -215,17 +221,18 @@
                         android:layout_height="60dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Save"
+                        android:layout_weight="0.75"
+                        android:enabled="false"
+                        android:text="Stop"
+                        android:textSize="13sp"
                         android:textColor="#FFFFFF"
                         app:backgroundTint="#6E7D7D"
                         app:cornerRadius="10dp"
-                        android:layout_weight="0.75"
                         app:icon="@drawable/save"
                         app:iconGravity="textStart"
-                        app:iconSize="22dp"
                         app:iconPadding="18dp"
-                        app:iconTint="#FFFFFF"
-                        android:enabled="false">
+                        app:iconSize="22dp"
+                        app:iconTint="#FFFFFF">
 
                     </com.google.android.material.button.MaterialButton>
                 </LinearLayout>
@@ -464,14 +471,31 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
-                                android:padding="10dp"
-                                android:weightSum="3">
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:weightSum="4">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.21">
+
+                                    <ImageView
+                                        android:layout_width="8dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:background="@drawable/long_rectangle_blue">
+                                    </ImageView>
+
+                                </LinearLayout>
 
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -571,7 +595,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -683,7 +707,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -782,7 +806,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -893,7 +917,7 @@
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -992,7 +1016,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -1106,14 +1130,31 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
-                                android:padding="10dp"
-                                android:weightSum="3">
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:weightSum="4">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.21">
+
+                                    <ImageView
+                                        android:layout_width="8dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:background="@drawable/long_rectangle_light_grey">
+                                    </ImageView>
+
+                                </LinearLayout>
 
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -1139,7 +1180,7 @@
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:layout_margin="10dp"
-                                        android:background="@drawable/circle_number"
+                                        android:background="@drawable/circle_number_light_grey"
                                         android:gravity="center"
                                         android:shadowColor="@android:color/darker_gray"
                                         android:shadowRadius="10.0"
@@ -1212,7 +1253,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -1324,7 +1365,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -1350,7 +1391,7 @@
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:layout_margin="10dp"
-                                        android:background="@drawable/circle_number"
+                                        android:background="@drawable/circle_number_light_grey"
                                         android:gravity="center"
                                         android:shadowColor="@android:color/darker_gray"
                                         android:shadowRadius="10.0"
@@ -1423,7 +1464,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -1534,7 +1575,7 @@
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -1562,7 +1603,7 @@
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:layout_margin="10dp"
-                                        android:background="@drawable/circle_number"
+                                        android:background="@drawable/circle_number_light_grey"
                                         android:gravity="center"
                                         android:shadowColor="@android:color/darker_gray"
                                         android:shadowRadius="10.0"
@@ -1749,14 +1790,31 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
-                                android:padding="10dp"
-                                android:weightSum="3">
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:weightSum="4">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.21">
+
+                                    <ImageView
+                                        android:layout_width="8dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:background="@drawable/long_rectangle_dark_grey">
+                                    </ImageView>
+
+                                </LinearLayout>
 
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -1782,7 +1840,7 @@
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:layout_margin="10dp"
-                                        android:background="@drawable/circle_number"
+                                        android:background="@drawable/circle_number_dark_grey"
                                         android:gravity="center"
                                         android:shadowColor="@android:color/darker_gray"
                                         android:shadowRadius="10.0"
@@ -1855,7 +1913,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -1967,7 +2025,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -1995,7 +2053,7 @@
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:layout_margin="10dp"
-                                        android:background="@drawable/circle_number"
+                                        android:background="@drawable/circle_number_dark_grey"
                                         android:gravity="center"
                                         android:shadowColor="@android:color/darker_gray"
                                         android:shadowRadius="10.0"
@@ -2068,7 +2126,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -2179,7 +2237,7 @@
                                 <com.google.android.material.card.MaterialCardView
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp">
@@ -2205,7 +2263,7 @@
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:layout_margin="10dp"
-                                        android:background="@drawable/circle_number"
+                                        android:background="@drawable/circle_number_dark_grey"
                                         android:gravity="center"
                                         android:shadowColor="@android:color/darker_gray"
                                         android:shadowRadius="10.0"
@@ -2278,7 +2336,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginEnd="20dp"
-                                    android:layout_weight="1"
+                                    android:layout_weight="1.26"
                                     android:backgroundTint="#FFFFFF"
                                     android:padding="10dp"
                                     app:cardCornerRadius="20dp"
@@ -2456,46 +2514,94 @@
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.7"
+                                android:layout_weight="0.65"
                                 android:orientation="vertical"
                                 android:paddingTop="10dp"
                                 android:gravity="right">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Cell Row 1"
-                                    android:padding="5dp"
-                                    android:textColor="#636161"
-                                    android:textSize="14sp">
+                                    android:orientation="horizontal"
+                                    android:gravity="right">
 
-                                </TextView>
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:layout_height="15dp"
+                                        android:background="@drawable/rectangle_blue"
+                                        android:layout_marginEnd="5dp"
+                                        android:layout_marginTop="7dp">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cell Row 1"
+                                        android:padding="5dp"
+                                        android:textColor="#636161"
+                                        android:textSize="13sp">
+
+                                    </TextView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Cell Row 2"
-                                    android:padding="5dp"
-                                    android:textColor="#636161"
-                                    android:textSize="14sp">
+                                    android:orientation="horizontal"
+                                    android:gravity="right">
 
-                                </TextView>
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:layout_height="15dp"
+                                        android:background="@drawable/rectangle_light_grey"
+                                        android:layout_marginEnd="5dp"
+                                        android:layout_marginTop="7dp">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cell Row 2"
+                                        android:padding="5dp"
+                                        android:textColor="#636161"
+                                        android:textSize="13sp">
+
+                                    </TextView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Cell Row 3"
-                                    android:padding="5dp"
-                                    android:textColor="#636161"
-                                    android:textSize="14sp">
+                                    android:orientation="horizontal"
+                                    android:gravity="right">
 
-                                </TextView>
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:layout_height="15dp"
+                                        android:background="@drawable/rectangle_dark_grey"
+                                        android:layout_marginEnd="5dp"
+                                        android:layout_marginTop="7dp">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Cell Row 3"
+                                        android:padding="5dp"
+                                        android:textColor="#636161"
+                                        android:textSize="13sp">
+
+                                    </TextView>
+                                </LinearLayout>
 
                             </LinearLayout>
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="0.3"
+                                android:layout_weight="0.35"
                                 android:gravity="right"
-                                android:marginRight="10dp">
+                                android:layout_marginRight="10dp">
 
                                 <ImageView
                                     android:layout_width="40dp"

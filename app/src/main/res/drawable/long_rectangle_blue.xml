@@ -8,4 +8,8 @@
         android:type="linear"
         android:angle="-90"> <!-- Change this value to have the correct shadow angle, must be multiple from 45 -->
     </gradient>
+    <corners
+        android:radius="30dp">
+
+    </corners>
 </shape>

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Android components
     TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, tvUnit1, tvUnit2, tvUnit3, tvUnit4, tvUnit5, tvUnit6, tvUnit7, tvUnit8, tvUnit9, tvUnit1red, tvUnit2red, tvUnit3red, tvUnit4red, tvUnit5red, tvUnit6red, tvUnit7red, tvUnit8red, tvUnit9red;
-    Button btnStartRun, btnPause, btnSave, btnResume, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
+    Button btnNewRun, btnPause, btnSave, btnStart, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
     // Text views for load cell values
@@ -73,10 +73,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void setupUIComponents(){
         setContentView(R.layout.activity_main);
         tvSensorRunName = findViewById(R.id.tvSensorRunName);
-        btnStartRun = findViewById(R.id.btn_start);
+        btnNewRun = findViewById(R.id.btn_new);
         btnPause = findViewById(R.id.btn_pause);
         btnSave = findViewById(R.id.btn_export);
-        btnResume = findViewById(R.id.btn_resume);
+        btnStart= findViewById(R.id.btn_start);
         greenCircle = findViewById(R.id.greenCircle);
         tvCustomer = findViewById(R.id.tv_customer);
         tvLocation = findViewById(R.id.tv_location);
@@ -118,42 +118,41 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     private void handleUserClicks(){
         handleStartClick();
-        handlePauseClick();
+        handleNewRunClick();
         handleSaveClick();
         handleResumeClick();
         switchScreen();
     }
 
-    private void handleStartClick(){
-        btnStartRun.setOnClickListener(new View.OnClickListener() {
+    private void handleNewRunClick(){
+        btnNewRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(sensorRunIsReady()){
                     mPresenter.setActiveState();
                 }
                 //button change
-                btnStartRun.setEnabled(false);
+                btnNewRun.setEnabled(false);
                 btnPause.setEnabled(true);
-                btnResume.setEnabled(true);
+                btnStart.setEnabled(true);
                 btnSave.setEnabled(true);
-                greenCircle.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this,
-                        "Your measurement is running!",
+                        "A new sensor run has been created. Let's start!",
                         Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    private void handlePauseClick(){
-        btnPause.setOnClickListener(new View.OnClickListener() {
+    private void handleStartClick(){
+        btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.setPauseState();
-                btnPause.setVisibility(View.GONE);
-                btnResume.setVisibility(View.VISIBLE);
-                greenCircle.setVisibility(View.GONE);
+                btnStart.setVisibility(View.GONE);
+                btnPause.setVisibility(View.VISIBLE);
+                greenCircle.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this,
-                        "Your measurement is paused!",
+                        "Your measurement is running!",
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -167,11 +166,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 handleDialog();
                 mPresenter.setPauseState();
                 // button change
-                btnStartRun.setEnabled(true);
+                btnNewRun.setEnabled(true);
+                btnStart.setEnabled(false);
+                btnStart.setVisibility(View.VISIBLE);
                 btnPause.setEnabled(false);
-                btnPause.setVisibility(View.VISIBLE);
-                btnResume.setEnabled(false);
-                btnResume.setVisibility(View.GONE);
+                btnPause.setVisibility(View.GONE);
                 btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
             }
@@ -215,12 +214,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void handleResumeClick() {
-        btnResume.setOnClickListener(new View.OnClickListener() {
+        btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.setActiveState();
-                btnResume.setVisibility(View.GONE);
-                btnPause.setVisibility(View.VISIBLE);
+                btnPause.setVisibility(View.GONE);
+                btnStart.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this,
                         "Your measurement is running again!",
