@@ -185,7 +185,7 @@
                         app:iconSize="18dp"
                         app:iconPadding="18dp"
                         app:iconTint="#FFFFFF"
-                        android:enabled="false">
+                        android:enabled="true">
                     </com.google.android.material.button.MaterialButton>
 
                     <com.google.android.material.button.MaterialButton

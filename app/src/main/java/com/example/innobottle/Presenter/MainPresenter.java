@@ -13,33 +13,28 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     private MainContract.View mView;
     private MainModel mModel;
 
+    private boolean stateIsActive = false;
+
     public MainPresenter(MainContract.View mainView){
         this.mView = mainView;
         mModel = new MainModel(this);
     }
 
-
-    /////////////////////////////////////////
-    // This section handles user input
     @Override
-    public void pauseSensorRun() {
+    public void handleRawData(String s) {
+        if(stateIsActive){
+            Log.d("fetched data ;", s);
+        }
     }
 
-    @Override
-    public void deleteSensorRun() {
-    }
-
-    @Override
-    public void resumeSensorRun(){
-    }
-    //////////////////////////////////////
-
-
-    ////////////////////////////////////////
-    // This section handles state management
     @Override
     public void setReadyState() {
         mModel.setReadyStateInFirebase();
+    }
+
+    @Override
+    public void setActiveState() {
+        mModel.setActiveStateInFirebase();
     }
 
     @Override
@@ -48,40 +43,22 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     }
 
     @Override
-    public void setActiveState() {
-        mModel.setActiveStateInFirebase();
-    }
+    public void startDataTransmissionToFirebase() {
 
-    ////////////////////////////////////////////
-
-
-    ////////////////////////////////////////////
-    // This section retrieves meta information about the current Sensor Run
-    @Override
-    public void retrieveSensorInformation(){
-        mModel.retrieveSensorInformationInFirebase();
     }
 
     @Override
-    public void onSensorInformationRetrieved(ArrayList<String> information){
-        mView.onInformationRetrieved(information);
-    }
-    ////////////////////////////////////////////
-
-
-    /////////////////////////////////////////////
-    // This section represents internal processes and is not called initially but later referenced
-    // Coming from mModel.setActiveStateInFirebase()
-    // When the task is complete, another Model-Method is called that will actually retrieve the values
-    @Override
-    public void onSensorRunInitialized() {
-        mModel.fetchValuesFromFirebase();
+    public void onReadyStateInitialized() {
+        stateIsActive = false;
     }
 
-
-    /// The data from the load cells was collected by the model and arrives here again
     @Override
-    public void onLoadCellValuesRetrieved(ArrayList<String> loadCellValues) {
-        mView.onLoadCellValuesRetrieved(loadCellValues);
+    public void onActiveStateInitialized() {
+        stateIsActive = true;
+    }
+
+    @Override
+    public void onPauseStateInitialized() {
+        stateIsActive = false;
     }
 }
