@@ -128,10 +128,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnNewRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(sensorRunIsReady()){
-                    mPresenter.setActiveState();
-                }
-                //button change
                 btnNewRun.setEnabled(false);
                 btnPause.setEnabled(true);
                 btnStart.setEnabled(true);
@@ -147,6 +143,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(sensorRunIsReady()){
+                    mPresenter.setActiveState();
+                }
+                //button change
                 mPresenter.setPauseState();
                 btnStart.setVisibility(View.GONE);
                 btnPause.setVisibility(View.VISIBLE);
@@ -164,7 +164,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View view) {
                 //handleDialog();
-                mPresenter.setPauseState();
+                mPresenter.setReadyState();
+                showDefault();
+                removeUnits();
                 // button change
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
@@ -174,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this,
-                        "Your sensor run has been terminated. The measurement was saved automatically.",
+                        "The sensor run has been terminated. Your data is saved automatically.",
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -351,6 +353,41 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvUnit7red.setVisibility(View.VISIBLE);
         tvUnit8red.setVisibility(View.VISIBLE);
         tvUnit9red.setVisibility(View.VISIBLE);
+    }
+
+    private void showDefault() {
+        tvValue1.setText("-");
+        tvValue2.setText("-");
+        tvValue3.setText("-");
+        tvValue4.setText("-");
+        tvValue5.setText("-");
+        tvValue6.setText("-");
+        tvValue7.setText("-");
+        tvValue8.setText("-");
+        tvValue9.setText("-");
+    }
+
+    private void removeUnits() {
+        tvUnit1.setVisibility(View.GONE);
+        tvUnit2.setVisibility(View.GONE);
+        tvUnit3.setVisibility(View.GONE);
+        tvUnit4.setVisibility(View.GONE);
+        tvUnit5.setVisibility(View.GONE);
+        tvUnit6.setVisibility(View.GONE);
+        tvUnit7.setVisibility(View.GONE);
+        tvUnit8.setVisibility(View.GONE);
+        tvUnit9.setVisibility(View.GONE);
+
+        //warnings change color
+        tvUnit1red.setVisibility(View.GONE);
+        tvUnit2red.setVisibility(View.GONE);
+        tvUnit3red.setVisibility(View.GONE);
+        tvUnit4red.setVisibility(View.GONE);
+        tvUnit5red.setVisibility(View.GONE);
+        tvUnit6red.setVisibility(View.GONE);
+        tvUnit7red.setVisibility(View.GONE);
+        tvUnit8red.setVisibility(View.GONE);
+        tvUnit9red.setVisibility(View.GONE);
     }
 
     //private void showWarning(ArrayList<String> list) {

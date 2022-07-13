@@ -119,16 +119,17 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="20dp">
-                    <ImageView
+                    <pl.droidsonroids.gif.GifImageView
                         android:id="@+id/greenCircle"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/green2"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/green2"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:visibility="gone">
 
-                    </ImageView>
+                    </pl.droidsonroids.gif.GifImageView>
+
                     <TextView
                         android:id="@+id/tvSensorRunName"
                         android:layout_width="wrap_content"
