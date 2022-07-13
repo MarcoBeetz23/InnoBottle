@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         handleStartClick();
         handleNewRunClick();
         handleSaveClick();
-        handleResumeClick();
+        handlePauseClick();
         switchScreen();
     }
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handleDialog();
+                //handleDialog();
                 mPresenter.setPauseState();
                 // button change
                 btnNewRun.setEnabled(true);
@@ -173,6 +173,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnPause.setVisibility(View.GONE);
                 btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this,
+                        "Your sensor run has been terminated. The measurement was saved automatically.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -213,17 +216,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-    private void handleResumeClick() {
+    private void handlePauseClick() {
         btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.setActiveState();
-                btnPause.setVisibility(View.GONE);
                 btnStart.setVisibility(View.VISIBLE);
-                greenCircle.setVisibility(View.VISIBLE);
+                btnPause.setVisibility(View.GONE);
+                greenCircle.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this,
-                        "Your measurement is running again!",
-                        Toast.LENGTH_LONG).show(); // muss wahrscheinlich dann in eine andere Funktion rein
+                        "Your measurement is paused.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
