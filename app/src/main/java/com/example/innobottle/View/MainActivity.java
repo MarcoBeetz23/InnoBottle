@@ -21,11 +21,14 @@ import com.example.innobottle.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    String messageString;
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Log.d("hi123", "got it " + msg);
+            messageString = msg.toString();
+            Log.d("message as string", messageString);
         }
     };
 
@@ -57,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                         DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                         socket.receive(packet);
                         String s = new String(packet.getData());
-                        Log.d("test1000", s);
                         socket.close();
                         handler.obtainMessage(0, s).sendToTarget();
                     }
