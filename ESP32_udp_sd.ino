@@ -183,13 +183,13 @@ void sendData(){
                         "\"cell7\":" + v8 + "," +                                                                                                                                                                    
                         "\"cell8\":" + v9 + "}}";
                         
+    String dataString = String(v1) + ", " + String(v2) + ", " + String(v3) + ", " + String(v4) + ", " + String(v5) + ", " + String(v6) + ", " + String(v7) + ", " + String(v8) + ", " + String(v9) + ", " + String(timedelta);
     udp.beginPacket(IP, PORT);
-    udp.write((uint8_t*)buffer.c_str(), buffer.length());    
+    udp.write((uint8_t*)dataString.c_str(), dataString.length());    
     udp.endPacket();
-    Serial.println(buffer);
+    Serial.println(dataString);
     //write to sd card
     String filename = "/loadCells" + String(counter) + ".csv";
-    String dataString = String(v1) + ", " + String(v2) + ", " + String(v3) + ", " + String(v4) + ", " + String(v5) + ", " + String(v6) + ", " + String(v7) + ", " + String(v8) + ", " + String(v9) + ", " + String(timedelta);
     appendFile(SD, filename.c_str(), dataString.c_str());
 }  
 
