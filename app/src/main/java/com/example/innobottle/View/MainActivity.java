@@ -26,11 +26,13 @@ import java.util.ArrayList;
 
 import com.example.innobottle.R;
 
+import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     // Android components
-    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, tvUnit1, tvUnit2, tvUnit3, tvUnit4, tvUnit5, tvUnit6, tvUnit7, tvUnit8, tvUnit9, tvUnit1red, tvUnit2red, tvUnit3red, tvUnit4red, tvUnit5red, tvUnit6red, tvUnit7red, tvUnit8red, tvUnit9red;
+    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, ed;
     Button btnNewRun, btnPause, btnSave, btnStart, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     /// refactor the TextView variables to Arrays for reducing duplicate code
     TextView[] loadCellValues = new TextView[9];
+    TextView[] tvUnit = new TextView[9];
+    TextView[] tvUnitred = new TextView[9];
 
 
     //debug
@@ -93,25 +97,25 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvDate = findViewById(R.id.tv_date);
         tvOperator = findViewById(R.id.tv_operator);
         //units for load cell values
-        tvUnit1 = findViewById(R.id.newton1);
-        tvUnit2 = findViewById(R.id.newton2);
-        tvUnit3 = findViewById(R.id.newton3);
-        tvUnit4 = findViewById(R.id.newton4);
-        tvUnit5 = findViewById(R.id.newton5);
-        tvUnit6 = findViewById(R.id.newton6);
-        tvUnit7 = findViewById(R.id.newton7);
-        tvUnit8 = findViewById(R.id.newton8);
-        tvUnit9 = findViewById(R.id.newton9);
+        tvUnit[1] = findViewById(R.id.newton1);
+        tvUnit[2] = findViewById(R.id.newton2);
+        tvUnit[3] = findViewById(R.id.newton3);
+        tvUnit[4] = findViewById(R.id.newton4);
+        tvUnit[5] = findViewById(R.id.newton5);
+        tvUnit[6] = findViewById(R.id.newton6);
+        tvUnit[7] = findViewById(R.id.newton7);
+        tvUnit[8] = findViewById(R.id.newton8);
+        tvUnit[9] = findViewById(R.id.newton9);
         //red if warning
-        tvUnit1red = findViewById(R.id.newton1red);
-        tvUnit2red = findViewById(R.id.newton2red);
-        tvUnit3red = findViewById(R.id.newton3red);
-        tvUnit4red = findViewById(R.id.newton4red);
-        tvUnit5red = findViewById(R.id.newton5red);
-        tvUnit6red = findViewById(R.id.newton6red);
-        tvUnit7red = findViewById(R.id.newton7red);
-        tvUnit8red = findViewById(R.id.newton8red);
-        tvUnit9red = findViewById(R.id.newton9red);
+        tvUnitred[1] = findViewById(R.id.newton1red);
+        tvUnitred[2] = findViewById(R.id.newton2red);
+        tvUnitred[3] = findViewById(R.id.newton3red);
+        tvUnitred[4] = findViewById(R.id.newton4red);
+        tvUnitred[5] = findViewById(R.id.newton5red);
+        tvUnitred[6] = findViewById(R.id.newton6red);
+        tvUnitred[7] = findViewById(R.id.newton7red);
+        tvUnitred[8] = findViewById(R.id.newton8red);
+        tvUnitred[9] = findViewById(R.id.newton9red);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
         //load Cell values text view
@@ -125,17 +129,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         loadCellValues[6] = findViewById(R.id.cellValue7);
         loadCellValues[7] = findViewById(R.id.cellValue8);
         loadCellValues[8] = findViewById(R.id.cellValue9);
-
-
-        tvValue1 = findViewById(R.id.cellValue1);
-        tvValue2 = findViewById(R.id.cellValue2);
-        tvValue3 = findViewById(R.id.cellValue3);
-        tvValue4 = findViewById(R.id.cellValue4);
-        tvValue5 = findViewById(R.id.cellValue5);
-        tvValue6 = findViewById(R.id.cellValue6);
-        tvValue7 = findViewById(R.id.cellValue7);
-        tvValue8 = findViewById(R.id.cellValue8);
-        tvValue9 = findViewById(R.id.cellValue9);
     }
 
     private void handleUserClicks() {
@@ -170,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 // todo - firebase get current state
                 mPresenter.setActiveState();
                 //button change
+                showUnits();
                 btnStart.setVisibility(View.GONE);
                 btnPause.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
@@ -305,61 +299,23 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
 
     private void showUnits() {
-        tvUnit1.setVisibility(View.VISIBLE);
-        tvUnit2.setVisibility(View.VISIBLE);
-        tvUnit3.setVisibility(View.VISIBLE);
-        tvUnit4.setVisibility(View.VISIBLE);
-        tvUnit5.setVisibility(View.VISIBLE);
-        tvUnit6.setVisibility(View.VISIBLE);
-        tvUnit7.setVisibility(View.VISIBLE);
-        tvUnit8.setVisibility(View.VISIBLE);
-        tvUnit9.setVisibility(View.VISIBLE);
-
-        //warnings change color
-        tvUnit1red.setVisibility(View.VISIBLE);
-        tvUnit2red.setVisibility(View.VISIBLE);
-        tvUnit3red.setVisibility(View.VISIBLE);
-        tvUnit4red.setVisibility(View.VISIBLE);
-        tvUnit5red.setVisibility(View.VISIBLE);
-        tvUnit6red.setVisibility(View.VISIBLE);
-        tvUnit7red.setVisibility(View.VISIBLE);
-        tvUnit8red.setVisibility(View.VISIBLE);
-        tvUnit9red.setVisibility(View.VISIBLE);
+        for (int i = 1; i < 10; i++) {
+            tvUnit[i].setVisibility(View.VISIBLE);
+            tvUnitred[i].setVisibility(View.VISIBLE);
+        }
     }
 
     private void showDefault() {
-        tvValue1.setText("-");
-        tvValue2.setText("-");
-        tvValue3.setText("-");
-        tvValue4.setText("-");
-        tvValue5.setText("-");
-        tvValue6.setText("-");
-        tvValue7.setText("-");
-        tvValue8.setText("-");
-        tvValue9.setText("-");
+        for (int i = 1; i < 10; i++) {
+            loadCellValues[i].setText("-");
+        }
     }
 
     private void removeUnits() {
-        tvUnit1.setVisibility(View.GONE);
-        tvUnit2.setVisibility(View.GONE);
-        tvUnit3.setVisibility(View.GONE);
-        tvUnit4.setVisibility(View.GONE);
-        tvUnit5.setVisibility(View.GONE);
-        tvUnit6.setVisibility(View.GONE);
-        tvUnit7.setVisibility(View.GONE);
-        tvUnit8.setVisibility(View.GONE);
-        tvUnit9.setVisibility(View.GONE);
-
-        //warnings change color
-        tvUnit1red.setVisibility(View.GONE);
-        tvUnit2red.setVisibility(View.GONE);
-        tvUnit3red.setVisibility(View.GONE);
-        tvUnit4red.setVisibility(View.GONE);
-        tvUnit5red.setVisibility(View.GONE);
-        tvUnit6red.setVisibility(View.GONE);
-        tvUnit7red.setVisibility(View.GONE);
-        tvUnit8red.setVisibility(View.GONE);
-        tvUnit9red.setVisibility(View.GONE);
+        for (int i = 1; i < 10; i++) {
+            tvUnit[i].setVisibility(View.GONE);
+            tvUnitred[i].setVisibility(View.GONE);
+        }
     }
 
     public void handleUDP() {
