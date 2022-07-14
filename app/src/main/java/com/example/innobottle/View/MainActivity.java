@@ -63,11 +63,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupUIComponents();
-        mPresenter = new MainPresenter( this);
+        mPresenter = new MainPresenter(this);
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         mPresenter.setReadyState();
     }
@@ -79,12 +79,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         handleUserClicks();
     }
 
-    private void setupUIComponents(){
+    private void setupUIComponents() {
         setContentView(R.layout.activity_main);
         tvSensorRunName = findViewById(R.id.tvSensorRunName);
-        btnStart = findViewById(R.id.btn_start);
+        btnNewRun = findViewById(R.id.btn_new);
         btnPause = findViewById(R.id.btn_pause);
         btnSave = findViewById(R.id.btn_export);
+        btnStart = findViewById(R.id.btn_start);
         greenCircle = findViewById(R.id.greenCircle);
         tvCustomer = findViewById(R.id.tv_customer);
         tvLocation = findViewById(R.id.tv_location);
@@ -125,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         loadCellValues[8] = findViewById(R.id.cellValue9);
 
 
-
         tvValue1 = findViewById(R.id.cellValue1);
         tvValue2 = findViewById(R.id.cellValue2);
         tvValue3 = findViewById(R.id.cellValue3);
@@ -137,21 +137,42 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvValue9 = findViewById(R.id.cellValue9);
     }
 
-    private void handleUserClicks(){
+    private void handleUserClicks() {
         handleStartClick();
+        handleNewRunClick();
         handleSaveClick();
         handlePauseClick();
         switchScreen();
     }
 
+    private void handleNewRunClick() {
+        btnNewRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnNewRun.setEnabled(false);
+                btnPause.setEnabled(true);
+                btnStart.setEnabled(true);
+                btnSave.setEnabled(true);
+                btnStart.setVisibility(View.GONE);
+                btnPause.setVisibility(View.VISIBLE);
+                greenCircle.setVisibility(View.VISIBLE);
+                Toast.makeText(MainActivity.this,
+                        "Your measurement is running!",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 
-    private void handleStartClick(){
+    private void handleStartClick() {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // todo - firebase get current state
                 mPresenter.setActiveState();
                 //button change
-             //   mPresenter.setPauseState();
+                mPresenter.setPauseState();
+                btnStart.setVisibility(View.GONE);
+                btnPause.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
                 Toast.makeText(MainActivity.this,
                         "Your measurement is running!",
@@ -161,14 +182,20 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
 
-    private void handleSaveClick(){
+    private void handleSaveClick() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //handleDialog();
+                mPresenter.setReadyState();
                 showDefault();
                 removeUnits();
                 // button change
+                btnNewRun.setEnabled(true);
+                btnStart.setEnabled(false);
+                btnStart.setVisibility(View.VISIBLE);
+                btnPause.setEnabled(false);
+                btnPause.setVisibility(View.GONE);
+                btnSave.setEnabled(false);
                 greenCircle.setVisibility(View.GONE);
                 tvSensorRunName.setText("Force Measurement");
                 Toast.makeText(MainActivity.this,
@@ -180,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     /////////////////////////////////////////////////////////
     // This section represents internal handling of the dialog
-    private void handleDialog(){
+    private void handleDialog() {
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.save_dialog);
         btnDeleteSensorRun = dialog.findViewById(R.id.btn_deleteSensorRun);
@@ -191,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         closeDialog();
     }
 
-    private void closeDialog(){
+    private void closeDialog() {
         cancelSaveProcess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -219,7 +246,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View v) {
                 mPresenter.setPauseState();
-                Log.d("hi123", "ouch!");
+                btnStart.setVisibility(View.VISIBLE);
+                btnPause.setVisibility(View.GONE);
+                greenCircle.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this,
                         "Your measurement is paused.",
                         Toast.LENGTH_LONG).show();
@@ -227,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
-    private void handleDeleteDialogButtons(){
+    private void handleDeleteDialogButtons() {
         btnFinalDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -251,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
 
-    private void handleDeleteDialog(){
+    private void handleDeleteDialog() {
         deleteDialog = new Dialog(context);
         deleteDialog.setContentView(R.layout.delete_dialog);
         btnFinalDelete = deleteDialog.findViewById(R.id.btn_finalDelete);
@@ -261,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         handleDeleteDialogButtons();
     }
 
-    private void switchScreen(){
+    private void switchScreen() {
         greenBottleImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -329,9 +358,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvUnit8red.setVisibility(View.GONE);
         tvUnit9red.setVisibility(View.GONE);
     }
-
-
-
 
     public void handleUDP() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();

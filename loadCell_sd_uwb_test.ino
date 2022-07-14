@@ -12,23 +12,19 @@
 #include <vfs_api.h>
 #include <SPI.h>
 #include <SD.h>
+#include <Preferences.h>
+
+Preferences preferences;
  
 // chip select IO pin for connecting SD Card module with ESP
-
-// pin define for esp32 black
-#define CS  15
+#define CS  4
 #define MISO 19
 #define SCK 18
-#define MOSI 21
-
-// pin define for esp32 red uwb
-//#define CS 4
-//#define MISO 19
-//#define MOSI 23
-//#define SCK 18
+#define MOSI 23
 
 //sd card file name
 File file;
+unsigned int counter;
 unsigned long timedelta;
 
 
@@ -47,7 +43,10 @@ int dout9 = 32; // tested
 
 HX711 lc1, lc2, lc3, lc4, lc5, lc6, lc7, lc8, lc9;
 
-float v1, v2, v3, v4, v5, v6, v7, v8, v9 = 0.0;
+//float v1, v2, v3, v4, v5, v6, v7, v8, v9 = 0.0;
+
+//debug
+float v1;
 
 // declare and init an array of floats to reset the HX711 values, so they arrive at 0 (normalization)
 float resetCell1 = 264669.00;
@@ -76,6 +75,18 @@ void setup(){
   initSDCard();
   initCells();
   initWiFi();
+  //sd card
+  handleFileNaming();
+}
+
+void handleFileNaming() {
+  //create a new load cell csv file for every restart of the esp to prevent too large files
+  preferences.begin("my-app", false);
+  counter = preferences.getUInt("counter", 0);
+  counter++;
+  preferences.putUInt("counter", counter);
+  preferences.end();
+  String filename = "/loadCells" + String(counter) + ".csv";
 }
 
 void loop(){
@@ -86,10 +97,10 @@ void loop(){
 
 void initSDCard(){
     Serial.print("Initializing SD card...");
-    //SD.begin(CS);
     // see if the card is present and can be initialized:
-    SPIClass spi = SPIClass(VSPI);
-    spi.begin(SCK, MISO, MOSI, CS);
+    SD.begin(CS);
+    //SPIClass spi = SPIClass(VSPI);
+    //spi.begin(SCK, MISO, MOSI, CS);
     if (!SD.begin(CS)) {
       Serial.println("Card Mount Failed");
       return;
@@ -115,14 +126,14 @@ void appendFile(fs::FS &fs, const char * path, const char * message){
 
 void initCells(){
   lc1.begin(dout1, sck);
-  lc2.begin(dout2, sck);
-  lc3.begin(dout3, sck);
-  lc4.begin(dout4, sck);
-  lc5.begin(dout5, sck);
-  lc6.begin(dout6, sck);
-  lc7.begin(dout7, sck);
-  lc8.begin(dout8, sck);
-  lc9.begin(dout9, sck);
+  //lc2.begin(dout2, sck);
+  //lc3.begin(dout3, sck);
+  //lc4.begin(dout4, sck);
+  //lc5.begin(dout5, sck);
+  //lc6.begin(dout6, sck);
+  //lc7.begin(dout7, sck);
+  //lc8.begin(dout8, sck);
+  //lc9.begin(dout9, sck);
 }
 
 void initWiFi(){
@@ -142,47 +153,40 @@ void retrieveValues(){
   timedelta = millis();
   
   v1 = lc1.read();
-  v2 = lc2.read();
-  v3 = lc3.read();
-  v4 = lc4.read();
-  v5 = lc5.read();
-  v6 = lc6.read();
-  v7 = lc7.read();
-  v8 = lc8.read();
-  v9 = lc9.read();
+  //v2 = lc2.read();
+  //v3 = lc3.read();
+  //v4 = lc4.read();
+  //v5 = lc5.read();
+  //v6 = lc6.read();
+  //v7 = lc7.read();
+  //v8 = lc8.read();
+  //v9 = lc9.read();
 }
 
 void convertValues(){
   v1 = (v1 + resetCell1) * calculationFactor;
-  v2 = (v2 + resetCell2) * calculationFactor;
-  v3 = (v3 + resetCell3) * calculationFactor;
-  v4 = (v4 + resetCell4) * calculationFactor;
-  v5 = (v5 + resetCell5) * calculationFactor;
-  v6 = (v6 + resetCell6) * calculationFactor;
-  v7 = (v7 + resetCell7) * calculationFactor;
-  v8 = (v8 + resetCell8) * calculationFactor;
-  v9 = (v9 + resetCell9) * calculationFactor;
+  //v2 = (v2 + resetCell2) * calculationFactor;
+  //v3 = (v3 + resetCell3) * calculationFactor;
+  //v4 = (v4 + resetCell4) * calculationFactor;
+  //v5 = (v5 + resetCell5) * calculationFactor;
+  //v6 = (v6 + resetCell6) * calculationFactor;
+  //v7 = (v7 + resetCell7) * calculationFactor;
+  //v8 = (v8 + resetCell8) * calculationFactor;
+  //v9 = (v9 + resetCell9) * calculationFactor;
 }
 
 void sendData(){
   String buffer = String("{\"loadCellValues\":{") +
-                        "\"cell1\":" + v1 + "," +
-                        "\"cell2\":" + v2 + "," +
-                        "\"cell3\":" + v3 + "," +
-                        "\"cell4\":" + v4 + "," +
-                        "\"cell5\":" + v5 + "," +
-                        "\"cell6\":" + v6 + "," +
-                        "\"cell7\":" + v7 + "," +    
-                        "\"cell7\":" + v8 + "," +                                                                                                                                                                    
-                        "\"cell8\":" + v9 + "}}";
+                        "\"cell1\":" + v1 + "}}";
                         
     udp.beginPacket(IP, PORT);
     udp.write((uint8_t*)buffer.c_str(), buffer.length());    
     udp.endPacket();
     Serial.println(buffer);
     //write to sd card
-    String dataString = String(v1) + ", " + String(v2) + ", " + String(v3) + ", " + String(v4) + ", " + String(v5) + ", " + String(v6) + ", " + String(v7) + ", " + String(v8) + ", " + String(v9) + ", " + String(timedelta);
-    appendFile(SD, "/loadCellValues.csv", dataString.c_str());
+    String filename = "/loadCells" + String(counter) + ".csv";
+    String dataString = String(v1) + ", " + String(timedelta);
+    appendFile(SD, filename.c_str(), dataString.c_str());
 }  
 
 

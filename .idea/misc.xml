@@ -7,14 +7,29 @@
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/delete_dialog.xml" value="0.13276283618581908" />
         <entry key="..\:/Users/Chris/Documents/GitHub/InnoBottle/app/src/main/res/layout/save_dialog.xml" value="0.13276283618581908" />
+        <entry key="app/src/main/res/drawable/background_with_shadow_corners.xml" value="0.347" />
         <entry key="app/src/main/res/drawable/circle_number.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/circle_number_dark_grey.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/circle_number_light_grey.xml" value="0.347" />
         <entry key="app/src/main/res/drawable/circle_number_red.xml" value="0.198" />
+        <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/gradient_background_button.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/long_rectangle_blue.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/long_rectangle_dark_grey.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/long_rectangle_light_grey.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/rectangle_blue.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/rectangle_dark_grey.xml" value="0.347" />
+        <entry key="app/src/main/res/drawable/rectangle_light_grey.xml" value="0.347" />
         <entry key="app/src/main/res/layout/activity_line_information.xml" value="0.16604785478547854" />
+<<<<<<< HEAD
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27466456195737965" />
         <entry key="app/src/main/res/layout/save_dialog.xml" value="0.1" />
+=======
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+>>>>>>> main
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
