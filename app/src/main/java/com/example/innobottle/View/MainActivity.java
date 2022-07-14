@@ -186,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             public void onClick(View v) {
                 mPresenter.setPauseState();
                 btnStart.setVisibility(View.VISIBLE);
+                btnStart.setText("Restart");
                 btnPause.setVisibility(View.GONE);
                 greenCircle.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this,
@@ -209,6 +210,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
                 btnStart.setVisibility(View.VISIBLE);
+                btnStart.setText("Start");
                 btnPause.setEnabled(false);
                 btnPause.setVisibility(View.GONE);
                 btnSave.setEnabled(false);
