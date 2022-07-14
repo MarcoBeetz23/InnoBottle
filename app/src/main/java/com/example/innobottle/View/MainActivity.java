@@ -97,25 +97,25 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvDate = findViewById(R.id.tv_date);
         tvOperator = findViewById(R.id.tv_operator);
         //units for load cell values
-        tvUnit[1] = findViewById(R.id.newton1);
-        tvUnit[2] = findViewById(R.id.newton2);
-        tvUnit[3] = findViewById(R.id.newton3);
-        tvUnit[4] = findViewById(R.id.newton4);
-        tvUnit[5] = findViewById(R.id.newton5);
-        tvUnit[6] = findViewById(R.id.newton6);
-        tvUnit[7] = findViewById(R.id.newton7);
-        tvUnit[8] = findViewById(R.id.newton8);
-        tvUnit[9] = findViewById(R.id.newton9);
+        tvUnit[0] = findViewById(R.id.newton1);
+        tvUnit[1] = findViewById(R.id.newton2);
+        tvUnit[2] = findViewById(R.id.newton3);
+        tvUnit[3] = findViewById(R.id.newton4);
+        tvUnit[4] = findViewById(R.id.newton5);
+        tvUnit[5] = findViewById(R.id.newton6);
+        tvUnit[6] = findViewById(R.id.newton7);
+        tvUnit[7] = findViewById(R.id.newton8);
+        tvUnit[8] = findViewById(R.id.newton9);
         //red if warning
-        tvUnitred[1] = findViewById(R.id.newton1red);
-        tvUnitred[2] = findViewById(R.id.newton2red);
-        tvUnitred[3] = findViewById(R.id.newton3red);
-        tvUnitred[4] = findViewById(R.id.newton4red);
-        tvUnitred[5] = findViewById(R.id.newton5red);
-        tvUnitred[6] = findViewById(R.id.newton6red);
-        tvUnitred[7] = findViewById(R.id.newton7red);
-        tvUnitred[8] = findViewById(R.id.newton8red);
-        tvUnitred[9] = findViewById(R.id.newton9red);
+        tvUnitred[0] = findViewById(R.id.newton1red);
+        tvUnitred[1] = findViewById(R.id.newton2red);
+        tvUnitred[2] = findViewById(R.id.newton3red);
+        tvUnitred[3] = findViewById(R.id.newton4red);
+        tvUnitred[4] = findViewById(R.id.newton5red);
+        tvUnitred[5] = findViewById(R.id.newton6red);
+        tvUnitred[6] = findViewById(R.id.newton7red);
+        tvUnitred[7] = findViewById(R.id.newton8red);
+        tvUnitred[8] = findViewById(R.id.newton9red);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
         //load Cell values text view
@@ -299,20 +299,20 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
 
     private void showUnits() {
-        for (int i = 1; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             tvUnit[i].setVisibility(View.VISIBLE);
             tvUnitred[i].setVisibility(View.VISIBLE);
         }
     }
 
     private void showDefault() {
-        for (int i = 1; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             loadCellValues[i].setText("-");
         }
     }
 
     private void removeUnits() {
-        for (int i = 1; i < 10; i++) {
+        for (int i = 0; i < 9; i++) {
             tvUnit[i].setVisibility(View.GONE);
             tvUnitred[i].setVisibility(View.GONE);
         }
