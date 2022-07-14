@@ -2557,11 +2557,9 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal"
                                 android:weightSum="3">
-
-                                // put in graph view, tbd
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -2678,7 +2676,14 @@
 
 
                                 </LinearLayout>
+
                             </LinearLayout>
+                            <com.jjoe64.graphview.GraphView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="30dp">
+
+                            </com.jjoe64.graphview.GraphView>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 

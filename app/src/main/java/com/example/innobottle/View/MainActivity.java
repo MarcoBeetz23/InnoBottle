@@ -296,8 +296,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             }
         });
     }
+    ///////////// dialog section end
 
-
+    // methods to show the "N" unit after the load cell values
     private void showUnits() {
         for (int i = 0; i < 9; i++) {
             tvUnit[i].setVisibility(View.VISIBLE);
