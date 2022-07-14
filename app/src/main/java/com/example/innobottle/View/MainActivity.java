@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     protected void onStart() {
         super.onStart();
+        //@Marco: set init State
         mPresenter.setReadyState();
     }
 
@@ -103,14 +104,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         tvUnit9 = findViewById(R.id.newton9);
         //red if warning
         tvUnit1red = findViewById(R.id.newton1red);
-        tvUnit2red = findViewById(R.id.newton1red);
-        tvUnit3red = findViewById(R.id.newton1red);
-        tvUnit4red = findViewById(R.id.newton1red);
-        tvUnit5red = findViewById(R.id.newton1red);
-        tvUnit6red = findViewById(R.id.newton1red);
-        tvUnit7red = findViewById(R.id.newton1red);
-        tvUnit8red = findViewById(R.id.newton1red);
-        tvUnit9red = findViewById(R.id.newton1red);
+        tvUnit2red = findViewById(R.id.newton2red);
+        tvUnit3red = findViewById(R.id.newton3red);
+        tvUnit4red = findViewById(R.id.newton4red);
+        tvUnit5red = findViewById(R.id.newton5red);
+        tvUnit6red = findViewById(R.id.newton6red);
+        tvUnit7red = findViewById(R.id.newton7red);
+        tvUnit8red = findViewById(R.id.newton8red);
+        tvUnit9red = findViewById(R.id.newton9red);
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
         //load Cell values text view
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void handleUserClicks() {
         handleStartClick();
         handleNewRunClick();
-        handleSaveClick();
+        handleStopClick();
         handlePauseClick();
         switchScreen();
     }
@@ -149,15 +150,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         btnNewRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //@Marco: state: ready & create new node
                 btnNewRun.setEnabled(false);
                 btnPause.setEnabled(true);
                 btnStart.setEnabled(true);
                 btnSave.setEnabled(true);
-                btnStart.setVisibility(View.GONE);
-                btnPause.setVisibility(View.VISIBLE);
-                greenCircle.setVisibility(View.VISIBLE);
+                tvSensorRunName.setText("Sensor Run 1");
                 Toast.makeText(MainActivity.this,
-                        "Your measurement is running!",
+                        "A new sensor run has been created. Let's start!",
                         Toast.LENGTH_LONG).show();
             }
         });
@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 // todo - firebase get current state
                 mPresenter.setActiveState();
                 //button change
-                mPresenter.setPauseState();
                 btnStart.setVisibility(View.GONE);
                 btnPause.setVisibility(View.VISIBLE);
                 greenCircle.setVisibility(View.VISIBLE);
@@ -181,12 +180,29 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         });
     }
 
+    private void handlePauseClick() {
+        btnPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.setPauseState();
+                btnStart.setVisibility(View.VISIBLE);
+                btnPause.setVisibility(View.GONE);
+                greenCircle.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this,
+                        "Your measurement is paused.",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 
-    private void handleSaveClick() {
+
+    private void handleStopClick() {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPresenter.setReadyState();
+                //@ Marco: set pause state and no values are received
+                mPresenter.setPauseState();
+                //to get "-" if sensor run is inactive + to show/not show unit "N"
                 showDefault();
                 removeUnits();
                 // button change
@@ -237,21 +253,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
                 //Delete dialog
                 handleDeleteDialog();
-            }
-        });
-    }
-
-    private void handlePauseClick() {
-        btnPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.setPauseState();
-                btnStart.setVisibility(View.VISIBLE);
-                btnPause.setVisibility(View.GONE);
-                greenCircle.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this,
-                        "Your measurement is paused.",
-                        Toast.LENGTH_LONG).show();
             }
         });
     }
