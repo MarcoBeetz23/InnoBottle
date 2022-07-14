@@ -2,11 +2,16 @@ package com.example.innobottle.Presenter;
 
 import android.util.Log;
 
+import com.example.innobottle.Entities.DataRow;
 import com.example.innobottle.Model.MainModel;
 
 import java.lang.reflect.Array;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -16,6 +21,12 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     private MainModel mModel;
 
     private boolean stateIsActive = false;
+    private String currentState;
+    private static final String READYSTATE = "ready";
+    private static final String ACTIVESTATE = "active";
+    String time;
+
+    private static final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public MainPresenter(MainContract.View mainView){
         this.mView = mainView;
@@ -57,9 +68,17 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     public void handleRawData(String s) {
         if(stateIsActive){
             ArrayList<String> stringData = normalizeData(s);
-            Log.d("split", stringData.get(0));
-            Log.d("split2", String.valueOf(stringData.size()));
+            String millis = stringData.get(stringData.size()-1);
+            stringData.remove(stringData.size()-1);
+            DataRow dataRow = new DataRow(stringData, millis);
+            mView.startDataRetrieval(dataRow);
+            mModel.startDataTransmissionToFirebase(dataRow, time);
         }
+    }
+
+    private String getCurrentTime(){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return sdf3.format(timestamp);
     }
 
     @Override
@@ -78,22 +97,20 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     }
 
     @Override
-    public void startDataTransmissionToFirebase() {
-
-    }
-
-    @Override
     public void onReadyStateInitialized() {
         stateIsActive = false;
     }
 
     @Override
-    public void onActiveStateInitialized() {
+    public void onActiveStateInitialized(String state) {
+        currentState = state;
         stateIsActive = true;
+        time = getCurrentTime();
     }
 
     @Override
-    public void onPauseStateInitialized() {
+    public void onPauseStateInitialized(String state) {
+        currentState = state;
         stateIsActive = false;
     }
 }

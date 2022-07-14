@@ -1,7 +1,10 @@
 package com.example.innobottle.Model;
 
+import android.provider.ContactsContract;
+
 import androidx.annotation.NonNull;
 
+import com.example.innobottle.Entities.DataRow;
 import com.example.innobottle.Presenter.MainContract;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -49,19 +52,20 @@ public class MainModel implements MainContract.Model {
     public void setActiveStateInFirebase() {
         refState = database.getReference(STATEPATH);
         refState.setValue(ACTIVESTATE);
-        mListener.onActiveStateInitialized();
+        mListener.onActiveStateInitialized(ACTIVESTATE);
     }
 
     @Override
     public void setPauseStateInFirebase() {
         refState = database.getReference(STATEPATH);
         refState.setValue(PAUSESTATE);
-        mListener.onPauseStateInitialized();
+        mListener.onPauseStateInitialized(PAUSESTATE);
     }
 
     @Override
-    public void startDataTransmissionToFirebase() {
-
+    public void startDataTransmissionToFirebase(DataRow row, String time) {
+        refData = database.getReference(DATAPATH);
+        refData.child(time).child(row.getMillis()).setValue(row);
     }
 
     @Override

@@ -1,9 +1,13 @@
 package com.example.innobottle.Presenter;
 
+import com.example.innobottle.Entities.DataRow;
+
+import java.util.ArrayList;
+
 public interface MainContract {
 
     interface View{
-        void startDataRetrieval();
+        void startDataRetrieval(DataRow row);
         void pauseDataRetrieval();
     }
 
@@ -12,20 +16,19 @@ public interface MainContract {
         void setReadyState();
         void setActiveState();
         void setPauseState();
-        void startDataTransmissionToFirebase();
     }
 
     interface Model{
         void setReadyStateInFirebase();
         void setActiveStateInFirebase();
         void setPauseStateInFirebase();
-        void startDataTransmissionToFirebase();
+        void startDataTransmissionToFirebase(DataRow row, String time);
         void retrieveSensorInformationInFirebase();
     }
 
     interface DataListener{
         void onReadyStateInitialized();
-        void onActiveStateInitialized();
-        void onPauseStateInitialized();
+        void onActiveStateInitialized(String state);
+        void onPauseStateInitialized(String state);
     }
 }

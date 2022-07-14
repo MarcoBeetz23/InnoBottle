@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.innobottle.Entities.DataRow;
 import com.example.innobottle.Presenter.MainContract;
 import com.example.innobottle.Presenter.MainPresenter;
 
@@ -36,11 +37,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     // Text views for load cell values
     TextView tvValue1, tvValue2, tvValue3, tvValue4, tvValue5, tvValue6, tvValue7, tvValue8, tvValue9;
 
+    /// refactor the TextView variables to Arrays for reducing duplicate code
+    TextView[] loadCellValues = new TextView[9];
+
+
     //debug
     ImageView greenBottleImage;
     final Context context = this;
 
     String messageString;
+    ArrayList<String> dataRowsForTextViews = new ArrayList<>();
     private MainPresenter mPresenter;
 
     Handler handler = new Handler() {
@@ -107,6 +113,19 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         //debug
         greenBottleImage = findViewById(R.id.greenBottle);
         //load Cell values text view
+        // converted into array
+        loadCellValues[0] = findViewById(R.id.cellValue1);
+        loadCellValues[1] = findViewById(R.id.cellValue2);
+        loadCellValues[2] = findViewById(R.id.cellValue3);
+        loadCellValues[3] = findViewById(R.id.cellValue4);
+        loadCellValues[4] = findViewById(R.id.cellValue5);
+        loadCellValues[5] = findViewById(R.id.cellValue6);
+        loadCellValues[6] = findViewById(R.id.cellValue7);
+        loadCellValues[7] = findViewById(R.id.cellValue8);
+        loadCellValues[8] = findViewById(R.id.cellValue9);
+
+
+
         tvValue1 = findViewById(R.id.cellValue1);
         tvValue2 = findViewById(R.id.cellValue2);
         tvValue3 = findViewById(R.id.cellValue3);
@@ -131,7 +150,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void onClick(View v) {
                 mPresenter.setActiveState();
-                Log.d("rutsche1", "hier");
                 //button change
              //   mPresenter.setPauseState();
                 greenCircle.setVisibility(View.VISIBLE);
@@ -343,8 +361,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void startDataRetrieval() {
+    public void startDataRetrieval(DataRow row) {
+        dataRowsForTextViews = row.getDataRow();
+        showDataOnScreen();
+    }
 
+    private void showDataOnScreen(){
+        for(int i = 0 ; i < dataRowsForTextViews.size() ; i++){
+            loadCellValues[i].setText(dataRowsForTextViews.get(i));
+        }
     }
 
     @Override
