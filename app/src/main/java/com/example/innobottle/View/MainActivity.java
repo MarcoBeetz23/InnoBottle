@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import com.example.innobottle.R;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.LabelFormatter;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setupUIComponents();
         styleGraph();
+        createGraph();
         mPresenter = new MainPresenter(this);
     }
 
@@ -235,7 +237,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Maximum force / cell row [N]");
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
-        //graph.getGridLabelRenderer().setNumHorizontalLabels(10);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(10);
+        graph.getGridLabelRenderer().setPadding(30);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
+        graph.getGridLabelRenderer().setLabelHorizontalHeight(30);
+        graph.getViewport().setScrollable(true);
+        // graph.getViewport().setScalableY(true);
     }
 
     private void createGraph() {
@@ -249,7 +256,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             series.appendData(new DataPoint(x,y), true, 500);
         }
         graph.addSeries(series);
+        //design
         series.setColor(Color.parseColor("#1A9A9B"));
+        series.setThickness(3);
     }
 
     /////////////////////////////////////////////////////////
