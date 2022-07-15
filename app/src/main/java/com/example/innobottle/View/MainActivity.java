@@ -239,6 +239,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
         graph.getGridLabelRenderer().setNumHorizontalLabels(10);
         graph.getGridLabelRenderer().setPadding(30);
+        graph.getGridLabelRenderer().setLabelsSpace(10);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
         graph.getGridLabelRenderer().setLabelHorizontalHeight(30);
         graph.getViewport().setScrollable(true);
