@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +26,11 @@ import java.net.DatagramSocket;
 import java.util.ArrayList;
 
 import com.example.innobottle.R;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.LegendRenderer;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import org.w3c.dom.Text;
 
@@ -36,14 +42,15 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     Button btnNewRun, btnPause, btnSave, btnStart, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
-    // Text views for load cell values
-    TextView tvValue1, tvValue2, tvValue3, tvValue4, tvValue5, tvValue6, tvValue7, tvValue8, tvValue9;
 
     /// refactor the TextView variables to Arrays for reducing duplicate code
     TextView[] loadCellValues = new TextView[9];
     TextView[] tvUnit = new TextView[9];
     TextView[] tvUnitred = new TextView[9];
 
+    //graph view
+    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+    GraphView graph;
 
     //debug
     ImageView greenBottleImage;
@@ -67,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupUIComponents();
+        styleGraph();
         mPresenter = new MainPresenter(this);
     }
 
@@ -129,6 +137,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         loadCellValues[6] = findViewById(R.id.cellValue7);
         loadCellValues[7] = findViewById(R.id.cellValue8);
         loadCellValues[8] = findViewById(R.id.cellValue9);
+        //Graph view
+        graph = (GraphView) findViewById(R.id.graph);
     }
 
     private void handleUserClicks() {
@@ -162,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             public void onClick(View v) {
                 // todo - firebase get current state
                 mPresenter.setActiveState();
+                createGraph();
                 //button change
                 showUnits();
                 btnStart.setVisibility(View.GONE);
@@ -215,6 +226,30 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    /////////////// Graph View ////////////////////
+    // @Marco: this is only an example graph for me to see how it will look like
+    private void styleGraph() {
+        // design
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
+        graph.getGridLabelRenderer().setVerticalAxisTitle("Maximum force / cell row [N]");
+        graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
+        //graph.getGridLabelRenderer().setNumHorizontalLabels(10);
+    }
+
+    private void createGraph() {
+        double y,x;
+        x = 0;
+        for(int i=0; i<500; i++) {
+            x = x+0.1;
+            //String cellValue1 = loadCellValues[0].getText().toString();
+            //y = Double.parseDouble(cellValue1);
+            y = Math.sin(x)+1;
+            series.appendData(new DataPoint(x,y), true, 500);
+        }
+        graph.addSeries(series);
+        series.setColor(Color.parseColor("#1A9A9B"));
     }
 
     /////////////////////////////////////////////////////////
