@@ -2545,16 +2545,20 @@
                         android:backgroundTint="#FFFFFF"
                         app:cardCornerRadius="20dp">
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_alignParentTop="true"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
-                            android:orientation="vertical">
+                            android:layout_marginEnd="20dp">
 
+                            <com.jjoe64.graphview.GraphView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="50dp"
+                                android:layout_marginBottom="30dp">
 
+                            </com.jjoe64.graphview.GraphView>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -2678,13 +2682,7 @@
                                 </LinearLayout>
 
                             </LinearLayout>
-                            <com.jjoe64.graphview.GraphView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="30dp">
-
-                            </com.jjoe64.graphview.GraphView>
-                        </LinearLayout>
+                        </RelativeLayout>
                     </com.google.android.material.card.MaterialCardView>
 
 
