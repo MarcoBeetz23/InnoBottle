@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     //graph view
     LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+    LineGraphSeries<DataPoint> series1 = new LineGraphSeries<DataPoint>();
     GraphView graph;
 
     //debug
@@ -174,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             public void onClick(View v) {
                 // todo - firebase get current state
                 mPresenter.setActiveState();
-                createGraph();
                 //button change
                 showUnits();
                 btnStart.setVisibility(View.GONE);
@@ -234,32 +235,37 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     // @Marco: this is only an example graph for me to see how it will look like
     private void styleGraph() {
         // design
-        graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
+        // graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Maximum force / cell row [N]");
+        graph.getGridLabelRenderer().setVerticalLabelsAlign(Paint.Align.CENTER);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
         graph.getGridLabelRenderer().setNumHorizontalLabels(10);
-        graph.getGridLabelRenderer().setPadding(30);
+        graph.getGridLabelRenderer().setPadding(50);
         graph.getGridLabelRenderer().setLabelsSpace(10);
-        graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
         graph.getGridLabelRenderer().setLabelHorizontalHeight(30);
         graph.getViewport().setScrollable(true);
         // graph.getViewport().setScalableY(true);
     }
 
     private void createGraph() {
-        double y,x;
+        double y,x,y1;
         x = 0;
         for(int i=0; i<500; i++) {
             x = x+0.1;
             //String cellValue1 = loadCellValues[0].getText().toString();
             //y = Double.parseDouble(cellValue1);
             y = Math.sin(x)+1;
+            y1 = (Math.cos(x)+1.5)*0.5;
             series.appendData(new DataPoint(x,y), true, 500);
+            series1.appendData(new DataPoint(x, y1), true, 500);
         }
         graph.addSeries(series);
+        graph.addSeries(series1);
         //design
         series.setColor(Color.parseColor("#1A9A9B"));
         series.setThickness(3);
+        series1.setColor(Color.parseColor("#6E7D7D"));
+        series1.setThickness(3);
     }
 
     /////////////////////////////////////////////////////////
