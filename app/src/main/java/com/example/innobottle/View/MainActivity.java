@@ -242,22 +242,24 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getGridLabelRenderer().setNumHorizontalLabels(10);
         graph.getGridLabelRenderer().setPadding(25);
         graph.getGridLabelRenderer().setLabelsSpace(10);
-        // graph.getGridLabelRenderer().setLabelHorizontalHeight(30);
         graph.getViewport().setScrollable(true);
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(50);
         // graph.getViewport().setScalableY(true);
     }
 
     private void createGraph() {
         double y,x,y1;
         x = 0;
-        for(int i=0; i<500; i++) {
+        for(int i=0; i<1000; i++) {
             x = x+0.1;
             //String cellValue1 = loadCellValues[0].getText().toString();
             //y = Double.parseDouble(cellValue1);
             y = Math.sin(x)+1;
             y1 = (Math.cos(x)+1.5)*0.5;
-            series.appendData(new DataPoint(x,y), true, 500);
-            series1.appendData(new DataPoint(x, y1), true, 500);
+            series.appendData(new DataPoint(x,y), true, 1000);
+            series1.appendData(new DataPoint(x, y1), true, 1000);
         }
         graph.addSeries(series);
         graph.addSeries(series1);
