@@ -240,9 +240,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getGridLabelRenderer().setVerticalLabelsAlign(Paint.Align.CENTER);
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
         graph.getGridLabelRenderer().setNumHorizontalLabels(10);
-        graph.getGridLabelRenderer().setPadding(50);
+        graph.getGridLabelRenderer().setPadding(25);
         graph.getGridLabelRenderer().setLabelsSpace(10);
-        graph.getGridLabelRenderer().setLabelHorizontalHeight(30);
+        // graph.getGridLabelRenderer().setLabelHorizontalHeight(30);
         graph.getViewport().setScrollable(true);
         // graph.getViewport().setScalableY(true);
     }
