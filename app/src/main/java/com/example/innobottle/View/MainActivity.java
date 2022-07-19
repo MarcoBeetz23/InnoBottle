@@ -415,4 +415,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void pauseDataRetrieval() {
 
     }
+
+    @Override
+    public void startGraphData(ArrayList<Float> values) {
+        // paint the graph
+    }
 }

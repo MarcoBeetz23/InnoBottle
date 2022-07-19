@@ -79,16 +79,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             highestValues.add(highestValue);
             ArrayList<Float> sortedHighestValues = sortListByNewData(highestValues);
             // bug fix trailing whitespace in string s dataset may cause errors when float conversion
-
-            GraphRow graphRow = convertDataForGraph(dataRow);
-            Float x = graphRow.getRingValues().get(0);
-
-            Log.d("test123", sortedHighestValues.toString());
-            Log.d("test120", String.valueOf(sortedHighestValues));
-
-            Log.d("test124", sortedHighestValues.get(9).toString());
-
-
+            mView.startGraphData(sortedHighestValues);
             mView.startDataRetrieval(dataRow);
             mModel.startDataTransmissionToFirebase(dataRow, time);
         }

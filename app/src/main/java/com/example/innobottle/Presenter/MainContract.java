@@ -9,6 +9,7 @@ public interface MainContract {
     interface View{
         void startDataRetrieval(DataRow row);
         void pauseDataRetrieval();
+        void startGraphData(ArrayList<Float> values);
     }
 
     interface Presenter{
