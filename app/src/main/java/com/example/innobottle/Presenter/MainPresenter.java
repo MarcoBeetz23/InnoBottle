@@ -73,7 +73,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             stringData.remove(stringData.size()-1);
             DataRow dataRow = new DataRow(stringData, millis);
             GraphRow graphRow = convertDataForGraph(dataRow);
-            Float x = graphRow.getRingValues()[1];
+            Float x = graphRow.getRingValues()[0];
             Log.d("test123", graphRow.toString());
             Log.d("test124", String.valueOf(x));
             mView.startDataRetrieval(dataRow);
@@ -127,5 +127,14 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     public void onPauseStateInitialized(String state) {
         currentState = state;
         stateIsActive = false;
+    }
+
+    @Override
+    public void retrieveSensorInformation(){
+        mModel.retrieveSensorInformationInFirebase();
+    }
+    @Override
+    public void onSensorInformationRetrieved(ArrayList<String> information){
+        mView.onInformationRetrieved(information);
     }
 }

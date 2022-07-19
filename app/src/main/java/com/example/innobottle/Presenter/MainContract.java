@@ -9,6 +9,7 @@ public interface MainContract {
     interface View{
         void startDataRetrieval(DataRow row);
         void pauseDataRetrieval();
+        void onInformationRetrieved(ArrayList<String> data);
     }
 
     interface Presenter{
@@ -16,6 +17,7 @@ public interface MainContract {
         void setReadyState();
         void setActiveState();
         void setPauseState();
+        void retrieveSensorInformation();
     }
 
     interface Model{
@@ -30,5 +32,6 @@ public interface MainContract {
         void onReadyStateInitialized();
         void onActiveStateInitialized(String state);
         void onPauseStateInitialized(String state);
+        void onSensorInformationRetrieved(ArrayList<String> information);
     }
 }

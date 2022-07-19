@@ -40,7 +40,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     // Android components
-    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation, ed;
+    TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation;
     Button btnNewRun, btnPause, btnSave, btnStart, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     //graph view
     LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
     LineGraphSeries<DataPoint> series1 = new LineGraphSeries<DataPoint>();
+    LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>();
     GraphView graph;
 
     //debug
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupUIComponents();
+        styleGrid();
         styleGraph();
         createGraph();
         mPresenter = new MainPresenter(this);
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onResume() {
         super.onResume();
         handleUDP();
+        mPresenter.retrieveSensorInformation();
         handleUserClicks();
     }
 
@@ -233,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     /////////////// Graph View ////////////////////
     // @Marco: this is only an example graph for me to see how it will look like
-    private void styleGraph() {
+    private void styleGrid() {
         // design
         // graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Maximum force / cell row [N]");
@@ -249,8 +252,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         // graph.getViewport().setScalableY(true);
     }
 
+    private void styleGraph() {
+        series.setColor(Color.parseColor("#1A9A9B"));
+        series.setThickness(3);
+        series1.setColor(Color.parseColor("#6E7D7D"));
+        series1.setThickness(3);
+        series2.setColor(Color.parseColor("#1F2936"));
+        series2.setThickness(3);
+    }
+
     private void createGraph() {
-        double y,x,y1;
+        double y,x,y1,y2;
         x = 0;
         for(int i=0; i<1000; i++) {
             x = x+0.1;
@@ -258,16 +270,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             //y = Double.parseDouble(cellValue1);
             y = Math.sin(x)+1;
             y1 = (Math.cos(x)+1.5)*0.5;
+            y2 = (Math.cos(x)+1)*1.7;
             series.appendData(new DataPoint(x,y), true, 1000);
             series1.appendData(new DataPoint(x, y1), true, 1000);
+            series2.appendData(new DataPoint(x, y2), true, 1000);
         }
-        graph.addSeries(series);
-        graph.addSeries(series1);
-        //design
-        series.setColor(Color.parseColor("#1A9A9B"));
-        series.setThickness(3);
-        series1.setColor(Color.parseColor("#6E7D7D"));
-        series1.setThickness(3);
+        //graph.addSeries(series);
+        //graph.addSeries(series1);
+        graph.addSeries(series2);
     }
 
     /////////////////////////////////////////////////////////
@@ -415,4 +425,23 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void pauseDataRetrieval() {
 
     }
+
+
+
+
+
+    /// finally, the retrieved meta data about sensor information is represented on the screen
+    @Override
+    public void onInformationRetrieved(ArrayList<String> data) {
+        String customerText = data.get(0);
+        String operatorText = data.get(4);
+        String locationText = data.get(3);
+        String dateText = data.get(2);
+
+        tvDate.setText(dateText);
+        tvCustomer.setText(customerText);
+        tvLocation.setText(locationText);
+        tvOperator.setText(operatorText);
+    }
+
 }

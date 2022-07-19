@@ -68,8 +68,23 @@ public class MainModel implements MainContract.Model {
         refData.child(time).child(row.getMillis()).setValue(row);
     }
 
+    // Retrieving meta information about the current sensor run etc.
     @Override
     public void retrieveSensorInformationInFirebase() {
+        refInformation = database.getReference(INFORMATIONPATH);
+        refInformation.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    ArrayList<String> retrievedInformation = (ArrayList<String>) snapshot.getValue();
+                    mListener.onSensorInformationRetrieved(retrievedInformation);
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
