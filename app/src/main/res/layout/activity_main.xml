@@ -2548,7 +2548,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="20dp"
+                            android:layout_marginStart="12dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="20dp">
 
@@ -2570,6 +2570,7 @@
                                 <TextView
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
                                     android:text="Force Overview"
                                     android:textColor="#636161"
                                     android:textSize="17sp"
@@ -2688,15 +2689,15 @@
                                 </LinearLayout>
 
                             </LinearLayout>
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Timestamp [ms]"
-                                android:textColor="#000000"
-                                android:gravity="center_horizontal"
                                 android:layout_alignParentBottom="true"
-                                android:layout_marginBottom="10dp">
-                            </TextView>
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center_horizontal"
+                                android:text="Index"
+                                android:textColor="#000000"></TextView>
                         </RelativeLayout>
                     </com.google.android.material.card.MaterialCardView>
 

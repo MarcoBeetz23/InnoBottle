@@ -215,6 +215,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 //to get "-" if sensor run is inactive + to show/not show unit "N"
                 showDefault();
                 removeUnits();
+                clearGraph();
                 // button change
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
@@ -251,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void styleGraph() {
-        series.setColor(Color.parseColor("#1A9A9B"));
+        series.setColor(Color.parseColor("#1F2936"));
         series.setThickness(3);
     }
 
@@ -268,6 +269,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         if(graphValueList.size() > 50) {
             graph.getViewport().scrollToEnd();
         }
+    }
+
+    private void clearGraph() {
+        graph.removeAllSeries();
+        //graphValueList.clear();
     }
 
     /////////////////////////////////////////////////////////
