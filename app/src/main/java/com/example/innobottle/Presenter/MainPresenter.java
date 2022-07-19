@@ -3,6 +3,7 @@ package com.example.innobottle.Presenter;
 import android.util.Log;
 
 import com.example.innobottle.Entities.DataRow;
+import com.example.innobottle.Entities.GraphRow;
 import com.example.innobottle.Model.MainModel;
 
 import java.lang.reflect.Array;
@@ -71,9 +72,22 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             String millis = stringData.get(stringData.size()-1);
             stringData.remove(stringData.size()-1);
             DataRow dataRow = new DataRow(stringData, millis);
+            GraphRow graphRow = convertDataForGraph(dataRow);
+            Log.d("test123", graphRow.toString());
+            Log.d("test124", graphRow.getRingValues().toString());
             mView.startDataRetrieval(dataRow);
             mModel.startDataTransmissionToFirebase(dataRow, time);
         }
+    }
+
+    private GraphRow convertDataForGraph(DataRow row){
+        ArrayList<Float> bottomRow = row.bottomRow();
+        Float highestValue = row.highestValue(bottomRow);
+        GraphRow graphRow = new GraphRow(1);
+        Float[] highestValues = new Float[1];
+        highestValues[0] = highestValue;
+        graphRow.setRingValues(highestValues);
+        return graphRow;
     }
 
     private String getCurrentTime(){
