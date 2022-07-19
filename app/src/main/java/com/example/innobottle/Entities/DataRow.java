@@ -35,7 +35,7 @@ public class DataRow {
     // for graph creation, get the bottom, middle and top load cell rows
     // graph needs float
 
-    public ArrayList<Float> bottomRow(){
+    public ArrayList<Float> topRow(){
         ArrayList<Float> values = new ArrayList<>();
         values.add(Float.valueOf(dataRow.get(0)));
         values.add(Float.valueOf(dataRow.get(1)));
@@ -51,7 +51,7 @@ public class DataRow {
         return values;
     }
 
-    public ArrayList<Float> topRow(){
+    public ArrayList<Float> bottomRow(){
         ArrayList<Float> values = new ArrayList<>();
         values.add(Float.valueOf(dataRow.get(6)));
         values.add(Float.valueOf(dataRow.get(7)));
