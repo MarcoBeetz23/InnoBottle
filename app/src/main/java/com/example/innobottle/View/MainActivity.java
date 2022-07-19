@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setupUIComponents();
         styleGrid();
         styleGraph();
-        createGraph();
         mPresenter = new MainPresenter(this);
     }
 
@@ -261,23 +260,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         series2.setThickness(3);
     }
 
-    private void createGraph() {
-        double y,x,y1,y2;
-        x = 0;
-        for(int i=0; i<1000; i++) {
-            x = x+0.1;
-            //String cellValue1 = loadCellValues[0].getText().toString();
-            //y = Double.parseDouble(cellValue1);
-            y = Math.sin(x)+1;
-            y1 = (Math.cos(x)+1.5)*0.5;
-            y2 = (Math.cos(x)+1)*1.7;
-            series.appendData(new DataPoint(x,y), true, 1000);
-            series1.appendData(new DataPoint(x, y1), true, 1000);
-            series2.appendData(new DataPoint(x, y2), true, 1000);
+    private void createGraph(ArrayList<Float> values) {
+        if(values.size() > 0){
+            for(int i = 0 ; i < values.size() ; i++){
+                DataPoint point = new DataPoint(i, values.get(i));
+                series.appendData(point, true, values.size());
+            }
+            graph.addSeries(series);
         }
-        //graph.addSeries(series);
-        //graph.addSeries(series1);
-        graph.addSeries(series2);
     }
 
     /////////////////////////////////////////////////////////
@@ -429,6 +419,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void startGraphData(ArrayList<Float> values) {
         // paint the graph
+        createGraph(values);
     }
 
 
