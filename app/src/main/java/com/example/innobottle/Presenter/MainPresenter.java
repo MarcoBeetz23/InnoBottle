@@ -85,8 +85,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
 
             Log.d("test123", sortedHighestValues.toString());
             Log.d("test120", String.valueOf(sortedHighestValues));
-
-            Log.d("test124", sortedHighestValues.get(9).toString());
+            
 
 
             mView.startDataRetrieval(dataRow);
