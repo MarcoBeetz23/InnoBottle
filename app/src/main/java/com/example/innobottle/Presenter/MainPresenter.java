@@ -73,8 +73,9 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             stringData.remove(stringData.size()-1);
             DataRow dataRow = new DataRow(stringData, millis);
             GraphRow graphRow = convertDataForGraph(dataRow);
+            Float x = graphRow.getRingValues()[1];
             Log.d("test123", graphRow.toString());
-            Log.d("test124", graphRow.getRingValues().toString());
+            Log.d("test124", String.valueOf(x));
             mView.startDataRetrieval(dataRow);
             mModel.startDataTransmissionToFirebase(dataRow, time);
         }
