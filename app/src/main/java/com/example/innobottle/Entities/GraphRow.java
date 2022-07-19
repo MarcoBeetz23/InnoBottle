@@ -1,20 +1,23 @@
 package com.example.innobottle.Entities;
 
+import java.util.ArrayList;
+
 public class GraphRow {
 
-    public Float[] getRingValues() {
+
+    public ArrayList<Float> getRingValues() {
         return ringValues;
     }
 
-    public void setRingValues(Float[] ringValues) {
+    public void setRingValues(ArrayList<Float> ringValues) {
         this.ringValues = ringValues;
     }
 
-    private Float[] ringValues;
-
-    public GraphRow(int size){
-        ringValues = new Float[size];
+    public GraphRow(ArrayList<Float> ringValues) {
+        this.ringValues = ringValues;
     }
+
+    private ArrayList<Float> ringValues;
 
     public GraphRow(){}
 
