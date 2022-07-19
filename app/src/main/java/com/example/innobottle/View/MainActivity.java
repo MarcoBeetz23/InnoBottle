@@ -245,10 +245,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getGridLabelRenderer().setLabelsSpace(10);
         graph.getViewport().setScrollable(true);
         graph.getViewport().setXAxisBoundsManual(true);
-        //graph.getViewport().setMinX(0);
+        graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(50);
         graph.getViewport().isScalable();
-        // graph.getViewport().setScalableY(true);
     }
 
     private void styleGraph() {
@@ -262,8 +261,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Float yValue = graphValueList.get(graphValueList.size()-1);
         DataPoint point = new DataPoint(xValue, yValue);
         Log.d("hi500", point.toString());
-        series.appendData(point, true, 500);
+        series.appendData(point, false, 500);
         graph.addSeries(series);
+
+        // make graph start at 0 but scroll to end
+        if(graphValueList.size() > 50) {
+            graph.getViewport().scrollToEnd();
+        }
     }
 
     /////////////////////////////////////////////////////////
