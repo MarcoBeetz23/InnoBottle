@@ -27,7 +27,10 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     private static final String ACTIVESTATE = "active";
     String time;
 
+    ArrayList<Float> highestValues = new ArrayList<>();
+
     private static final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final int MAX_SIZE = 10;
 
     public MainPresenter(MainContract.View mainView){
         this.mView = mainView;
@@ -72,22 +75,39 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             String millis = stringData.get(stringData.size()-1);
             stringData.remove(stringData.size()-1);
             DataRow dataRow = new DataRow(stringData, millis);
+            Float highestValue = dataRow.highestValue(dataRow.bottomRow());
+            highestValues.add(highestValue);
+            ArrayList<Float> sortedHighestValues = sortListByNewData(highestValues);
+            // bug fix trailing whitespace in string s dataset may cause errors when float conversion
+
             GraphRow graphRow = convertDataForGraph(dataRow);
-            Float x = graphRow.getRingValues()[1];
-            Log.d("test123", graphRow.toString());
-            Log.d("test124", String.valueOf(x));
+            Float x = graphRow.getRingValues().get(0);
+
+            Log.d("test123", sortedHighestValues.toString());
+            Log.d("test120", String.valueOf(sortedHighestValues));
+
+            Log.d("test124", sortedHighestValues.get(9).toString());
+
+
             mView.startDataRetrieval(dataRow);
             mModel.startDataTransmissionToFirebase(dataRow, time);
         }
     }
 
+    private ArrayList<Float> sortListByNewData(ArrayList<Float> list){
+        if(list.size() == MAX_SIZE){
+            // remove first element from list
+            list.remove(0);
+        }
+        return list;
+    }
+
     private GraphRow convertDataForGraph(DataRow row){
         ArrayList<Float> bottomRow = row.bottomRow();
         Float highestValue = row.highestValue(bottomRow);
-        GraphRow graphRow = new GraphRow(1);
-        Float[] highestValues = new Float[1];
-        highestValues[0] = highestValue;
-        graphRow.setRingValues(highestValues);
+        ArrayList<Float> highestValues = new ArrayList<>();
+        highestValues.add(highestValue);
+        GraphRow graphRow = new GraphRow(highestValues);
         return graphRow;
     }
 
