@@ -2583,7 +2583,6 @@
                                     android:layout_weight="0.6"
                                     android:gravity="right"
                                     android:orientation="vertical"
-                                    android:layout_marginTop="10dp"
                                     android:paddingTop="15dp"
                                     android:paddingBottom="10dp"
                                     android:background="#FFFFFF">
@@ -2595,8 +2594,8 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="25dp"
-                                            android:layout_height="15dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="13dp"
                                             android:layout_marginTop="5dp"
                                             android:layout_marginEnd="5dp"
                                             android:background="@drawable/rectangle_blue">
@@ -2609,7 +2608,7 @@
                                             android:padding="3dp"
                                             android:text="Cell Row 1"
                                             android:textColor="#636161"
-                                            android:textSize="12sp">
+                                            android:textSize="11sp">
 
                                         </TextView>
                                     </LinearLayout>
@@ -2621,8 +2620,8 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="25dp"
-                                            android:layout_height="15dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="13dp"
                                             android:layout_marginTop="5dp"
                                             android:layout_marginEnd="5dp"
                                             android:background="@drawable/rectangle_light_grey">
@@ -2635,7 +2634,7 @@
                                             android:padding="3dp"
                                             android:text="Cell Row 2"
                                             android:textColor="#636161"
-                                            android:textSize="12sp">
+                                            android:textSize="11sp">
 
                                         </TextView>
                                     </LinearLayout>
@@ -2647,8 +2646,8 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:layout_width="25dp"
-                                            android:layout_height="15dp"
+                                            android:layout_width="20dp"
+                                            android:layout_height="13dp"
                                             android:layout_marginTop="5dp"
                                             android:layout_marginEnd="5dp"
                                             android:background="@drawable/rectangle_dark_grey">
@@ -2661,7 +2660,7 @@
                                             android:padding="3dp"
                                             android:text="Cell Row 3"
                                             android:textColor="#636161"
-                                            android:textSize="12sp">
+                                            android:textSize="11sp">
 
                                         </TextView>
                                     </LinearLayout>
@@ -2674,9 +2673,9 @@
                                     android:layout_marginRight="10dp"
                                     android:layout_weight="0.3"
                                     android:gravity="center"
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginTop="7dp"
                                     android:background="#FFFFFF"
-                                    android:paddingBottom="10dp">
+                                    android:paddingBottom="2dp">
 
                                     <ImageView
                                         android:layout_width="30dp"

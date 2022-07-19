@@ -139,4 +139,13 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
         currentState = state;
         stateIsActive = false;
     }
+
+    @Override
+    public void retrieveSensorInformation(){
+        mModel.retrieveSensorInformationInFirebase();
+    }
+    @Override
+    public void onSensorInformationRetrieved(ArrayList<String> information){
+        mView.onInformationRetrieved(information);
+    }
 }
