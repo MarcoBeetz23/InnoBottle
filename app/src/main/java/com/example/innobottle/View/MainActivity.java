@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     //graph view
     LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
-    LineGraphSeries<DataPoint> series1 = new LineGraphSeries<DataPoint>();
-    LineGraphSeries<DataPoint> series2 = new LineGraphSeries<DataPoint>();
     GraphView graph;
 
     //debug
@@ -62,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     String messageString;
     ArrayList<String> dataRowsForTextViews = new ArrayList<>();
+    ArrayList<Float> graphValueList = new ArrayList<>();
     private MainPresenter mPresenter;
 
     Handler handler = new Handler() {
@@ -246,28 +245,25 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getGridLabelRenderer().setLabelsSpace(10);
         graph.getViewport().setScrollable(true);
         graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(0);
+        //graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(50);
+        graph.getViewport().isScalable();
         // graph.getViewport().setScalableY(true);
     }
 
     private void styleGraph() {
         series.setColor(Color.parseColor("#1A9A9B"));
         series.setThickness(3);
-        series1.setColor(Color.parseColor("#6E7D7D"));
-        series1.setThickness(3);
-        series2.setColor(Color.parseColor("#1F2936"));
-        series2.setThickness(3);
     }
 
     private void createGraph(ArrayList<Float> values) {
-        if(values.size() > 0){
-            for(int i = 0 ; i < values.size() ; i++){
-                DataPoint point = new DataPoint(i, values.get(i));
-                series.appendData(point, true, values.size());
-            }
-            graph.addSeries(series);
-        }
+        graphValueList.add(values.get(0));
+        Float xValue = Float.valueOf(graphValueList.size());
+        Float yValue = graphValueList.get(graphValueList.size()-1);
+        DataPoint point = new DataPoint(xValue, yValue);
+        Log.d("hi500", point.toString());
+        series.appendData(point, true, 500);
+        graph.addSeries(series);
     }
 
     /////////////////////////////////////////////////////////
