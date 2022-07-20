@@ -138,6 +138,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     public void onPauseStateInitialized(String state) {
         currentState = state;
         stateIsActive = false;
+        mView.pauseDataRetrieval();
     }
 
     @Override
