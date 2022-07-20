@@ -249,6 +249,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(50);
         graph.getViewport().isScalable();
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(0);
     }
 
     private void styleGraph() {
@@ -264,10 +266,28 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Log.d("hi500", point.toString());
         series.appendData(point, false, 500);
         graph.addSeries(series);
+        scaleGraph();
+    }
 
+    private void scaleGraph() {
         // make graph start at 0 but scroll to end
         if(graphValueList.size() > 50) {
             graph.getViewport().scrollToEnd();
+        }
+        // make y axis scale in an appropriate way
+        float currentMax = graphValueList.get(graphValueList.size()-1);
+        if(currentMax > 1 && currentMax < 5) {
+            graph.getViewport().setMaxY(5);
+        } else if(currentMax >= 5 && currentMax < 10) {
+            graph.getViewport().setMaxY(10);
+        } else if(currentMax >= 10 && currentMax < 20) {
+            graph.getViewport().setMaxY(20);
+        } else if(currentMax >= 20 && currentMax < 50) {
+            graph.getViewport().setMaxY(50);
+        } else if(currentMax >= 50 && currentMax < 100) {
+            graph.getViewport().setMaxY(100);
+        } else if(currentMax >= 100 && currentMax < 200) {
+            graph.getViewport().setMaxY(200);
         }
     }
 
