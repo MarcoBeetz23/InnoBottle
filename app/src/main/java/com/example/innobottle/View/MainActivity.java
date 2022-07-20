@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     ArrayList<Float> graphValueList = new ArrayList<>();
     private MainPresenter mPresenter;
 
+    int counter = 1;
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -261,8 +263,18 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     private void createGraph(ArrayList<Float> values) {
         graphValueList.add(values.get(0));
-        Float xValue = Float.valueOf(graphValueList.size());
-        Float yValue = graphValueList.get(graphValueList.size()-1);
+        Float xValue, yValue;
+        if(graphValueList.size() <= 50){
+            xValue = Float.valueOf(graphValueList.size());
+            yValue = graphValueList.get(graphValueList.size()-1);
+            counter++;
+        } else {
+            Float lastElement = graphValueList.get(graphValueList.size()-1);
+            graphValueList.clear();
+            xValue = Float.valueOf(counter);
+            yValue = lastElement;
+            counter++;
+        }
         DataPoint point = new DataPoint(xValue, yValue);
         Log.d("hi500", point.toString());
         series.appendData(point, false, 500);
@@ -274,7 +286,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         // make graph start at 0 but scroll to end
         if(graphValueList.size() > 50) {
             graph.getViewport().scrollToEnd();
-            graphValueList.subList(0,40).clear();
         }
         // make y axis scale in an appropriate way
         float currentMax = graphValueList.get(graphValueList.size()-1);
