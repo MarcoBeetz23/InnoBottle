@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import com.example.innobottle.R;
 import com.jjoe64.graphview.GraphView;
@@ -268,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         // make graph start at 0 but scroll to end
         if(graphValueList.size() > 50) {
             graph.getViewport().scrollToEnd();
+            graphValueList.subList(0,40).clear();
         }
     }
 
@@ -419,7 +421,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void pauseDataRetrieval() {
-
+        graphValueList.clear();
     }
 
     @Override
@@ -428,21 +430,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         createGraph(values);
     }
 
-
-
-
     /// finally, the retrieved meta data about sensor information is represented on the screen
     @Override
     public void onInformationRetrieved(ArrayList<String> data) {
-        String customerText = data.get(0);
-        String operatorText = data.get(4);
-        String locationText = data.get(3);
-        String dateText = data.get(2);
-
-        tvDate.setText(dateText);
-        tvCustomer.setText(customerText);
-        tvLocation.setText(locationText);
-        tvOperator.setText(operatorText);
+        tvCustomer.setText(data.get(0));
+        tvDate.setText(data.get(2));
+        tvLocation.setText(data.get(3));
+        tvOperator.setText(data.get(4));
     }
 
 }
