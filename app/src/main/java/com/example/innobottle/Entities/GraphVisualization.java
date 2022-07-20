@@ -17,7 +17,7 @@ public class GraphVisualization {
     // Graph = entire coordination system
     // series = line of points
 
-    private static final int SCROLLABLE_BOUNDARY = 50;
+    private static final int SCROLLABLE_BOUNDARY = 100;
 
     //graph view
     LineGraphSeries<DataPoint> series1;
@@ -32,10 +32,13 @@ public class GraphVisualization {
         this.counter = counter;
     }
 
+    public void setLatestValues(ArrayList<Float> values) {
+        this.latestValues = values;
+    }
+
     public void initGraph(){
         styleGrid();
         styleGraph();
-        Log.d("xyhi1234", String.valueOf(latestValues.size()));
     }
 
     public void populateGraph(){
@@ -71,11 +74,11 @@ public class GraphVisualization {
         series1.setThickness(3);
     }
 
-    private void createGraph(ArrayList<Float> values) {
-        Log.d("xyinCreateGraph", String.valueOf(latestValues.size()));
-        Log.d("xyIncomingFromPresenter", String.valueOf(values.size()));
+    public void createGraph(ArrayList<Float> values) {
+        DataPoint point;
         if(values.size() > 0){
             latestValues.add(values.get(0));
+            Log.d("hhhh", String.valueOf(latestValues));
             Float xValue, yValue;
             Float lastElement = latestValues.get(latestValues.size()-1);
             // x = index counter = x axis of graph
@@ -83,35 +86,42 @@ public class GraphVisualization {
 
             // 50 ?
             if(latestValues.size() <= SCROLLABLE_BOUNDARY){
-                Log.d("xyinIf", String.valueOf(latestValues.size()));
-                xValue = Float.valueOf(latestValues.size());
+                xValue = Float.valueOf(counter);
                 yValue = lastElement;
+                point = new DataPoint(xValue, yValue);
+                series1.appendData(point, false, 1000);
+                Log.d("x712", String.valueOf(counter));
                 counter++;
-            } else {
-                Log.d("xyinElse", String.valueOf(latestValues.size()));
+            }
+
+            if(latestValues.size() > SCROLLABLE_BOUNDARY){
                 ArrayList<Float> newTemporaryList = new ArrayList<>();
                 newTemporaryList.add(lastElement);
                 latestValues = newTemporaryList;
                 xValue = Float.valueOf(counter);
                 yValue = lastElement;
+                point = new DataPoint(xValue, yValue);
+                Log.d("hx718", point.toString());
+                series1.resetData(new DataPoint[] {
+                        point = new DataPoint(xValue, yValue)
+                });
+                series1.appendData(point, false, 1000);
+                Log.d("x714", String.valueOf(counter));
                 counter++;
             }
 
-            DataPoint point = new DataPoint(xValue, yValue);
-            series1.appendData(point, false, 500);
             graph.addSeries(series1);
-            Log.d("xybeforeScale", String.valueOf(latestValues.size()));
+            scaleGraph();
         }
 
     }
 
     private void scaleGraph() {
         // make graph start at 0 but scroll to end
-        if(latestValues.size() > SCROLLABLE_BOUNDARY) {
+        if(counter > 50) {
             graph.getViewport().scrollToEnd();
         }
         // make y axis scale in an appropriate way
-        Log.d("xyErrorTrigger", String.valueOf(latestValues.size()));
         Float currentMax = latestValues.get(latestValues.size()-1);
         if(currentMax > 1 && currentMax < 5) {
             graph.getViewport().setMaxY(5);

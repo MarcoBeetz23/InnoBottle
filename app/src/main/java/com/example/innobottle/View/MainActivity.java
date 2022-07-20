@@ -400,8 +400,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void startGraphData(ArrayList<Float> values) {
         Log.d("zzzzz", values.toString());
         Log.d("z555", String.valueOf(values.size()));
-        latestValues
-        //graphVisualization.populateGraph();
+        //graphVisualization.setLatestValues(values);
+        graphVisualization.createGraph(values);
     }
 
     /// finally, the retrieved meta data about sensor information is represented on the screen
