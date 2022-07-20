@@ -275,6 +275,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             yValue = lastElement;
             counter++;
         }
+        Log.d("test123", "counter is: " + String.valueOf(counter) + "---" + "point is: " + String.valueOf(xValue) + "," + String.valueOf(yValue));
         DataPoint point = new DataPoint(xValue, yValue);
         Log.d("hi500", point.toString());
         series.appendData(point, false, 500);
