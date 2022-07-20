@@ -35,6 +35,7 @@ public class GraphVisualization {
     public void initGraph(){
         styleGrid();
         styleGraph();
+        Log.d("xyhi1234", String.valueOf(latestValues.size()));
     }
 
     public void populateGraph(){
@@ -71,6 +72,8 @@ public class GraphVisualization {
     }
 
     private void createGraph(ArrayList<Float> values) {
+        Log.d("xyinCreateGraph", String.valueOf(latestValues.size()));
+        Log.d("xyIncomingFromPresenter", String.valueOf(values.size()));
         if(values.size() > 0){
             latestValues.add(values.get(0));
             Float xValue, yValue;
@@ -80,10 +83,12 @@ public class GraphVisualization {
 
             // 50 ?
             if(latestValues.size() <= SCROLLABLE_BOUNDARY){
+                Log.d("xyinIf", String.valueOf(latestValues.size()));
                 xValue = Float.valueOf(latestValues.size());
                 yValue = lastElement;
                 counter++;
             } else {
+                Log.d("xyinElse", String.valueOf(latestValues.size()));
                 ArrayList<Float> newTemporaryList = new ArrayList<>();
                 newTemporaryList.add(lastElement);
                 latestValues = newTemporaryList;
@@ -95,7 +100,7 @@ public class GraphVisualization {
             DataPoint point = new DataPoint(xValue, yValue);
             series1.appendData(point, false, 500);
             graph.addSeries(series1);
-            scaleGraph();
+            Log.d("xybeforeScale", String.valueOf(latestValues.size()));
         }
 
     }
@@ -106,7 +111,8 @@ public class GraphVisualization {
             graph.getViewport().scrollToEnd();
         }
         // make y axis scale in an appropriate way
-        float currentMax = latestValues.get(latestValues.size()-1);
+        Log.d("xyErrorTrigger", String.valueOf(latestValues.size()));
+        Float currentMax = latestValues.get(latestValues.size()-1);
         if(currentMax > 1 && currentMax < 5) {
             graph.getViewport().setMaxY(5);
         } else if(currentMax >= 5 && currentMax < 10) {

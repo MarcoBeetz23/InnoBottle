@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     /// refactor the plot button variables to arrays
     Button[] btnPlotBottom = new Button[3];
-    
+
 
     //graph raw input
     LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
@@ -398,7 +398,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void startGraphData(ArrayList<Float> values) {
-        graphVisualization.populateGraph();
+        Log.d("zzzzz", values.toString());
+        Log.d("z555", String.valueOf(values.size()));
+        latestValues
+        //graphVisualization.populateGraph();
     }
 
     /// finally, the retrieved meta data about sensor information is represented on the screen
