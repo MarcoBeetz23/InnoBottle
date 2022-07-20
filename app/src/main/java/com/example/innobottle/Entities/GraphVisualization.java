@@ -71,30 +71,33 @@ public class GraphVisualization {
     }
 
     private void createGraph(ArrayList<Float> values) {
-        latestValues.add(values.get(0));
-        Float xValue, yValue;
-        Float lastElement = latestValues.get(latestValues.size()-1);
-        // x = index counter = x axis of graph
-        // y = the actual value coming from Presenter -> from UDP packet -> from load cells
+        if(values.size() > 0){
+            latestValues.add(values.get(0));
+            Float xValue, yValue;
+            Float lastElement = latestValues.get(latestValues.size()-1);
+            // x = index counter = x axis of graph
+            // y = the actual value coming from Presenter -> from UDP packet -> from load cells
 
-        // 50 ?
-        if(latestValues.size() <= SCROLLABLE_BOUNDARY){
-            xValue = Float.valueOf(latestValues.size());
-            yValue = lastElement;
-            counter++;
-        } else {
-            ArrayList<Float> newTemporaryList = new ArrayList<>();
-            newTemporaryList.add(lastElement);
-            latestValues = newTemporaryList;
-            xValue = Float.valueOf(counter);
-            yValue = lastElement;
-            counter++;
+            // 50 ?
+            if(latestValues.size() <= SCROLLABLE_BOUNDARY){
+                xValue = Float.valueOf(latestValues.size());
+                yValue = lastElement;
+                counter++;
+            } else {
+                ArrayList<Float> newTemporaryList = new ArrayList<>();
+                newTemporaryList.add(lastElement);
+                latestValues = newTemporaryList;
+                xValue = Float.valueOf(counter);
+                yValue = lastElement;
+                counter++;
+            }
+
+            DataPoint point = new DataPoint(xValue, yValue);
+            series1.appendData(point, false, 500);
+            graph.addSeries(series1);
+            scaleGraph();
         }
 
-        DataPoint point = new DataPoint(xValue, yValue);
-        series1.appendData(point, false, 500);
-        graph.addSeries(series1);
-        scaleGraph();
     }
 
     private void scaleGraph() {
