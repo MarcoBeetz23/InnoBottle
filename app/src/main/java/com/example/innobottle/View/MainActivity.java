@@ -52,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     TextView[] tvUnit = new TextView[9];
     TextView[] tvUnitred = new TextView[9];
 
-    ///////////////////////////
+
+    /// refactor the plot button variables to arrays
+    Button[] btnPlotBottom = new Button[3];
+    
 
     //graph raw input
     LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
@@ -156,6 +159,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         loadCellValues[8] = findViewById(R.id.cellValue9);
         //Graph view
         graph = (GraphView) findViewById(R.id.graph);
+        btnPlotBottom[0] = findViewById(R.id.plot7);
+        btnPlotBottom[1] = findViewById(R.id.plot8);
+        btnPlotBottom[2] = findViewById(R.id.plot9);
     }
 
     private void handleUserClicks() {

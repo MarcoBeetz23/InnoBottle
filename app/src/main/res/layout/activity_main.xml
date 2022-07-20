@@ -580,6 +580,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot1"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -697,6 +698,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot1red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -798,6 +800,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot2"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -915,6 +918,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot2red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1015,6 +1019,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot3"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1132,6 +1137,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot3red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1258,6 +1264,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot4"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1375,6 +1382,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot4red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1476,6 +1484,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot5"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1593,6 +1602,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot5red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1695,6 +1705,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot6"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1812,6 +1823,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot6red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -1938,6 +1950,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot7"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -2055,6 +2068,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot7red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -2158,6 +2172,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot8"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -2275,6 +2290,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot8red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -2375,6 +2391,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot9"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
@@ -2492,6 +2509,7 @@
                                             </LinearLayout>
 
                                             <com.google.android.material.button.MaterialButton
+                                                android:id="@+id/plot9red"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="38dp"
                                                 android:layout_marginStart="25dp"
