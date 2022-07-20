@@ -79,7 +79,11 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             highestValues.add(highestValue);
             ArrayList<Float> sortedHighestValues = sortListByNewData(highestValues);
             // bug fix trailing whitespace in string s dataset may cause errors when float conversion
+
+            // graph handling
             mView.startGraphData(sortedHighestValues);
+            //
+
             mView.startDataRetrieval(dataRow);
             mModel.startDataTransmissionToFirebase(dataRow, time);
         }
@@ -91,15 +95,6 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             list.remove(0);
         }
         return list;
-    }
-
-    private GraphRow convertDataForGraph(DataRow row){
-        ArrayList<Float> bottomRow = row.bottomRow();
-        Float highestValue = row.highestValue(bottomRow);
-        ArrayList<Float> highestValues = new ArrayList<>();
-        highestValues.add(highestValue);
-        GraphRow graphRow = new GraphRow(highestValues);
-        return graphRow;
     }
 
     private String getCurrentTime(){

@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.innobottle.Entities.DataRow;
+import com.example.innobottle.Entities.GraphVisualization;
 import com.example.innobottle.Presenter.MainContract;
 import com.example.innobottle.Presenter.MainPresenter;
 
@@ -51,9 +52,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     TextView[] tvUnit = new TextView[9];
     TextView[] tvUnitred = new TextView[9];
 
-    //graph view
-    LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+    ///////////////////////////
+
+    //graph raw input
+    LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
     GraphView graph;
+    ArrayList<Float> latestValues = new ArrayList<>();
+    int counter = 1;
+    // build the object!
+    GraphVisualization graphVisualization;
+
+    /////////////////////////
 
     //debug
     ImageView greenBottleImage;
@@ -61,10 +70,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     String messageString;
     ArrayList<String> dataRowsForTextViews = new ArrayList<>();
-    ArrayList<Float> graphValueList = new ArrayList<>();
-    private MainPresenter mPresenter;
 
-    int counter = 1;
+    // mvp
+    private MainPresenter mPresenter;
 
     Handler handler = new Handler() {
         @Override
@@ -80,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupUIComponents();
-        styleGrid();
-        styleGraph();
         mPresenter = new MainPresenter(this);
     }
 
@@ -98,7 +104,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         handleUDP();
         mPresenter.retrieveSensorInformation();
         handleUserClicks();
+        graphVisualization = new GraphVisualization(graph, series, latestValues, counter);
+        graphVisualization.initGraph();
     }
+
 
     private void setupUIComponents() {
         setContentView(R.layout.activity_main);
@@ -218,7 +227,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 //to get "-" if sensor run is inactive + to show/not show unit "N"
                 showDefault();
                 removeUnits();
-                clearGraph();
                 // button change
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
@@ -234,80 +242,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                         Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    /////////////// Graph View ////////////////////
-    // @Marco: this is only an example graph for me to see how it will look like
-    private void styleGrid() {
-        // design
-        // graph.getGridLabelRenderer().setHorizontalAxisTitle("Timestamp [ms]");
-        graph.getGridLabelRenderer().setVerticalAxisTitle("Maximum force / cell row [N]");
-        graph.getGridLabelRenderer().setVerticalLabelsAlign(Paint.Align.CENTER);
-        graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
-        graph.getGridLabelRenderer().setNumHorizontalLabels(10);
-        graph.getGridLabelRenderer().setPadding(25);
-        graph.getGridLabelRenderer().setLabelsSpace(10);
-        graph.getViewport().setScrollable(true);
-        graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(0);
-        graph.getViewport().setMaxX(50);
-        graph.getViewport().isScalable();
-        graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMinY(0);
-    }
-
-    private void styleGraph() {
-        series.setColor(Color.parseColor("#1F2936"));
-        series.setThickness(3);
-    }
-
-    private void createGraph(ArrayList<Float> values) {
-        graphValueList.add(values.get(0));
-        Float xValue, yValue;
-        if(graphValueList.size() <= 50){
-            xValue = Float.valueOf(graphValueList.size());
-            yValue = graphValueList.get(graphValueList.size()-1);
-            counter++;
-        } else {
-            Float lastElement = graphValueList.get(graphValueList.size()-1);
-            graphValueList.clear();
-            xValue = Float.valueOf(counter);
-            yValue = lastElement;
-            counter++;
-        }
-        Log.d("test123", "counter is: " + String.valueOf(counter) + "---" + "point is: " + String.valueOf(xValue) + "," + String.valueOf(yValue));
-        DataPoint point = new DataPoint(xValue, yValue);
-        Log.d("hi500", point.toString());
-        series.appendData(point, false, 500);
-        graph.addSeries(series);
-        scaleGraph();
-    }
-
-    private void scaleGraph() {
-        // make graph start at 0 but scroll to end
-        if(graphValueList.size() > 50) {
-            graph.getViewport().scrollToEnd();
-        }
-        // make y axis scale in an appropriate way
-        float currentMax = graphValueList.get(graphValueList.size()-1);
-        if(currentMax > 1 && currentMax < 5) {
-            graph.getViewport().setMaxY(5);
-        } else if(currentMax >= 5 && currentMax < 10) {
-            graph.getViewport().setMaxY(10);
-        } else if(currentMax >= 10 && currentMax < 20) {
-            graph.getViewport().setMaxY(20);
-        } else if(currentMax >= 20 && currentMax < 50) {
-            graph.getViewport().setMaxY(50);
-        } else if(currentMax >= 50 && currentMax < 100) {
-            graph.getViewport().setMaxY(100);
-        } else if(currentMax >= 100 && currentMax < 200) {
-            graph.getViewport().setMaxY(200);
-        }
-    }
-
-    private void clearGraph() {
-        graph.removeAllSeries();
-        //graphValueList.clear();
     }
 
     /////////////////////////////////////////////////////////
@@ -453,13 +387,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void pauseDataRetrieval() {
-        graphValueList.clear();
+        graphVisualization.removeGraph();
     }
 
     @Override
     public void startGraphData(ArrayList<Float> values) {
-        // paint the graph
-        createGraph(values);
+        graphVisualization.populateGraph();
     }
 
     /// finally, the retrieved meta data about sensor information is represented on the screen
