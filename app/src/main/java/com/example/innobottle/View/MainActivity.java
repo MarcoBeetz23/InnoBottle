@@ -126,10 +126,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void initGraphs(){
         bottomGraphVisualization = new GraphVisualization(bottomGraph, bottomSeries, bottomLatestValues, bottomCounter);
         bottomGraphVisualization.initGraph();
+        bottomGraphVisualization.styleGraph("#1F2936", 3);
         middleGraphVisualization = new GraphVisualization(middleGraph, middleSeries, middleLatestValues, middleCounter);
         middleGraphVisualization.initGraph();
+        middleGraphVisualization.styleGraph("#6E7D7D", 3);
         topGraphVisualization = new GraphVisualization(topGraph, topSeries, topLatestValues, topCounter);
         topGraphVisualization.initGraph();
+        topGraphVisualization.styleGraph("#1A9A9B", 3);
     }
 
 
@@ -425,8 +428,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Log.d("zzzzz", bottomValues.toString());
         Log.d("z555", String.valueOf(bottomValues.size()));
         //graphVisualization.setLatestValues(values);
-        graphVisualization.createGraph(bottomValues);
-
         Log.d("hh111", middleValues.toString());
         Log.d("hh222", topValues.toString());
         bottomGraphVisualization.createGraph(bottomValues);

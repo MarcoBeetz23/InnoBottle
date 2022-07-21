@@ -35,7 +35,6 @@ public class GraphVisualization {
 
     public void initGraph(){
         styleGrid();
-        styleGraph();
     }
 
     public void removeGraph(){
@@ -66,9 +65,9 @@ public class GraphVisualization {
     }
 
     // styles online the line
-    private void styleGraph() {
-        series1.setColor(Color.parseColor("#1F2936"));
-        series1.setThickness(3);
+    public void styleGraph(String colorString, int thickness) {
+        series1.setColor(Color.parseColor(colorString));
+        series1.setThickness(thickness);
     }
 
     public void createGraph(ArrayList<Float> values) {
