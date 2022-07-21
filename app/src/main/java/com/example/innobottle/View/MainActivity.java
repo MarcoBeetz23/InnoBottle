@@ -387,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                byte[] buffer = new byte[70];
+                byte[] buffer = new byte[110];
                 DatagramSocket socket = null;
                 try {
                     while(true){
