@@ -1,0 +1,216 @@
+
+#include <HX711_ADC.h>
+#if defined(ESP8266)|| defined(ESP32) || defined(AVR)
+#include <EEPROM.h>
+#endif
+
+#include <WiFi.h>
+#include <WiFiUdp.h>
+#include <time.h>
+
+
+// UDP
+WiFiUDP udp;
+
+// WiFi credentials
+char* SSID;
+char* PW;
+char* IP;
+uint16_t PORT;
+
+// dout
+const int hx711_data_pin_1 = 27;
+const int hx711_data_pin_2 = 4;
+const int hx711_data_pin_3 = 25;
+const int hx711_data_pin_4 = 16;
+const int hx711_data_pin_5 = 26;
+const int hx711_data_pin_6 = 17;
+const int hx711_data_pin_7 = 33;
+const int hx711_data_pin_8 = 5;
+const int hx711_data_pin_9 = 32;
+// sck
+const int hx711_clock_pin = 12;
+
+
+unsigned long timedelta;
+
+HX711_ADC hx711_1(hx711_data_pin_1, hx711_clock_pin);
+HX711_ADC hx711_2(hx711_data_pin_2, hx711_clock_pin);
+HX711_ADC hx711_3(hx711_data_pin_3, hx711_clock_pin);
+HX711_ADC hx711_4(hx711_data_pin_4, hx711_clock_pin);
+HX711_ADC hx711_5(hx711_data_pin_5, hx711_clock_pin);
+HX711_ADC hx711_6(hx711_data_pin_6, hx711_clock_pin);
+HX711_ADC hx711_7(hx711_data_pin_7, hx711_clock_pin);
+HX711_ADC hx711_8(hx711_data_pin_8, hx711_clock_pin);
+HX711_ADC hx711_9(hx711_data_pin_9, hx711_clock_pin);
+
+const int calVal_eepromAdress = 0;
+unsigned long t = 0;
+volatile boolean newDataReady;
+
+void setup() {
+  setCpuFrequencyMhz(80);
+  Serial.begin(115200);
+  initWifi();
+ 
+  float calibrationValue; // calibration value
+  calibrationValue = 696.0; // uncomment this if you want to set this value in the sketch
+#if defined(ESP8266) || defined(ESP32)
+  //EEPROM.begin(512); // uncomment this if you use ESP8266 and want to fetch the value from eeprom
+#endif
+  //EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch the value from eeprom
+
+  hx711_1.begin();
+  hx711_2.begin();
+  hx711_3.begin();
+  hx711_4.begin();
+  hx711_5.begin();
+  hx711_6.begin();
+  hx711_7.begin();
+  hx711_8.begin();
+  hx711_9.begin();
+
+  
+  unsigned long stabilizingtime = 2000; // tare preciscion can be improved by adding a few seconds of stabilizing time
+  boolean _tare = false; //set this to false if you don't want tare to be performed in the next step
+  hx711_1.startMultiple(stabilizingtime, _tare);
+  hx711_1.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_2.startMultiple(stabilizingtime, _tare);
+  hx711_2.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_3.startMultiple(stabilizingtime, _tare);
+  hx711_3.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_4.startMultiple(stabilizingtime, _tare);
+  hx711_4.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_5.startMultiple(stabilizingtime, _tare);
+  hx711_5.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_6.startMultiple(stabilizingtime, _tare);
+  hx711_6.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_7.startMultiple(stabilizingtime, _tare);
+  hx711_7.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_8.startMultiple(stabilizingtime, _tare);
+  hx711_8.setCalFactor(calibrationValue); // set calibration value (float)
+
+  hx711_9.startMultiple(stabilizingtime, _tare);
+  hx711_9.setCalFactor(calibrationValue); // set calibration value (float)
+
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_1), dataReadyISR1, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_2), dataReadyISR2, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_3), dataReadyISR3, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_4), dataReadyISR4, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_5), dataReadyISR5, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_6), dataReadyISR6, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_7), dataReadyISR7, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_8), dataReadyISR8, FALLING);
+  attachInterrupt(digitalPinToInterrupt(hx711_data_pin_9), dataReadyISR9, FALLING);
+}
+
+void initWifi(){
+  SSID = "Krones-TB2019";
+  PW = "TB@Kr0nes!2019";
+  IP = "192.168.178.71";
+  PORT = 5700;
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(SSID, PW);
+  udp.begin(PORT);
+  
+}
+
+//interrupt routine:
+void dataReadyISR1() {
+  if (hx711_1.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR2() {
+  if (hx711_2.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR3() {
+  if (hx711_3.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR4() {
+  if (hx711_4.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR5() {
+  if (hx711_5.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR6() {
+  if (hx711_6.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR7() {
+  if (hx711_7.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR8() {
+  if (hx711_8.update()) {
+    newDataReady = 1;
+  }
+}
+
+//interrupt routine:
+void dataReadyISR9() {
+  if (hx711_9.update()) {
+    newDataReady = 1;
+  }
+}
+
+
+void loop() {
+  const int serialPrintInterval = 0; //increase value to slow down serial print activity
+
+  // get smoothed value from the dataset:
+  if (newDataReady) {
+    if (millis() > t + serialPrintInterval) {
+      float f1 = hx711_1.getData() - 11100;
+      float f2 = hx711_2.getData() - 11100;
+      float f3 = hx711_3.getData() - 11100;
+      float f4 = hx711_4.getData() - 11100;
+      float f5 = hx711_5.getData() - 11100;
+      float f6 = hx711_6.getData() - 11100;
+      float f7 = hx711_7.getData() - 11100;
+      float f8 = hx711_8.getData() - 11100;
+      float f9 = hx711_9.getData() - 11100;       
+      timedelta = millis();
+      String dataString = String(f1) + ", " + String(f2) + ", " + String(f3) + ", " + String(f4) + ", " + String(f5) + ", " + String(f6) + ", " + String(f7) + ", " + String(f8) + ", " + String(f9) + ", " + String(timedelta);
+      Serial.println(dataString);
+      udp.beginPacket(IP, PORT);
+      udp.write((uint8_t*)dataString.c_str(), dataString.length());    
+      udp.endPacket();
+      newDataReady = 0;
+
+    }
+  }
+
+}
