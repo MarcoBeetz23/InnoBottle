@@ -27,7 +27,9 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
     private static final String ACTIVESTATE = "active";
     String time;
 
-    ArrayList<Float> highestValues = new ArrayList<>();
+    ArrayList<Float> highestBottomValues = new ArrayList<>();
+    ArrayList<Float> highestMiddleValues = new ArrayList<>();
+    ArrayList<Float> highestTopValues = new ArrayList<>();
 
     private static final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final int MAX_SIZE = 10;
@@ -75,13 +77,25 @@ public class MainPresenter implements MainContract.Presenter, MainContract.DataL
             String millis = stringData.get(stringData.size()-1);
             stringData.remove(stringData.size()-1);
             DataRow dataRow = new DataRow(stringData, millis);
-            Float highestValue = dataRow.highestValue(dataRow.bottomRow());
-            highestValues.add(highestValue);
-            ArrayList<Float> sortedHighestValues = sortListByNewData(highestValues);
+            // highest Value for bottom load cell ring
+            Float highestBottomValue = dataRow.highestValue(dataRow.bottomRow());
+            highestBottomValues.add(highestBottomValue);
+            ArrayList<Float> bottomSortedHighestValues = sortListByNewData(highestBottomValues);
+
+            // highest value for middle load cell ring
+            Float highestMiddleValue = dataRow.highestValue(dataRow.middleRow());
+            highestMiddleValues.add(highestMiddleValue);
+            ArrayList<Float> middleSortedHighestValues = sortListByNewData(highestMiddleValues);
+
+            // highest value for top load cell ring
+            Float highestTopValue = dataRow.highestValue(dataRow.topRow());
+            highestTopValues.add(highestTopValue);
+            ArrayList<Float> topSortedHighestValues = sortListByNewData(highestTopValues);
+
             // bug fix trailing whitespace in string s dataset may cause errors when float conversion
 
             // graph handling
-            mView.startGraphData(sortedHighestValues);
+            mView.startGraphData(bottomSortedHighestValues, middleSortedHighestValues, topSortedHighestValues);
             //
 
             mView.startDataRetrieval(dataRow);

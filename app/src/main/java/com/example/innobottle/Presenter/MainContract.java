@@ -9,7 +9,7 @@ public interface MainContract {
     interface View{
         void startDataRetrieval(DataRow row);
         void pauseDataRetrieval();
-        void startGraphData(ArrayList<Float> values);
+        void startGraphData(ArrayList<Float> topValues, ArrayList<Float> middleValues, ArrayList<Float> bottomValues);
         void onInformationRetrieved(ArrayList<String> data);
     }
 

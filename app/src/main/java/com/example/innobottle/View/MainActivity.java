@@ -398,11 +398,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void startGraphData(ArrayList<Float> values) {
-        Log.d("zzzzz", values.toString());
-        Log.d("z555", String.valueOf(values.size()));
+    public void startGraphData(ArrayList<Float> bottomValues, ArrayList<Float> middleValues, ArrayList<Float> topValues) {
+        Log.d("zzzzz", bottomValues.toString());
+        Log.d("z555", String.valueOf(bottomValues.size()));
         //graphVisualization.setLatestValues(values);
-        graphVisualization.createGraph(values);
+        graphVisualization.createGraph(bottomValues);
     }
 
     /// finally, the retrieved meta data about sensor information is represented on the screen
