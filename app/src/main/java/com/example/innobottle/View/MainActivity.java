@@ -57,14 +57,27 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     Button[] btnPlotBottom = new Button[3];
 
 
-    //graph raw input
-    LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
-    GraphView graph;
-    ArrayList<Float> latestValues = new ArrayList<>();
-    int counter = 1;
+    // BOTTOM graph raw input
+    LineGraphSeries<DataPoint> bottomSeries = new LineGraphSeries<>();
+    GraphView bottomGraph;
+    ArrayList<Float> bottomLatestValues = new ArrayList<>();
+    int bottomCounter = 1;
     // build the object!
-    GraphVisualization graphVisualization;
+    GraphVisualization bottomGraphVisualization;
 
+    // middle
+    LineGraphSeries<DataPoint> middleSeries = new LineGraphSeries<>();
+    GraphView middleGraph;
+    ArrayList<Float> middleLatestValues = new ArrayList<>();
+    int middleCounter = 1;
+    GraphVisualization middleGraphVisualization;
+
+    // top
+    LineGraphSeries<DataPoint> topSeries = new LineGraphSeries<>();
+    GraphView topGraph;
+    ArrayList<Float> topLatestValues = new ArrayList<>();
+    int topCounter = 1;
+    GraphVisualization topGraphVisualization;
     /////////////////////////
 
     //debug
@@ -107,8 +120,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         handleUDP();
         mPresenter.retrieveSensorInformation();
         handleUserClicks();
-        graphVisualization = new GraphVisualization(graph, series, latestValues, counter);
-        graphVisualization.initGraph();
+        initGraphs();
+    }
+
+    private void initGraphs(){
+        bottomGraphVisualization = new GraphVisualization(bottomGraph, bottomSeries, bottomLatestValues, bottomCounter);
+        bottomGraphVisualization.initGraph();
+        middleGraphVisualization = new GraphVisualization(middleGraph, middleSeries, middleLatestValues, middleCounter);
+        middleGraphVisualization.initGraph();
+        topGraphVisualization = new GraphVisualization(topGraph, topSeries, topLatestValues, topCounter);
+        topGraphVisualization.initGraph();
     }
 
 
@@ -158,7 +179,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         loadCellValues[7] = findViewById(R.id.cellValue8);
         loadCellValues[8] = findViewById(R.id.cellValue9);
         //Graph view
-        graph = (GraphView) findViewById(R.id.graph);
+        bottomGraph = (GraphView) findViewById(R.id.bottomGraph);
+        middleGraph = (GraphView) findViewById(R.id.middleGraph);
+        topGraph = (GraphView) findViewById(R.id.topGraph);
         btnPlotBottom[0] = findViewById(R.id.plot7);
         btnPlotBottom[1] = findViewById(R.id.plot8);
         btnPlotBottom[2] = findViewById(R.id.plot9);
@@ -233,8 +256,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 //to get "-" if sensor run is inactive + to show/not show unit "N"
                 showDefault();
                 removeUnits();
-                graphVisualization.removeGraph();
-                graphVisualization.initGraph();
+                bottomGraphVisualization.removeGraph();
+                bottomGraphVisualization.initGraph();
                 // button change
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
@@ -406,6 +429,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         Log.d("hh111", middleValues.toString());
         Log.d("hh222", topValues.toString());
+        bottomGraphVisualization.createGraph(bottomValues);
+        middleGraphVisualization.createGraph(middleValues);
+        topGraphVisualization.createGraph(topValues);
     }
 
     /// finally, the retrieved meta data about sensor information is represented on the screen
