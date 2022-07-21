@@ -403,6 +403,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         Log.d("z555", String.valueOf(bottomValues.size()));
         //graphVisualization.setLatestValues(values);
         graphVisualization.createGraph(bottomValues);
+
+        Log.d("hh111", middleValues.toString());
+        Log.d("hh222", topValues.toString());
     }
 
     /// finally, the retrieved meta data about sensor information is represented on the screen

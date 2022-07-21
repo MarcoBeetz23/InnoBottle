@@ -74,22 +74,40 @@ public class GraphVisualization {
     public void createGraph(ArrayList<Float> values) {
         DataPoint point;
         if(values.size() > 0){
-            latestValues.add(values.get(0));
-            Float xValue, yValue;
-            Float lastElement = latestValues.get(latestValues.size()-1);
-            // x = index counter = x axis of graph
-            // y = the actual value coming from Presenter -> from UDP packet -> from load cells
-
-            xValue = Float.valueOf(latestValues.size());
-            yValue = lastElement;
-            point = new DataPoint(xValue, yValue);
-            series1.appendData(point, false, 50);
+            try{
+                Log.d("debug1", String.valueOf(latestValues.size()));
+                point = createDataPoint(values);
+                series1.appendData(point, false, 50);
+                graph.addSeries(series1);
+            } catch (IllegalArgumentException e) {
+                Log.d("debug2", String.valueOf(latestValues.size()));
+                Log.d("error 123", e.getMessage());
+                // clear the latestValues list to remove remaining values from previous series
+                latestValues.clear();
+                Log.d("debug3", String.valueOf(latestValues.size()));
+                // draw the point
+                point = createDataPoint(values);
+                // reset the graph by removing existing series
+                graph.removeAllSeries();
+                // overload the constructor of the the object by creating a new instance of LineGraphSeries
+                series1 = new LineGraphSeries<>();
+                series1.appendData(point, false, 50);
+                // add the new object to the graph, then proceed
+                graph.addSeries(series1);
+            }
             counter++;
-
-            graph.addSeries(series1);
             scaleGraph();
         }
 
+    }
+
+    private DataPoint createDataPoint(ArrayList<Float> listValues){
+        Log.d("inside create", String.valueOf(latestValues.size()));
+        DataPoint point;
+        latestValues.add(listValues.get(0));
+        Float xVal = Float.valueOf(latestValues.size());
+        Float yVal = latestValues.get(latestValues.size()-1);
+        return point = new DataPoint(xVal, yVal);
     }
 
     private void scaleGraph() {
