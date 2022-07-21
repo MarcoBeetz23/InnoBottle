@@ -233,6 +233,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 //to get "-" if sensor run is inactive + to show/not show unit "N"
                 showDefault();
                 removeUnits();
+                graphVisualization.removeGraph();
+                graphVisualization.initGraph();
                 // button change
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
@@ -393,7 +395,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void pauseDataRetrieval() {
-        graphVisualization.removeGraph();
     }
 
     @Override

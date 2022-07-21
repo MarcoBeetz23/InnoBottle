@@ -18,6 +18,7 @@ public class GraphVisualization {
     // series = line of points
 
     private static final int SCROLLABLE_BOUNDARY = 100;
+    private static final int MAX_X_VALUE = 50;
 
     //graph view
     LineGraphSeries<DataPoint> series1;
@@ -32,23 +33,15 @@ public class GraphVisualization {
         this.counter = counter;
     }
 
-    public void setLatestValues(ArrayList<Float> values) {
-        this.latestValues = values;
-    }
-
     public void initGraph(){
         styleGrid();
         styleGraph();
     }
 
-    public void populateGraph(){
-        createGraph(latestValues);
-        scaleGraph();
-    }
-
     public void removeGraph(){
+        graph.removeAllSeries();
         latestValues.clear();
-        counter = 0;
+        counter = 1;
     }
 
     // styles the coordination system itself
@@ -63,9 +56,13 @@ public class GraphVisualization {
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(50);
-        graph.getViewport().isScalable();
         graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setScrollableY(true);
         graph.getViewport().setMinY(0);
+        graph.getViewport().setMaxY(20);
+        graph.getViewport().isScalable();
+        //graph.getViewport().setYAxisBoundsManual(true);
+        //graph.getViewport().setMinY(0);
     }
 
     // styles online the line
@@ -78,37 +75,16 @@ public class GraphVisualization {
         DataPoint point;
         if(values.size() > 0){
             latestValues.add(values.get(0));
-            Log.d("hhhh", String.valueOf(latestValues));
             Float xValue, yValue;
             Float lastElement = latestValues.get(latestValues.size()-1);
             // x = index counter = x axis of graph
             // y = the actual value coming from Presenter -> from UDP packet -> from load cells
 
-            // 50 ?
-            if(latestValues.size() <= SCROLLABLE_BOUNDARY){
-                xValue = Float.valueOf(counter);
-                yValue = lastElement;
-                point = new DataPoint(xValue, yValue);
-                series1.appendData(point, false, 1000);
-                Log.d("x712", String.valueOf(counter));
-                counter++;
-            }
-
-            if(latestValues.size() > SCROLLABLE_BOUNDARY){
-                ArrayList<Float> newTemporaryList = new ArrayList<>();
-                newTemporaryList.add(lastElement);
-                latestValues = newTemporaryList;
-                xValue = Float.valueOf(counter);
-                yValue = lastElement;
-                point = new DataPoint(xValue, yValue);
-                Log.d("hx718", point.toString());
-                series1.resetData(new DataPoint[] {
-                        point = new DataPoint(xValue, yValue)
-                });
-                series1.appendData(point, false, 1000);
-                Log.d("x714", String.valueOf(counter));
-                counter++;
-            }
+            xValue = Float.valueOf(latestValues.size());
+            yValue = lastElement;
+            point = new DataPoint(xValue, yValue);
+            series1.appendData(point, false, 50);
+            counter++;
 
             graph.addSeries(series1);
             scaleGraph();
@@ -118,18 +94,12 @@ public class GraphVisualization {
 
     private void scaleGraph() {
         // make graph start at 0 but scroll to end
-        if(counter > 50) {
+        if(counter > MAX_X_VALUE) {
             graph.getViewport().scrollToEnd();
         }
         // make y axis scale in an appropriate way
         Float currentMax = latestValues.get(latestValues.size()-1);
-        if(currentMax > 1 && currentMax < 5) {
-            graph.getViewport().setMaxY(5);
-        } else if(currentMax >= 5 && currentMax < 10) {
-            graph.getViewport().setMaxY(10);
-        } else if(currentMax >= 10 && currentMax < 20) {
-            graph.getViewport().setMaxY(20);
-        } else if(currentMax >= 20 && currentMax < 50) {
+        if(currentMax >= 20 && currentMax < 50) {
             graph.getViewport().setMaxY(50);
         } else if(currentMax >= 50 && currentMax < 100) {
             graph.getViewport().setMaxY(100);
