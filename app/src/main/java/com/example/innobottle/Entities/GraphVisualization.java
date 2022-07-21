@@ -60,8 +60,6 @@ public class GraphVisualization {
         graph.getViewport().setMinY(0);
         graph.getViewport().setMaxY(20);
         graph.getViewport().isScalable();
-        //graph.getViewport().setYAxisBoundsManual(true);
-        //graph.getViewport().setMinY(0);
     }
 
     // styles online the line
@@ -95,7 +93,6 @@ public class GraphVisualization {
                 graph.addSeries(series1);
             }
             counter++;
-            scaleGraph();
         }
 
     }
@@ -109,13 +106,17 @@ public class GraphVisualization {
         return point = new DataPoint(xVal, yVal);
     }
 
-    private void scaleGraph() {
+    public void scaleGraph(ArrayList<Float> bottom, ArrayList<Float> middle, ArrayList<Float> top) {
         // make graph start at 0 but scroll to end
         if(counter > MAX_X_VALUE) {
             graph.getViewport().scrollToEnd();
         }
         // make y axis scale in an appropriate way
-        Float currentMax = latestValues.get(latestValues.size()-1);
+        Float currentMaxBottom = bottom.get(bottom.size()-1);
+        Float currentMaxMiddle = middle.get(middle.size()-1);
+        Float currentMaxTop = top.get(top.size()-1);
+
+        Float currentMax = Math.max(currentMaxBottom, Math.max(currentMaxMiddle, currentMaxTop));
         if(currentMax >= 20 && currentMax < 50) {
             graph.getViewport().setMaxY(50);
         } else if(currentMax >= 50 && currentMax < 100) {
