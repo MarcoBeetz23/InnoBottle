@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     // Android components
     TextView tvSensorRunName, tvCustomer, tvDate, tvOperator, tvLocation;
-    Button btnNewRun, btnPause, btnSave, btnStart, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete;
+    Button btnNewRun, btnPause, btnSave, btnStart, btnDeleteSensorRun, btnSaveSensorRun, btnFinalDelete, btnCancelDelete, switchTopRow;
     Dialog dialog, deleteDialog;
     ImageView greenCircle, cancelSaveProcess, cancelDeleteProcess;
 
@@ -51,10 +51,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     TextView[] loadCellValues = new TextView[9];
     TextView[] tvUnit = new TextView[9];
     TextView[] tvUnitred = new TextView[9];
-
-
-    /// refactor the plot button variables to arrays
-    Button[] btnPlotBottom = new Button[3];
 
 
     // BOTTOM graph raw input
@@ -182,9 +178,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         bottomGraph = (GraphView) findViewById(R.id.bottomGraph);
         middleGraph = (GraphView) findViewById(R.id.middleGraph);
         topGraph = (GraphView) findViewById(R.id.topGraph);
-        btnPlotBottom[0] = findViewById(R.id.plot7);
-        btnPlotBottom[1] = findViewById(R.id.plot8);
-        btnPlotBottom[2] = findViewById(R.id.plot9);
+        switchTopRow = findViewById(R.id.switchTopRow);
     }
 
     private void handleUserClicks() {
@@ -274,6 +268,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void handleSwitch() {
+
     }
 
     /////////////////////////////////////////////////////////

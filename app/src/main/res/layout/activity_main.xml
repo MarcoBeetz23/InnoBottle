@@ -493,7 +493,20 @@
                                             android:layout_marginTop="10dp"
                                             android:layout_marginRight="5dp"
                                             android:layout_marginBottom="10dp"
-                                            android:background="@drawable/long_rectangle_blue"></ImageView>
+                                            android:visibility="gone"
+                                            android:background="@drawable/long_rectangle_blue">
+
+                                        </ImageView>
+                                        <androidx.appcompat.widget.SwitchCompat
+                                            android:id="@+id/switchTopRow"
+                                            android:layout_width="20dp"
+                                            android:layout_height="match_parent"
+                                            android:rotation="90"
+                                            app:thumbTint="#1A9A9B"
+                                            app:trackTint="#1A9A9B"
+                                            app:splitTrack="false">
+
+                                        </androidx.appcompat.widget.SwitchCompat>
 
                                     </LinearLayout>
 
@@ -547,15 +560,15 @@
 
                                             <LinearLayout
                                                 android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
+                                                android:layout_height="match_parent"
                                                 android:gravity="center_horizontal"
                                                 android:orientation="horizontal">
 
                                                 <TextView
                                                     android:id="@+id/cellValue1"
                                                     android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginTop="35dp"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center"
                                                     android:text="-"
                                                     android:textAlignment="center"
                                                     android:textColor="#6E7D7D"
@@ -567,8 +580,8 @@
                                                 <TextView
                                                     android:id="@+id/newton1"
                                                     android:layout_width="wrap_content"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginTop="35dp"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center"
                                                     android:text=" N"
                                                     android:textAlignment="center"
                                                     android:textColor="#6E7D7D"
@@ -579,23 +592,6 @@
                                                 </TextView>
                                             </LinearLayout>
 
-                                            <com.google.android.material.button.MaterialButton
-                                                android:id="@+id/plot1"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="38dp"
-                                                android:layout_marginStart="25dp"
-                                                android:layout_marginTop="2dp"
-                                                android:layout_marginEnd="25dp"
-                                                android:backgroundTint="#FFFFFF"
-                                                android:text="Plot"
-                                                android:textColor="#6E7D7D"
-                                                android:textSize="11sp"
-                                                app:cornerRadius="10dp"
-                                                app:strokeColor="#6E7D7D"
-                                                app:strokeWidth="2dp">
-
-
-                                            </com.google.android.material.button.MaterialButton>
                                         </LinearLayout>
 
                                     </com.google.android.material.card.MaterialCardView>
