@@ -126,13 +126,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void initGraphs(){
         bottomGraphVisualization = new GraphVisualization(bottomGraph, bottomSeries, bottomLatestValues, bottomCounter);
         bottomGraphVisualization.initGraph();
-        bottomGraphVisualization.styleGraph("#4C5F78", 5);
         middleGraphVisualization = new GraphVisualization(middleGraph, middleSeries, middleLatestValues, middleCounter);
         middleGraphVisualization.initGraph();
-        middleGraphVisualization.styleGraph("#6CCBD3", 5);
         topGraphVisualization = new GraphVisualization(topGraph, topSeries, topLatestValues, topCounter);
         topGraphVisualization.initGraph();
-        topGraphVisualization.styleGraph("#1A9A9B", 5);
     }
 
 
@@ -260,7 +257,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 showDefault();
                 removeUnits();
                 bottomGraphVisualization.removeGraph();
-                bottomGraphVisualization.initGraph();
+                middleGraphVisualization.removeGraph();
+                topGraphVisualization.removeGraph();
                 // button change
                 btnNewRun.setEnabled(true);
                 btnStart.setEnabled(false);
@@ -427,10 +425,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     public void startGraphData(ArrayList<Float> bottomValues, ArrayList<Float> middleValues, ArrayList<Float> topValues) {
         bottomGraphVisualization.createGraph(bottomValues);
         bottomGraphVisualization.scaleGraph(bottomValues, middleValues, topValues);
+        bottomGraphVisualization.styleGraph("#1F2936", 5);
         middleGraphVisualization.createGraph(middleValues);
         middleGraphVisualization.scaleGraph(bottomValues, middleValues, topValues);
+        middleGraphVisualization.styleGraph("#97A3A3", 5);
         topGraphVisualization.createGraph(topValues);
         topGraphVisualization.scaleGraph(bottomValues, middleValues, topValues);
+        topGraphVisualization.styleGraph("#1A9A9B", 5);
 
 
     }
